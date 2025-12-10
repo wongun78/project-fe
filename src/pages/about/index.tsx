@@ -1,5 +1,5 @@
-import HeroSection from "@/components/about/heroSection";
-import FeaturedQuizzes from "@/components/about/teamSection";
+import HeroSection from "@/components/about/hero-section";
+import FeaturedQuizzes from "@/components/about/team-section";
 
 const AboutPage = () => {
   return (

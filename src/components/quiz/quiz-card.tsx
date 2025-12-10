@@ -30,7 +30,9 @@ const QuizCard = ({ quiz }: QuizCardProps) => {
 
       <CardFooter className="p-4 pt-0">
         <Link to={`/quiz/${quiz.id}`}>
-          <Button className="w-full font-bold">Start Quiz</Button>
+          <Button className="w-full" size="lg">
+            Start Quiz
+          </Button>
         </Link>
       </CardFooter>
     </Card>

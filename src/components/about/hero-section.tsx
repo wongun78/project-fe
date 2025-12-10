@@ -27,15 +27,15 @@ const HeroSection = () => {
               <ul className="space-y-4 text-sm text-foreground/80">
                 <li className="flex items-center gap-3">
                   <MdEmail className="text-xl text-primary" />
-                  <span>congdinh2021@gmail.com</span>
+                  <span>kiennt169@fpt.com</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <MdPhone className="text-xl text-primary" />
-                  <span>+84 944 551 356</span>
+                  <span>+84 999 888 999</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <MdLocationOn className="text-xl text-primary shrink-0" />
-                  <span>123 Xuan Dinh, Bac Tu Liem, Ha Noi, Viet Nam</span>
+                  <span>123 Khuong Dinh, Thanh Xuan, Ha Noi, Viet Nam</span>
                 </li>
               </ul>
             </div>

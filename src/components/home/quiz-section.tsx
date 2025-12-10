@@ -1,4 +1,4 @@
-import QuizCard from "@/components/quiz/quizCard";
+import QuizCard from "@/components/quiz/quiz-card";
 import type { Quiz } from "@/types/quiz";
 
 import quiz1Img from "@/assets/images/quizzes/quiz-1.png";

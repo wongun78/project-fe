@@ -1,4 +1,4 @@
-import TeamCard from "@/components/team/teamCard";
+import TeamCard from "@/components/team/team-card";
 import type { Team } from "@/types/team";
 
 import team1Img from "@/assets/images/teams/team-1.png";

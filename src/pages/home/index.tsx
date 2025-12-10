@@ -1,5 +1,5 @@
-import HeroSection from "@/components/home/heroSection";
-import FeaturedQuizzes from "@/components/home/quizzeSection";
+import HeroSection from "@/components/home/hero-section";
+import FeaturedQuizzes from "@/components/home/quiz-section";
 
 const HomePage = () => {
   return (
