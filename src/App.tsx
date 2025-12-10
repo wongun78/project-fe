@@ -1,9 +1,9 @@
-import { Routes, Route } from 'react-router-dom';
-import Navbar from '@/components/layout/navbar';
-import Footer from './components/layout/footer';
-import HomePage from '@/pages/home';
-import AboutPage from './pages/about';
-import ContactPage from './pages/contact';
+import { Routes, Route } from "react-router-dom";
+import Navbar from "@/components/layout/navbar";
+import Footer from "./components/layout/footer";
+import HomePage from "@/pages/home";
+import AboutPage from "./pages/about";
+import ContactPage from "./pages/contact";
 
 function App() {
   return (
@@ -14,18 +14,26 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
-          <Route path="/quizzes" element={<div className="container-custom py-10">Quizzes Page</div>} />
+          <Route
+            path="/quizzes"
+            element={<div className="container-custom py-10">Quizzes Page</div>}
+          />
 
-          <Route path="/login" element={<div className="container-custom py-10">Login Page</div>} />
-          <Route path="/register" element={<div className="container-custom py-10">Register Page</div>} />
-
-
-          
+          <Route
+            path="/login"
+            element={<div className="container-custom py-10">Login Page</div>}
+          />
+          <Route
+            path="/register"
+            element={
+              <div className="container-custom py-10">Register Page</div>
+            }
+          />
         </Routes>
       </main>
       <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
