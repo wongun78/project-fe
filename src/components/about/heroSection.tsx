@@ -1,14 +1,18 @@
 import { Link } from "react-router-dom";
+import heroImage from "@/assets/images/hero.png";
 import logoIcon from "@/assets/icons/logo.png";
 
-const Footer = () => {
+const HeroSection = () => {
   return (
-    <footer className="w-full border-t bg-secondary/20 pt-16 pb-8">
+    <section className="w-full py-12 md:py-12 bg-background">
+      
       <div className="container-custom">
         
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-3 mb-16">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 items-center">
           
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 items-start text-left">
+            
+            <div className="flex flex-col gap-4">
             <Link to="/" className="flex items-center gap-2 font-bold">
                 <img 
               src={logoIcon} 
@@ -23,26 +27,8 @@ const Footer = () => {
               The leading online quiz platform in Vietnam. Enhance your knowledge and develop critical thinking every day.
             </p>
           </div>
-
-          <div className="flex flex-col gap-4">
-            <h3 className="font-bold text-foreground">Menu</h3>
-            <nav className="flex flex-col gap-3 text-sm text-muted-foreground">
-              <Link to="/" className="hover:text-primary transition-colors w-fit">
-                Home
-              </Link>
-              <Link to="/quizzes" className="hover:text-primary transition-colors w-fit">
-                Quizzes
-              </Link>
-              <Link to="/about" className="hover:text-primary transition-colors w-fit">
-                About Us
-              </Link>
-              <Link to="/contact" className="hover:text-primary transition-colors w-fit">
-                Contact
-              </Link>
-            </nav>
-          </div>
-
-          <div className="flex flex-col gap-4">
+            
+            <div className="flex flex-col gap-4">
             <h3 className="font-bold text-foreground">Contact</h3>
             <div className="flex flex-col gap-3 text-sm text-muted-foreground">
               <p className="flex items-center gap-2">
@@ -56,16 +42,20 @@ const Footer = () => {
               </p>
             </div>
           </div>
+          </div>
+
+          <div className="flex justify-center md:justify-end">
+            <img 
+              src={heroImage} 
+              alt="Quiz illustration" 
+              className="max-w-md w-full h-auto"
+            />
+          </div>
 
         </div>
-
-        <div className="border-t pt-8 text-center text-sm text-muted-foreground">
-          <p>© 2025 Quiz App. All rights reserved.</p>
-        </div>
-
       </div>
-    </footer>
+    </section>
   );
 };
 
-export default Footer;
+export default HeroSection;

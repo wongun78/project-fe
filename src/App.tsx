@@ -1,7 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
 import Navbar from '@/components/layout/navbar';
-import HomePage from '@/pages/home';
 import Footer from './components/layout/footer';
+import HomePage from '@/pages/home';
+import AboutPage from './pages/about';
+import ContactPage from './pages/contact';
 
 function App() {
   return (
@@ -10,11 +12,15 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/quizzes" element={<div className="container-custom py-10">Quizzes Page</div>} />
+
           <Route path="/login" element={<div className="container-custom py-10">Login Page</div>} />
           <Route path="/register" element={<div className="container-custom py-10">Register Page</div>} />
-          <Route path="/quizzes" element={<div className="container-custom py-10">Quizzes Page</div>} />
-          <Route path="/about" element={<div className="container-custom py-10">About Page</div>} />
-          <Route path="/contact" element={<div className="container-custom py-10">Contact Page</div>} />
+
+
+          
         </Routes>
       </main>
       <Footer />

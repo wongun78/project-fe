@@ -4,7 +4,7 @@ import heroImage from "@/assets/images/hero.png";
 
 const HeroSection = () => {
   return (
-    <section className="w-full py-12 md:py-24 bg-background">
+    <section className="w-full py-12 md:py-12 bg-background">
       
       <div className="container-custom">
         

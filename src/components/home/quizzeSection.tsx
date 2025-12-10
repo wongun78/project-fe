@@ -31,7 +31,7 @@ const featuredQuizzes: Quiz[] = [
 
 const FeaturedQuizzes = () => {
 	return (
-		<section className="py-16 bg-muted/30">
+		<section className="py-12 bg-muted/30">
 			<div className="container-custom">
 				<div className="text-center mb-10">
 					<h2 className="text-2xl md:text-3xl font-bold text-foreground mt-2">
@@ -39,7 +39,7 @@ const FeaturedQuizzes = () => {
 					</h2>
 				</div>
 
-				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+				<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
 					{featuredQuizzes.map((quiz) => (
 						<QuizCard key={quiz.id} quiz={quiz} />
 					))}
