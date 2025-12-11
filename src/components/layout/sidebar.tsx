@@ -1,17 +1,22 @@
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import {
-  FaChartPie,
   FaUsers,
   FaClipboardList,
   FaQuestionCircle,
+  FaUserShield,
 } from "react-icons/fa";
 
 const MENU_ITEMS = [
   {
-    label: "Dashboard",
-    path: "/admin/dashboard",
-    icon: FaChartPie,
+    label: "Quiz Management",
+    path: "/admin/quizzes",
+    icon: FaClipboardList,
+  },
+  {
+    label: "Question Management",
+    path: "/admin/questions",
+    icon: FaQuestionCircle,
   },
   {
     label: "User Management",
@@ -19,14 +24,9 @@ const MENU_ITEMS = [
     icon: FaUsers,
   },
   {
-    label: "Quiz Management",
-    path: "/admin/quizzes",
-    icon: FaClipboardList,
-  },
-  {
-    label: "Question Bank",
-    path: "/admin/questions",
-    icon: FaQuestionCircle,
+    label: "Role Management",
+    path: "/admin/roles",
+    icon: FaUserShield,
   },
 ];
 
@@ -35,9 +35,9 @@ const AdminSidebar = () => {
 
   return (
     <aside className="hidden w-64 flex-col border-r bg-card md:flex">
-      <div className="flex h-16 items-center border-b px-6">
-        <Link to="/" className="flex items-center gap-2 font-bold text-xl">
-          <span className="tracking-tight">Menu</span>
+      <div className="flex h-16 items-center border-b px-3">
+        <Link to="/">
+          <span className="text-xl font-bold tracking-tight">Menu</span>
         </Link>
       </div>
 

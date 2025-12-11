@@ -2,6 +2,19 @@ import * as React from "react";
 
 import { cn } from "@/lib/utils";
 
+function CardWrap({ className, ...props }: React.ComponentProps<"div">) {
+  return (
+    <div
+      data-slot="card"
+      className={cn(
+        "bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-4 shadow-sm",
+        className
+      )}
+      {...props}
+    />
+  );
+}
+
 function CardLogin({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -95,6 +108,7 @@ function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
 }
 
 export {
+  CardWrap,
   CardLogin,
   Card,
   CardHeader,

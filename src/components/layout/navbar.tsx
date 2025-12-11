@@ -1,7 +1,20 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logoIcon from "@/assets/icons/logo.png";
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const Navbar = () => {
+  const isAuthenticated = true;
+  // const isAuthenticated = false;
+
   return (
     <header className="sticky top-0 z-50 border-b border-border/40 bg-background/95 backdrop-blur-sm">
       <div className="container-custom flex h-16 items-center justify-between">
@@ -12,46 +25,123 @@ const Navbar = () => {
           </span>
         </Link>
 
-        <nav className="hidden gap-6 md:flex">
-          <Link
+        <nav className="hidden gap-6 md:flex items-center">
+          <NavLink
             to="/"
-            className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+            className={({ isActive }) =>
+              `text-sm font-medium transition-colors ${
+                isActive
+                  ? "text-primary"
+                  : "text-muted-foreground hover:text-primary"
+              }`
+            }
           >
             Home
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to="/quizzes"
-            className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+            className={({ isActive }) =>
+              `text-sm font-medium transition-colors ${
+                isActive
+                  ? "text-primary"
+                  : "text-muted-foreground hover:text-primary"
+              }`
+            }
           >
             Quizzes
-          </Link>
-          <Link
+          </NavLink>
+
+          {isAuthenticated && (
+            <NavLink
+              to="/admin"
+              className={({ isActive }) =>
+                `text-sm font-medium transition-colors ${
+                  isActive
+                    ? "text-primary"
+                    : "text-muted-foreground hover:text-primary"
+                }`
+              }
+            >
+              Management
+            </NavLink>
+          )}
+
+          <NavLink
             to="/about"
-            className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+            className={({ isActive }) =>
+              `text-sm font-medium transition-colors ${
+                isActive
+                  ? "text-primary"
+                  : "text-muted-foreground hover:text-primary"
+              }`
+            }
           >
             About
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to="/contact"
-            className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+            className={({ isActive }) =>
+              `text-sm font-medium transition-colors ${
+                isActive
+                  ? "text-primary"
+                  : "text-muted-foreground hover:text-primary"
+              }`
+            }
           >
             Contact
-          </Link>
+          </NavLink>
         </nav>
 
         <div className="flex items-center gap-4">
-          <Link
-            to="/login"
-            className="text-sm font-medium text-foreground hover:text-primary transition-colors"
-          >
-            Login
-          </Link>
-          <Link
-            to="/register"
-            className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
-          >
-            Register
-          </Link>
+          {!isAuthenticated ? (
+            <>
+              <Link
+                to="/login"
+                className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+              >
+                Login
+              </Link>
+              <Button asChild>
+                <Link to="/register">Register</Link>
+              </Button>
+            </>
+          ) : (
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="ghost"
+                  className="relative h-10 w-10 rounded-full"
+                >
+                  <Avatar className="h-10 w-10 border">
+                    <AvatarImage
+                      src="https://api.dicebear.com/9.x/avataaars/svg?seed=KienTrung"
+                      alt="User"
+                    />
+                    <AvatarFallback>CD</AvatarFallback>
+                  </Avatar>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-56" align="end" forceMount>
+                <DropdownMenuLabel className="font-normal">
+                  <div className="flex flex-col space-y-1">
+                    <p className="text-sm font-medium leading-none">
+                      Kien Trung
+                    </p>
+                    <p className="text-xs leading-none text-muted-foreground">
+                      kiennt169@fpt.com
+                    </p>
+                  </div>
+                </DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>Profile Settings</DropdownMenuItem>
+                <DropdownMenuItem>Change Password</DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem className="text-red-600 cursor-pointer">
+                  Log out
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          )}
         </div>
       </div>
     </header>

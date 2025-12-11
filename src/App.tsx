@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 
-import Layout from "./components/layout/layout";
+import Layout from "./components/layout/main-layout";
 import HomePage from "@/pages/home";
 import AboutPage from "./pages/about";
 import ContactPage from "./pages/contact";
@@ -9,11 +9,14 @@ import QuizPage from "./pages/quizzes";
 import LoginPage from "./pages/auth/login";
 import RegisterPage from "./pages/auth/register";
 
-// import UserManagementPage from "./pages/admin/UserManagementPage";
+import UserManagementPage from "./pages/admin/UserManagementPage";
 
 import NotFoundPage from "./pages/error/404";
 import ForbiddenPage from "./pages/error/403";
 import AdminLayout from "./components/layout/admin-layout";
+import QuizManagementPage from "./pages/admin/QuizManagementPage";
+import QuestionManagementPage from "./pages/admin/QuestionManagementPage";
+import RoleManagementPage from "./pages/admin/RoleManagementPage";
 
 function App() {
   return (
@@ -26,12 +29,10 @@ function App() {
       </Route>
 
       <Route path="/admin" element={<AdminLayout />}>
-        <Route index element={<div>Admin Dashboard Overview</div>} />
-
-        {/* <Route path="users" element={<UserManagementPage />} /> */}
-
-        <Route path="quizzes" element={<div>Manage Quizzes</div>} />
-        <Route path="questions" element={<div>Manage Questions</div>} />
+        <Route path="quizzes" element={<QuizManagementPage />} />
+        <Route path="questions" element={<QuestionManagementPage />} />
+        <Route path="users" element={<UserManagementPage />} />
+        <Route path="roles" element={<RoleManagementPage />} />
       </Route>
 
       <Route path="/login" element={<LoginPage />} />

@@ -4,9 +4,9 @@ import { MdEmail, MdLocationOn, MdPhone } from "react-icons/md";
 
 const Footer = () => {
   return (
-    <footer className="w-full border-t bg-secondary/20 pt-16 pb-8">
+    <footer className="w-full border-t bg-secondary/20 pt-8 pb-4">
       <div className="container-custom">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-3 mb-16">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-3 mb-8">
           <div className="flex flex-col gap-4">
             <Link to="/" className="flex items-center gap-2 font-bold">
               <img src={logoIcon} alt="Quiz Logo" className="h-8 w-8" />
@@ -22,7 +22,7 @@ const Footer = () => {
 
           <div className="flex flex-col gap-4">
             <h3 className="font-bold text-foreground">Menu</h3>
-            <nav className="flex flex-col gap-3 text-sm text-muted-foreground">
+            <nav className="flex flex-col gap-2 text-sm text-muted-foreground">
               <Link
                 to="/"
                 className="hover:text-primary transition-colors w-fit"
@@ -69,7 +69,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t pt-8 text-center text-sm text-muted-foreground">
+        <div className="border-t pt-4 text-center text-sm text-muted-foreground">
           <p>© 2025 Quiz App. All rights reserved.</p>
         </div>
       </div>
