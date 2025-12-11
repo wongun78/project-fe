@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz App</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="assets/css/variables.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/auth.css" />
+  </head>
+  <body>
+    <div class="auth-container">
+      <div class="auth-card">
+        <!-- Card Header -->
+        <div class="auth-header">
+          <h1 class="auth-title">Login</h1>
+        </div>
+
+        <!-- Card Content -->
+        <div class="auth-content">
+          <form class="auth-form" id="loginForm">
+            <!-- Username -->
+            <div class="form-group">
+              <label for="username" class="form-label">Username</label>
+              <input
+                type="text"
+                id="username"
+                class="form-input"
+                placeholder="Enter your username"
+                required
+              />
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+              <label for="password" class="form-label">Password</label>
+              <input
+                type="password"
+                id="password"
+                class="form-input"
+                placeholder="Enter your password"
+                required
+              />
+            </div>
+
+            <!-- Actions -->
+            <div class="auth-actions">
+              <a href="home.html" class="btn btn-outline">Back to Home</a>
+              <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+          </form>
+
+          <!-- Additional Links -->
+          <div class="auth-links">
+            <p class="auth-link-item">
+              <a href="#" class="link-text">Forgot password?</a>
+            </p>
+            <p class="auth-link-item">
+              <span class="text-muted">Don't have account? </span>
+              <a href="register.html" class="link-text">Register</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/auth.js"></script>
+  </body>
+</html>
