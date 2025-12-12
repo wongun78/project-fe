@@ -3,77 +3,103 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quiz App</title>
+    <title>Quiz App - Quiz Management</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+      @theme {
+        --color-primary: #38b6ff;
+        --color-primary-foreground: #ffffff;
+        --color-secondary: #f1f5f9;
+        --color-secondary-foreground: #0f172a;
+        --color-muted: #f1f5f9;
+        --color-muted-foreground: #64748b;
+        --color-accent: #f1f5f9;
+        --color-accent-foreground: #0f172a;
+        --color-destructive: #ef4444;
+        --color-destructive-foreground: #ffffff;
+        --color-foreground: #0f172a;
+        --color-card: #ffffff;
+        --color-card-foreground: #0f172a;
+        --color-background: #ffffff;
+        --color-border: #e2e8f0;
+        --color-input: #e2e8f0;
+        --color-ring: #38b6ff;
+      }
 
-    <link rel="stylesheet" href="assets/css/reset.css" />
-    <link rel="stylesheet" href="assets/css/variables.css" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="stylesheet" href="assets/css/admin.css" />
+      .container-custom {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+
+      @media (min-width: 640px) {
+        .container-custom {
+          padding: 0 1.5rem;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .container-custom {
+          padding: 0 2rem;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div class="admin-layout">
-      <header class="navbar">
-        <div class="container-custom navbar-container">
-          <a href="home.html" class="navbar-logo">
-            <img src="assets/icons/logo.png" alt="Quiz Logo" />
-            <span>Quizzes</span>
+    <div class="flex h-screen w-full flex-col bg-secondary/10">
+      <!-- Navbar -->
+      <header class="flex h-16 items-center border-b bg-background px-6">
+        <div class="flex flex-1 items-center justify-between">
+          <a href="home.html" class="flex items-center gap-2">
+            <img src="assets/icons/logo.png" alt="Quiz Logo" class="h-8 w-8" />
+            <span class="text-xl font-bold tracking-tight">Quizzes</span>
           </a>
 
-          <nav class="navbar-nav">
-            <a href="home.html" class="navbar-link">Home</a>
-            <a href="quizzes.html" class="navbar-link">Quizzes</a>
-            <a href="quiz-management.html" class="navbar-link active"
-              >Management</a
-            >
-            <a href="about.html" class="navbar-link">About</a>
-            <a href="contact.html" class="navbar-link">Contact</a>
+          <nav class="hidden md:flex items-center gap-6">
+            <a href="home.html" class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Home</a>
+            <a href="quizzes.html" class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Quizzes</a>
+            <a href="quiz-management.html" class="text-sm font-medium text-foreground">Management</a>
+            <a href="about.html" class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">About</a>
+            <a href="contact.html" class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Contact</a>
           </nav>
 
-          <div class="navbar-actions">
-            <div class="user-dropdown" data-auth-ui>
+          <div class="flex items-center gap-4">
+            <div class="relative hidden md:block" data-auth-ui>
               <button
-                class="user-avatar-btn"
                 id="userAvatarBtn"
+                class="flex items-center gap-2 focus:outline-none"
                 aria-label="User menu"
               >
                 <img
                   src="assets/images/teams/team-1.png"
                   alt="User Avatar"
-                  class="user-avatar-icon"
+                  class="h-8 w-8 rounded-full object-cover"
                 />
               </button>
-              <div class="user-dropdown-menu" id="userDropdownMenu">
-                <div class="dropdown-header">
-                  <p class="dropdown-name">Kien Trung</p>
+              <div
+                id="userDropdownMenu"
+                class="absolute right-0 mt-2 w-48 rounded-md border bg-background shadow-lg py-1 hidden z-50"
+              >
+                <div class="px-4 py-2 border-b">
+                  <p class="text-sm font-semibold">Kien Trung</p>
                 </div>
-                <div class="dropdown-divider"></div>
-
-                <a href="#" class="dropdown-item">Change Password</a>
-                <div class="dropdown-divider"></div>
-                <a href="login.html" class="dropdown-item">Logout</a>
+                <a href="#" class="block px-4 py-2 text-sm hover:bg-accent">Change Password</a>
+                <div class="border-t my-1"></div>
+                <a href="login.html" class="block px-4 py-2 text-sm hover:bg-accent">Logout</a>
               </div>
             </div>
 
-            <div class="auth-buttons" data-guest-ui style="display: none">
-              <a href="login.html" class="btn btn-outline btn-sm">Login</a>
-              <a href="register.html" class="btn btn-primary btn-sm"
-                >Register</a
-              >
+            <div class="hidden md:flex gap-2" data-guest-ui style="display: none">
+              <a href="login.html" class="inline-flex items-center justify-center rounded-md text-sm font-medium border border-input bg-background shadow-sm hover:bg-accent h-9 px-4">Login</a>
+              <a href="register.html" class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-primary text-white shadow hover:bg-primary/90 h-9 px-4">Register</a>
             </div>
 
             <button
-              class="navbar-mobile-toggle"
               id="mobileMenuToggle"
+              class="md:hidden p-2 rounded-md hover:bg-accent"
               aria-label="Toggle menu"
             >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <line x1="3" y1="12" x2="21" y2="12"></line>
                 <line x1="3" y1="6" x2="21" y2="6"></line>
                 <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -81,99 +107,64 @@
             </button>
           </div>
         </div>
-
-        <div class="mobile-menu" id="mobileMenu">
-          <nav class="mobile-menu-nav">
-            <a href="home.html" class="mobile-menu-link">Home</a>
-            <a href="quizzes.html" class="mobile-menu-link">Quizzes</a>
-            <a href="quiz-management.html" class="mobile-menu-link active"
-              >Management</a
-            >
-            <a href="about.html" class="mobile-menu-link">About</a>
-            <a href="contact.html" class="mobile-menu-link">Contact</a>
-          </nav>
-        </div>
       </header>
 
-      <div class="admin-content">
-        <aside class="sidebar">
-          <div class="sidebar-header">
-            <span class="sidebar-title">Menu</span>
+      <!-- Mobile Menu -->
+      <div id="mobileMenu" class="hidden md:hidden border-b bg-background">
+        <nav class="px-4 py-2 space-y-1">
+          <a href="home.html" class="block px-3 py-2 rounded-md text-sm hover:bg-accent">Home</a>
+          <a href="quizzes.html" class="block px-3 py-2 rounded-md text-sm hover:bg-accent">Quizzes</a>
+          <a href="quiz-management.html" class="block px-3 py-2 rounded-md text-sm bg-accent font-medium">Management</a>
+          <a href="about.html" class="block px-3 py-2 rounded-md text-sm hover:bg-accent">About</a>
+          <a href="contact.html" class="block px-3 py-2 rounded-md text-sm hover:bg-accent">Contact</a>
+        </nav>
+      </div>
+
+      <!-- Main Content with Sidebar -->
+      <div class="flex flex-1 overflow-hidden">
+        <!-- Sidebar -->
+        <aside class="hidden w-64 flex-col border-r bg-card md:flex">
+          <div class="flex h-16 items-center border-b px-3">
+            <span class="text-xl font-bold tracking-tight">Menu</span>
           </div>
 
-          <nav class="sidebar-nav">
-            <a href="quiz-management.html" class="sidebar-link active">
-              <svg
-                class="sidebar-icon"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path
-                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  fill="none"
-                />
-              </svg>
-              Quiz Management
-            </a>
+          <div class="flex-1 overflow-y-auto py-4">
+            <nav class="grid gap-1 px-2">
+              <a href="quiz-management.html" class="flex items-center gap-3 rounded-md px-3 py-2.5 text-sm font-medium transition-colors bg-primary text-white shadow-sm">
+                <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
+                Quiz Management
+              </a>
 
-            <a href="question-management.html" class="sidebar-link">
-              <svg
-                class="sidebar-icon"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path
-                  d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  fill="none"
-                />
-              </svg>
-              Question Management
-            </a>
+              <a href="question-management.html" class="flex items-center gap-3 rounded-md px-3 py-2.5 text-sm font-medium transition-colors text-muted-foreground hover:bg-accent hover:text-accent-foreground">
+                <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Question Management
+              </a>
 
-            <a href="user-management.html" class="sidebar-link">
-              <svg
-                class="sidebar-icon"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path
-                  d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  fill="none"
-                />
-              </svg>
-              User Management
-            </a>
+              <a href="user-management.html" class="flex items-center gap-3 rounded-md px-3 py-2.5 text-sm font-medium transition-colors text-muted-foreground hover:bg-accent hover:text-accent-foreground">
+                <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+                User Management
+              </a>
 
-            <a href="role-management.html" class="sidebar-link">
-              <svg
-                class="sidebar-icon"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path
-                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  fill="none"
-                />
-              </svg>
-              Role Management
-            </a>
-          </nav>
+              <a href="role-management.html" class="flex items-center gap-3 rounded-md px-3 py-2.5 text-sm font-medium transition-colors text-muted-foreground hover:bg-accent hover:text-accent-foreground">
+                <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+                Role Management
+              </a>
+            </nav>
+          </div>
         </aside>
 
-        <div class="main-content">
-          <main class="page-container">
+        <!-- Main Content Area -->
+        <div class="flex flex-1 flex-col overflow-y-auto">
+          <main class="flex-1 p-6">
+            <div class="space-y-6">
             <div class="management-card">
               <div class="card-header">
                 <h2 class="card-title">Quiz Management</h2>
