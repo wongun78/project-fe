@@ -3,314 +3,481 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quiz App</title>
-
-    <link rel="stylesheet" href="assets/css/reset.css" />
-    <link rel="stylesheet" href="assets/css/variables.css" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="stylesheet" href="assets/css/admin.css" />
+    <title>Quiz App - User Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body>
-    <div class="admin-layout">
-      <header class="navbar">
-        <div class="container-custom navbar-container">
-          <a href="home.html" class="navbar-logo">
-            <img src="assets/icons/logo.png" alt="Quiz Logo" />
-            <span>Quizzes</span>
-          </a>
+  <body class="bg-gray-50">
+    <!-- Admin Layout -->
+    <div class="flex h-screen overflow-hidden">
+      <!-- Sidebar Navigation -->
+      <aside class="hidden md:flex md:flex-shrink-0">
+        <div class="flex flex-col w-64 bg-white border-r border-gray-200">
+          <!-- Sidebar Header -->
+          <div
+            class="flex items-center justify-between h-16 px-4 border-b border-gray-200"
+          >
+            <a href="home.html" class="flex items-center space-x-2">
+              <img
+                src="assets/icons/logo.png"
+                alt="Quiz Logo"
+                class="h-8 w-8"
+              />
+              <span class="text-xl font-bold text-gray-900">Quizzes</span>
+            </a>
+          </div>
 
-          <nav class="navbar-nav">
-            <a href="home.html" class="navbar-link">Home</a>
-            <a href="quizzes.html" class="navbar-link">Quizzes</a>
-            <a href="user-management.html" class="navbar-link active"
-              >Management</a
-            >
-            <a href="about.html" class="navbar-link">About</a>
-            <a href="contact.html" class="navbar-link">Contact</a>
-          </nav>
-
-          <div class="navbar-actions">
-            <div class="user-dropdown" data-auth-ui>
-              <button
-                class="user-avatar-btn"
-                id="userAvatarBtn"
-                aria-label="User menu"
-              >
-                <img
-                  src="assets/images/teams/team-1.png"
-                  alt="User Avatar"
-                  class="user-avatar-icon"
-                />
-              </button>
-              <div class="user-dropdown-menu" id="userDropdownMenu">
-                <div class="dropdown-header">
-                  <p class="dropdown-name">Kien Trung</p>
-                </div>
-                <div class="dropdown-divider"></div>
-
-                <a href="#" class="dropdown-item">Change Password</a>
-                <div class="dropdown-divider"></div>
-                <a href="login.html" class="dropdown-item">Logout</a>
-              </div>
-            </div>
-
-            <div class="auth-buttons" data-guest-ui style="display: none">
-              <a href="login.html" class="btn btn-outline btn-sm">Login</a>
-              <a href="register.html" class="btn btn-primary btn-sm"
-                >Register</a
-              >
-            </div>
-
-            <button
-              class="navbar-mobile-toggle"
-              id="mobileMenuToggle"
-              aria-label="Toggle menu"
+          <!-- Sidebar Navigation Links -->
+          <nav class="flex-1 px-2 py-4 space-y-1 overflow-y-auto">
+            <a
+              href="quiz-management.html"
+              class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 rounded-lg hover:bg-gray-100 hover:text-gray-900 transition-colors"
             >
               <svg
-                width="24"
-                height="24"
+                class="w-5 h-5 mr-3"
+                xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
                 stroke-width="2"
               >
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-              </svg>
-            </button>
-          </div>
-        </div>
-
-        <div class="mobile-menu" id="mobileMenu">
-          <nav class="mobile-menu-nav">
-            <a href="home.html" class="mobile-menu-link">Home</a>
-            <a href="quizzes.html" class="mobile-menu-link">Quizzes</a>
-            <a href="user-management.html" class="mobile-menu-link active"
-              >Management</a
-            >
-            <a href="about.html" class="mobile-menu-link">About</a>
-            <a href="contact.html" class="mobile-menu-link">Contact</a>
-          </nav>
-        </div>
-      </header>
-
-      <div class="admin-content">
-        <aside class="sidebar">
-          <div class="sidebar-header">
-            <span class="sidebar-title">Menu</span>
-          </div>
-
-          <nav class="sidebar-nav">
-            <a href="quiz-management.html" class="sidebar-link">
-              <svg
-                class="sidebar-icon"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
                 <path
                   d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  fill="none"
                 />
               </svg>
               Quiz Management
             </a>
 
-            <a href="question-management.html" class="sidebar-link">
+            <a
+              href="question-management.html"
+              class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 rounded-lg hover:bg-gray-100 hover:text-gray-900 transition-colors"
+            >
               <svg
-                class="sidebar-icon"
+                class="w-5 h-5 mr-3"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
-                fill="currentColor"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
               >
                 <path
                   d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  fill="none"
                 />
               </svg>
               Question Management
             </a>
 
-            <a href="user-management.html" class="sidebar-link active">
+            <a
+              href="user-management.html"
+              class="flex items-center px-4 py-3 text-sm font-medium text-white bg-indigo-600 rounded-lg"
+            >
               <svg
-                class="sidebar-icon"
+                class="w-5 h-5 mr-3"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
-                fill="currentColor"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
               >
                 <path
                   d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  fill="none"
                 />
               </svg>
               User Management
             </a>
 
-            <a href="role-management.html" class="sidebar-link">
+            <a
+              href="role-management.html"
+              class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 rounded-lg hover:bg-gray-100 hover:text-gray-900 transition-colors"
+            >
               <svg
-                class="sidebar-icon"
+                class="w-5 h-5 mr-3"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
-                fill="currentColor"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
               >
                 <path
                   d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  fill="none"
                 />
               </svg>
               Role Management
             </a>
           </nav>
-        </aside>
+        </div>
+      </aside>
 
-        <div class="main-content">
-          <main class="page-container">
-            <div class="management-card">
-              <div class="card-header">
-                <h2 class="card-title">User Management</h2>
-              </div>
-
-              <div class="search-filter">
-                <div class="filter-group">
-                  <label class="filter-label">Username</label>
-                  <input
-                    type="text"
-                    class="filter-input"
-                    placeholder="Enter username to search"
+      <!-- Main Content Area -->
+      <div class="flex flex-col flex-1 overflow-hidden">
+        <!-- Top Navigation Bar -->
+        <header class="bg-white border-b border-gray-200">
+          <div class="px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+              <!-- Mobile Menu Button -->
+              <button
+                class="md:hidden p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100"
+                id="mobileMenuToggle"
+                aria-label="Toggle menu"
+              >
+                <svg
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M4 6h16M4 12h16M4 18h16"
                   />
-                </div>
+                </svg>
+              </button>
 
-                <div class="filter-group">
-                  <label class="filter-label">Type</label>
-                  <div class="checkbox-wrapper">
-                    <input
-                      type="checkbox"
-                      id="status-filter"
-                      class="checkbox-input"
+              <!-- Desktop Navigation Links -->
+              <nav class="hidden md:flex space-x-8">
+                <a
+                  href="home.html"
+                  class="text-sm font-medium text-gray-700 hover:text-gray-900"
+                  >Home</a
+                >
+                <a
+                  href="quizzes.html"
+                  class="text-sm font-medium text-gray-700 hover:text-gray-900"
+                  >Quizzes</a
+                >
+                <a
+                  href="user-management.html"
+                  class="text-sm font-medium text-indigo-600 border-b-2 border-indigo-600 py-5"
+                  >Management</a
+                >
+                <a
+                  href="about.html"
+                  class="text-sm font-medium text-gray-700 hover:text-gray-900"
+                  >About</a
+                >
+                <a
+                  href="contact.html"
+                  class="text-sm font-medium text-gray-700 hover:text-gray-900"
+                  >Contact</a
+                >
+              </nav>
+
+              <!-- Right Side Actions -->
+              <div class="flex items-center space-x-4">
+                <!-- User Dropdown -->
+                <div class="relative" data-auth-ui>
+                  <button
+                    class="flex items-center focus:outline-none"
+                    id="userAvatarBtn"
+                    aria-label="User menu"
+                  >
+                    <img
+                      src="assets/images/teams/team-1.png"
+                      alt="User Avatar"
+                      class="h-8 w-8 rounded-full"
                     />
-                    <label for="status-filter" class="checkbox-label"
-                      >Active</label
+                  </button>
+                  <div
+                    class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50"
+                    id="userDropdownMenu"
+                  >
+                    <div class="px-4 py-2 border-b border-gray-200">
+                      <p class="text-sm font-medium text-gray-900">
+                        Kien Trung
+                      </p>
+                    </div>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      >Change Password</a
+                    >
+                    <div class="border-t border-gray-200"></div>
+                    <a
+                      href="login.html"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      >Logout</a
                     >
                   </div>
                 </div>
+
+                <!-- Guest Buttons -->
+                <div class="hidden space-x-2" data-guest-ui>
+                  <a
+                    href="login.html"
+                    class="px-4 py-2 text-sm font-medium text-gray-700 border border-gray-300 rounded-md hover:bg-gray-50"
+                    >Login</a
+                  >
+                  <a
+                    href="register.html"
+                    class="px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700"
+                    >Register</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mobile Menu -->
+          <div
+            class="hidden md:hidden border-t border-gray-200"
+            id="mobileMenu"
+          >
+            <nav class="px-2 pt-2 pb-3 space-y-1">
+              <a
+                href="home.html"
+                class="block px-3 py-2 text-base font-medium text-gray-700 rounded-md hover:bg-gray-50 hover:text-gray-900"
+                >Home</a
+              >
+              <a
+                href="quizzes.html"
+                class="block px-3 py-2 text-base font-medium text-gray-700 rounded-md hover:bg-gray-50 hover:text-gray-900"
+                >Quizzes</a
+              >
+              <a
+                href="user-management.html"
+                class="block px-3 py-2 text-base font-medium text-indigo-600 bg-indigo-50 rounded-md"
+                >Management</a
+              >
+              <a
+                href="about.html"
+                class="block px-3 py-2 text-base font-medium text-gray-700 rounded-md hover:bg-gray-50 hover:text-gray-900"
+                >About</a
+              >
+              <a
+                href="contact.html"
+                class="block px-3 py-2 text-base font-medium text-gray-700 rounded-md hover:bg-gray-50 hover:text-gray-900"
+                >Contact</a
+              >
+            </nav>
+          </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto bg-gray-50">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <!-- Search and Filter Card -->
+            <div class="bg-white rounded-lg shadow mb-6">
+              <div class="px-6 py-4 border-b border-gray-200">
+                <h2 class="text-lg font-semibold text-gray-900">
+                  User Management
+                </h2>
               </div>
 
-              <div class="filter-actions">
-                <button class="btn btn-primary btn-sm">
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    style="margin-right: 0.5rem"
+              <div class="p-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2"
+                      >Username</label
+                    >
+                    <input
+                      type="text"
+                      class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                      placeholder="Enter username to search"
+                    />
+                  </div>
+
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2"
+                      >Type</label
+                    >
+                    <div class="flex items-center">
+                      <input
+                        type="checkbox"
+                        id="status-filter"
+                        class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+                      />
+                      <label
+                        for="status-filter"
+                        class="ml-2 text-sm text-gray-700"
+                        >Active</label
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex flex-wrap gap-2 items-center">
+                  <button
+                    class="inline-flex items-center px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                   >
-                    <path d="M12 5v14m7-7H5" />
-                  </svg>
-                  Create
-                </button>
-                <div style="display: flex; gap: 0.5rem; margin-left: auto">
-                  <button class="btn btn-outline btn-sm">
                     <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
+                      class="w-4 h-4 mr-2"
                       fill="none"
+                      viewBox="0 0 24 24"
                       stroke="currentColor"
                       stroke-width="2"
-                      style="margin-right: 0.5rem"
                     >
                       <path
-                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M12 5v14m7-7H5"
                       />
                     </svg>
-                    Clear
+                    Create
                   </button>
-                  <button class="btn btn-primary btn-sm">
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      style="margin-right: 0.5rem"
+                  <div class="flex gap-2 ml-auto">
+                    <button
+                      class="inline-flex items-center px-4 py-2 border border-gray-300 text-gray-700 text-sm font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     >
-                      <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                    </svg>
-                    Search
-                  </button>
+                      <svg
+                        class="w-4 h-4 mr-2"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                        />
+                      </svg>
+                      Clear
+                    </button>
+                    <button
+                      class="inline-flex items-center px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    >
+                      <svg
+                        class="w-4 h-4 mr-2"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                        />
+                      </svg>
+                      Search
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div class="management-card">
-              <div class="card-header">
-                <h2 class="card-title">User List</h2>
+            <!-- User List Card -->
+            <div class="bg-white rounded-lg shadow mb-6">
+              <div class="px-6 py-4 border-b border-gray-200">
+                <h2 class="text-lg font-semibold text-gray-900">User List</h2>
               </div>
 
-              <div style="overflow-x: auto">
-                <table class="data-table">
-                  <thead>
+              <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                  <thead class="bg-gray-50">
                     <tr>
-                      <th>First Name</th>
-                      <th>Last Name</th>
-                      <th>Email</th>
-                      <th>Username</th>
-                      <th>Phone</th>
-                      <th>Status</th>
-                      <th>Actions</th>
+                      <th
+                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      >
+                        First Name
+                      </th>
+                      <th
+                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      >
+                        Last Name
+                      </th>
+                      <th
+                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      >
+                        Email
+                      </th>
+                      <th
+                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      >
+                        Username
+                      </th>
+                      <th
+                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      >
+                        Phone
+                      </th>
+                      <th
+                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      >
+                        Status
+                      </th>
+                      <th
+                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      >
+                        Actions
+                      </th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <td>Admin</td>
-                      <td>User</td>
-                      <td>admin@domain.com</td>
-                      <td>admin</td>
-                      <td>+84987654321</td>
-                      <td>
-                        <span class="status-badge status-active">Active</span>
+                  <tbody class="bg-white divide-y divide-gray-200">
+                    <tr class="hover:bg-gray-50">
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                      >
+                        Admin
                       </td>
-                      <td>
-                        <div class="table-actions">
-                          <button class="btn-icon btn-edit" title="Edit">
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                      >
+                        User
+                      </td>
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                      >
+                        admin@domain.com
+                      </td>
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                      >
+                        admin
+                      </td>
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                      >
+                        +84987654321
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span
+                          class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800"
+                          >Active</span
+                        >
+                      </td>
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm font-medium"
+                      >
+                        <div class="flex space-x-2">
+                          <button
+                            class="text-indigo-600 hover:text-indigo-900"
+                            title="Edit"
+                          >
                             <svg
-                              width="16"
-                              height="16"
-                              viewBox="0 0 24 24"
+                              class="w-4 h-4"
                               fill="none"
+                              viewBox="0 0 24 24"
                               stroke="currentColor"
                               stroke-width="2"
                             >
                               <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
                                 d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"
                               />
                               <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
                                 d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"
                               />
                             </svg>
                           </button>
-                          <button class="btn-icon btn-delete" title="Delete">
+                          <button
+                            class="text-red-600 hover:text-red-900"
+                            title="Delete"
+                          >
                             <svg
-                              width="16"
-                              height="16"
-                              viewBox="0 0 24 24"
+                              class="w-4 h-4"
                               fill="none"
+                              viewBox="0 0 24 24"
                               stroke="currentColor"
                               stroke-width="2"
                             >
                               <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
                                 d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
                               />
                             </svg>
@@ -318,44 +485,79 @@
                         </div>
                       </td>
                     </tr>
-                    <tr>
-                      <td>Editor</td>
-                      <td>User</td>
-                      <td>editor@domain.com</td>
-                      <td>editor</td>
-                      <td>+84987654321</td>
-                      <td>
-                        <span class="status-badge status-active">Active</span>
+                    <tr class="hover:bg-gray-50">
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                      >
+                        Editor
                       </td>
-                      <td>
-                        <div class="table-actions">
-                          <button class="btn-icon btn-edit" title="Edit">
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                      >
+                        User
+                      </td>
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                      >
+                        editor@domain.com
+                      </td>
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                      >
+                        editor
+                      </td>
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                      >
+                        +84987654321
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span
+                          class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800"
+                          >Active</span
+                        >
+                      </td>
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm font-medium"
+                      >
+                        <div class="flex space-x-2">
+                          <button
+                            class="text-indigo-600 hover:text-indigo-900"
+                            title="Edit"
+                          >
                             <svg
-                              width="16"
-                              height="16"
-                              viewBox="0 0 24 24"
+                              class="w-4 h-4"
                               fill="none"
+                              viewBox="0 0 24 24"
                               stroke="currentColor"
                               stroke-width="2"
                             >
                               <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
                                 d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"
                               />
                               <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
                                 d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"
                               />
                             </svg>
                           </button>
-                          <button class="btn-icon btn-delete" title="Delete">
+                          <button
+                            class="text-red-600 hover:text-red-900"
+                            title="Delete"
+                          >
                             <svg
-                              width="16"
-                              height="16"
-                              viewBox="0 0 24 24"
+                              class="w-4 h-4"
                               fill="none"
+                              viewBox="0 0 24 24"
                               stroke="currentColor"
                               stroke-width="2"
                             >
                               <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
                                 d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
                               />
                             </svg>
@@ -363,44 +565,79 @@
                         </div>
                       </td>
                     </tr>
-                    <tr>
-                      <td>Cong</td>
-                      <td>Dinh</td>
-                      <td>congdinh@domain.com</td>
-                      <td>congdinh</td>
-                      <td>+84987654321</td>
-                      <td>
-                        <span class="status-badge status-active">Active</span>
+                    <tr class="hover:bg-gray-50">
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                      >
+                        Cong
                       </td>
-                      <td>
-                        <div class="table-actions">
-                          <button class="btn-icon btn-edit" title="Edit">
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                      >
+                        Dinh
+                      </td>
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                      >
+                        congdinh@domain.com
+                      </td>
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                      >
+                        congdinh
+                      </td>
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                      >
+                        +84987654321
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span
+                          class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800"
+                          >Active</span
+                        >
+                      </td>
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm font-medium"
+                      >
+                        <div class="flex space-x-2">
+                          <button
+                            class="text-indigo-600 hover:text-indigo-900"
+                            title="Edit"
+                          >
                             <svg
-                              width="16"
-                              height="16"
-                              viewBox="0 0 24 24"
+                              class="w-4 h-4"
                               fill="none"
+                              viewBox="0 0 24 24"
                               stroke="currentColor"
                               stroke-width="2"
                             >
                               <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
                                 d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"
                               />
                               <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
                                 d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"
                               />
                             </svg>
                           </button>
-                          <button class="btn-icon btn-delete" title="Delete">
+                          <button
+                            class="text-red-600 hover:text-red-900"
+                            title="Delete"
+                          >
                             <svg
-                              width="16"
-                              height="16"
-                              viewBox="0 0 24 24"
+                              class="w-4 h-4"
                               fill="none"
+                              viewBox="0 0 24 24"
                               stroke="currentColor"
                               stroke-width="2"
                             >
                               <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
                                 d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
                               />
                             </svg>
@@ -408,46 +645,79 @@
                         </div>
                       </td>
                     </tr>
-                    <tr>
-                      <td>Test</td>
-                      <td>User</td>
-                      <td>test@domain.com</td>
-                      <td>testuser</td>
-                      <td>+84987654321</td>
-                      <td>
-                        <span class="status-badge status-inactive"
+                    <tr class="hover:bg-gray-50">
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                      >
+                        Test
+                      </td>
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                      >
+                        User
+                      </td>
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                      >
+                        test@domain.com
+                      </td>
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                      >
+                        testuser
+                      </td>
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                      >
+                        +84987654321
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span
+                          class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800"
                           >Inactive</span
                         >
                       </td>
-                      <td>
-                        <div class="table-actions">
-                          <button class="btn-icon btn-edit" title="Edit">
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm font-medium"
+                      >
+                        <div class="flex space-x-2">
+                          <button
+                            class="text-indigo-600 hover:text-indigo-900"
+                            title="Edit"
+                          >
                             <svg
-                              width="16"
-                              height="16"
-                              viewBox="0 0 24 24"
+                              class="w-4 h-4"
                               fill="none"
+                              viewBox="0 0 24 24"
                               stroke="currentColor"
                               stroke-width="2"
                             >
                               <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
                                 d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"
                               />
                               <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
                                 d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"
                               />
                             </svg>
                           </button>
-                          <button class="btn-icon btn-delete" title="Delete">
+                          <button
+                            class="text-red-600 hover:text-red-900"
+                            title="Delete"
+                          >
                             <svg
-                              width="16"
-                              height="16"
-                              viewBox="0 0 24 24"
+                              class="w-4 h-4"
                               fill="none"
+                              viewBox="0 0 24 24"
                               stroke="currentColor"
                               stroke-width="2"
                             >
                               <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
                                 d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
                               />
                             </svg>
@@ -459,165 +729,222 @@
                 </table>
               </div>
 
-              <div class="pagination">
-                <button class="pagination-btn" disabled>
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
+              <!-- Pagination -->
+              <div class="px-6 py-4 border-t border-gray-200">
+                <div class="flex items-center justify-center space-x-2">
+                  <button
+                    class="p-2 rounded-md text-gray-400 cursor-not-allowed"
+                    disabled
                   >
-                    <path d="M15 18l-6-6 6-6" />
-                  </svg>
-                </button>
-                <button class="pagination-btn active">1</button>
-                <button class="pagination-btn">2</button>
-                <button class="pagination-btn">3</button>
-                <button class="pagination-btn">
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
+                    <svg
+                      class="w-4 h-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M15 18l-6-6 6-6"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    class="px-3 py-2 text-sm font-medium text-white bg-indigo-600 rounded-md"
                   >
-                    <path d="M9 18l6-6-6-6" />
-                  </svg>
-                </button>
+                    1
+                  </button>
+                  <button
+                    class="px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-md"
+                  >
+                    2
+                  </button>
+                  <button
+                    class="px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-md"
+                  >
+                    3
+                  </button>
+                  <button class="p-2 rounded-md text-gray-700 hover:bg-gray-50">
+                    <svg
+                      class="w-4 h-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M9 18l6-6-6-6"
+                      />
+                    </svg>
+                  </button>
+                </div>
               </div>
             </div>
 
-            <div class="management-card">
-              <div class="card-header">
-                <h2 class="card-title">Add User</h2>
+            <!-- Add User Form Card -->
+            <div class="bg-white rounded-lg shadow">
+              <div class="px-6 py-4 border-b border-gray-200">
+                <h2 class="text-lg font-semibold text-gray-900">Add User</h2>
               </div>
 
-              <div class="form-row">
-                <div class="form-group">
-                  <label class="form-label">First Name</label>
-                  <input
-                    type="text"
-                    class="form-input"
-                    placeholder="Enter first name"
-                  />
-                </div>
-
-                <div class="form-group">
-                  <label class="form-label">Last Name</label>
-                  <input
-                    type="text"
-                    class="form-input"
-                    placeholder="Enter last name"
-                  />
-                </div>
-
-                <div class="form-group">
-                  <label class="form-label">Email</label>
-                  <input
-                    type="email"
-                    class="form-input"
-                    placeholder="Enter email"
-                  />
-                </div>
-
-                <div class="form-group">
-                  <label class="form-label">Username</label>
-                  <input
-                    type="text"
-                    class="form-input"
-                    placeholder="Enter username"
-                  />
-                </div>
-
-                <div class="form-group">
-                  <label class="form-label">Password</label>
-                  <input
-                    type="password"
-                    class="form-input"
-                    placeholder="Enter password"
-                  />
-                </div>
-
-                <div class="form-group">
-                  <label class="form-label">Confirm Password</label>
-                  <input
-                    type="password"
-                    class="form-input"
-                    placeholder="Confirm password"
-                  />
-                </div>
-
-                <div class="form-group">
-                  <label class="form-label">Date of Birth</label>
-                  <input
-                    type="text"
-                    class="form-input"
-                    placeholder="Enter date of birth"
-                  />
-                </div>
-
-                <div class="form-group">
-                  <label class="form-label">Phone Number</label>
-                  <input
-                    type="tel"
-                    class="form-input"
-                    placeholder="Enter phone number"
-                  />
-                </div>
-
-                <div class="form-group">
-                  <label class="form-label">Type</label>
-                  <div class="checkbox-wrapper">
-                    <input
-                      type="checkbox"
-                      id="user-status"
-                      class="checkbox-input"
-                    />
-                    <label for="user-status" class="checkbox-label"
-                      >Active</label
+              <div class="p-6">
+                <div
+                  class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                >
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2"
+                      >First Name</label
                     >
+                    <input
+                      type="text"
+                      class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                      placeholder="Enter first name"
+                    />
+                  </div>
+
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2"
+                      >Last Name</label
+                    >
+                    <input
+                      type="text"
+                      class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                      placeholder="Enter last name"
+                    />
+                  </div>
+
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2"
+                      >Email</label
+                    >
+                    <input
+                      type="email"
+                      class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                      placeholder="Enter email"
+                    />
+                  </div>
+
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2"
+                      >Username</label
+                    >
+                    <input
+                      type="text"
+                      class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                      placeholder="Enter username"
+                    />
+                  </div>
+
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2"
+                      >Password</label
+                    >
+                    <input
+                      type="password"
+                      class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                      placeholder="Enter password"
+                    />
+                  </div>
+
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2"
+                      >Confirm Password</label
+                    >
+                    <input
+                      type="password"
+                      class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                      placeholder="Confirm password"
+                    />
+                  </div>
+
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2"
+                      >Date of Birth</label
+                    >
+                    <input
+                      type="text"
+                      class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                      placeholder="Enter date of birth"
+                    />
+                  </div>
+
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2"
+                      >Phone Number</label
+                    >
+                    <input
+                      type="tel"
+                      class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                      placeholder="Enter phone number"
+                    />
+                  </div>
+
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2"
+                      >Type</label
+                    >
+                    <div class="flex items-center mt-3">
+                      <input
+                        type="checkbox"
+                        id="user-status"
+                        class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+                      />
+                      <label
+                        for="user-status"
+                        class="ml-2 text-sm text-gray-700"
+                        >Active</label
+                      >
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div class="card-footer">
-                <button class="btn btn-outline btn-sm">
+              <div
+                class="px-6 py-4 bg-gray-50 border-t border-gray-200 flex justify-end space-x-3"
+              >
+                <button
+                  class="inline-flex items-center px-4 py-2 border border-gray-300 text-gray-700 text-sm font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                >
                   <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
+                    class="w-4 h-4 mr-2"
                     fill="none"
+                    viewBox="0 0 24 24"
                     stroke="currentColor"
                     stroke-width="2"
-                    style="margin-right: 0.5rem"
                   >
                     <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
                       d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
                     />
                   </svg>
                   Cancel
                 </button>
-                <button class="btn btn-primary btn-sm">
+                <button
+                  class="inline-flex items-center px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                >
                   <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
+                    class="w-4 h-4 mr-2"
                     fill="none"
+                    viewBox="0 0 24 24"
                     stroke="currentColor"
                     stroke-width="2"
-                    style="margin-right: 0.5rem"
                   >
-                    <path d="M12 5v14m7-7H5" />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 5v14m7-7H5"
+                    />
                   </svg>
                   Save
                 </button>
               </div>
             </div>
-          </main>
-        </div>
+          </div>
+        </main>
       </div>
     </div>
 

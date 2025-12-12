@@ -3,242 +3,437 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quiz App</title>
+    <title>Quiz App - Home</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+      @theme {
+        --color-primary: #38b6ff;
+        --color-secondary: #f1f5f9;
+      }
 
-    <link rel="stylesheet" href="assets/css/reset.css" />
-    <link rel="stylesheet" href="assets/css/variables.css" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="stylesheet" href="assets/css/home.css" />
+      .container-custom {
+        max-width: 80rem;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      @media (min-width: 640px) {
+        .container-custom {
+          padding-left: 1.5rem;
+          padding-right: 1.5rem;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .container-custom {
+          padding-left: 2rem;
+          padding-right: 2rem;
+        }
+      }
+
+      .bg-background {
+        background-color: #ffffff;
+      }
+
+      .bg-muted {
+        background-color: #f1f5f9;
+      }
+
+      .bg-card {
+        background-color: #ffffff;
+      }
+
+      .bg-primary {
+        background-color: #38b6ff;
+      }
+
+      .bg-secondary {
+        background-color: #f1f5f9;
+      }
+
+      .text-foreground {
+        color: #0f172a;
+      }
+
+      .text-muted-foreground {
+        color: #64748b;
+      }
+
+      .text-primary {
+        color: #38b6ff;
+      }
+
+      .text-secondary-foreground {
+        color: #334155;
+      }
+
+      .border-border {
+        border-color: #e2e8f0;
+      }
+
+      .border-transparent {
+        border-color: transparent;
+      }
+    </style>
   </head>
-  <body>
-    <header class="navbar">
-      <div class="container-custom navbar-container">
-        <a href="home.html" class="navbar-logo">
-          <img src="assets/icons/logo.png" alt="Quiz Logo" />
-          <span>Quizzes</span>
-        </a>
+  <body class="bg-gray-50">
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <a href="home.html" class="flex items-center space-x-2">
+            <img src="assets/icons/logo.png" alt="Quiz Logo" class="h-8 w-8" />
+            <span class="text-xl font-semibold text-gray-900">Quizzes</span>
+          </a>
 
-        <nav class="navbar-nav">
-          <a href="home.html" class="navbar-link active">Home</a>
-          <a href="quizzes.html" class="navbar-link">Quizzes</a>
-          <a href="#" class="navbar-link" data-auth-required>Management</a>
-          <a href="about.html" class="navbar-link">About</a>
-          <a href="contact.html" class="navbar-link">Contact</a>
-        </nav>
-
-        <div class="navbar-actions">
-          <div class="user-dropdown" data-auth-ui>
-            <button
-              class="user-avatar-btn"
-              id="userAvatarBtn"
-              aria-label="User menu"
+          <nav class="hidden md:flex space-x-8">
+            <a
+              href="home.html"
+              class="text-blue-600 font-medium border-b-2 border-blue-600 pb-1"
+              >Home</a
             >
-              <img
-                src="assets/images/teams/team-1.png"
-                alt="User Avatar"
-                class="user-avatar-icon"
-              />
-            </button>
-            <div class="user-dropdown-menu" id="userDropdownMenu">
-              <div class="dropdown-header">
-                <p class="dropdown-name">Kien Trung</p>
+            <a
+              href="quizzes.html"
+              class="text-gray-600 hover:text-gray-900 transition-colors"
+              >Quizzes</a
+            >
+            <a
+              href="#"
+              class="text-gray-600 hover:text-gray-900 transition-colors"
+              data-auth-required
+              >Management</a
+            >
+            <a
+              href="about.html"
+              class="text-gray-600 hover:text-gray-900 transition-colors"
+              >About</a
+            >
+            <a
+              href="contact.html"
+              class="text-gray-600 hover:text-gray-900 transition-colors"
+              >Contact</a
+            >
+          </nav>
+
+          <div class="flex items-center space-x-4">
+            <div class="relative hidden md:block" data-auth-ui>
+              <button
+                id="userAvatarBtn"
+                class="flex items-center space-x-2 focus:outline-none"
+                aria-label="User menu"
+              >
+                <img
+                  src="assets/images/teams/team-1.png"
+                  alt="User Avatar"
+                  class="h-8 w-8 rounded-full object-cover"
+                />
+              </button>
+              <div
+                id="userDropdownMenu"
+                class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 hidden"
+              >
+                <div class="px-4 py-2 border-b border-gray-200">
+                  <p class="text-sm font-semibold text-gray-900">Kien Trung</p>
+                </div>
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >Change Password</a
+                >
+                <div class="border-t border-gray-200 my-1"></div>
+                <a
+                  href="login.html"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >Logout</a
+                >
               </div>
-              <div class="dropdown-divider"></div>
-
-              <a href="#" class="dropdown-item">Change Password</a>
-              <div class="dropdown-divider"></div>
-              <a href="login.html" class="dropdown-item">Logout</a>
             </div>
-          </div>
 
-          <div class="auth-buttons" data-guest-ui style="display: none">
-            <a href="login.html" class="btn btn-outline btn-sm">Login</a>
-            <a href="register.html" class="btn btn-primary btn-sm">Register</a>
-          </div>
-
-          <button
-            class="navbar-mobile-toggle"
-            id="mobileMenuToggle"
-            aria-label="Toggle menu"
-          >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
+            <div
+              class="hidden md:flex space-x-3"
+              data-guest-ui
+              style="display: none"
             >
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-          </button>
+              <a
+                href="login.html"
+                class="px-4 py-2 text-sm font-medium text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                >Login</a
+              >
+              <a
+                href="register.html"
+                class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors"
+                >Register</a
+              >
+            </div>
+
+            <button
+              id="mobileMenuToggle"
+              class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+              aria-label="Toggle menu"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
 
-      <div class="mobile-menu" id="mobileMenu">
-        <nav class="mobile-menu-nav">
-          <a href="home.html" class="mobile-menu-link active">Home</a>
-          <a href="quizzes.html" class="mobile-menu-link">Quizzes</a>
-          <a href="about.html" class="mobile-menu-link">About</a>
-          <a href="contact.html" class="mobile-menu-link">Contact</a>
+      <div
+        id="mobileMenu"
+        class="hidden md:hidden border-t border-gray-200 bg-white"
+      >
+        <nav class="px-4 py-3 space-y-2">
+          <a
+            href="home.html"
+            class="block px-3 py-2 text-blue-600 font-medium bg-blue-50 rounded-lg"
+            >Home</a
+          >
+          <a
+            href="quizzes.html"
+            class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-lg"
+            >Quizzes</a
+          >
+          <a
+            href="about.html"
+            class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-lg"
+            >About</a
+          >
+          <a
+            href="contact.html"
+            class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-lg"
+            >Contact</a
+          >
         </nav>
       </div>
     </header>
 
-    <section class="hero-section">
+    <!-- Hero Section - Matching React version -->
+    <section class="w-full py-12 md:py-12 bg-background">
       <div class="container-custom">
-        <div class="hero-grid">
-          <div class="hero-content">
-            <h1 class="hero-title">
-              Welcome to <span class="highlight">Quiz App</span>
+        <div class="grid grid-cols-1 gap-12 md:grid-cols-2 items-center">
+          <div class="flex flex-col gap-4 items-start text-left">
+            <h1
+              class="text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl text-foreground"
+            >
+              Welcome to <span class="text-primary">Quiz App</span>
             </h1>
 
-            <p class="hero-description">
+            <p
+              class="max-w-[600px] text-muted-foreground text-base sm:text-sm md:text-lg"
+            >
               The leading online quiz platform. Challenge yourself with
               thousands of diverse questions and track your progress today.
             </p>
 
-            <div class="hero-cta">
-              <a href="quizzes.html" class="btn btn-primary btn-lg"
-                >Take a Quiz</a
+            <div class="mt-4">
+              <a
+                href="quizzes.html"
+                class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium h-10 px-6 bg-primary text-white hover:opacity-90 transition-all shadow-sm"
               >
+                Take a Quiz Now
+              </a>
             </div>
           </div>
 
-          <div class="hero-image-wrapper">
+          <div class="flex justify-center md:justify-end">
             <img
               src="assets/images/hero.png"
               alt="Quiz illustration"
-              class="hero-image"
+              class="max-w-md w-full h-auto"
             />
           </div>
         </div>
       </div>
     </section>
 
-    <section class="quiz-section">
+    <!-- Quiz Section - Matching React version -->
+    <section class="py-12 bg-muted">
       <div class="container-custom">
-        <div class="quiz-header">
-          <h2 class="quiz-title">QUIZZES</h2>
+        <div class="text-center mb-10">
+          <h2 class="text-2xl md:text-3xl font-bold text-foreground mt-2">
+            Quizzes
+          </h2>
         </div>
 
-        <div class="quiz-grid">
-          <article class="quiz-card">
-            <img
-              src="assets/images/quizzes/quiz-1.png"
-              alt="Capitals of Country"
-              class="quiz-card-image"
-            />
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <!-- Quiz Card 1 - Matching React QuizCard component -->
+          <article
+            class="flex flex-col gap-6 rounded-xl bg-card border border-border shadow-md hover:shadow-lg transition-shadow overflow-hidden"
+          >
+            <div class="relative h-48 w-full overflow-hidden">
+              <img
+                src="assets/images/quizzes/quiz-1.png"
+                alt="Capitals of Country"
+                class="h-full w-full object-cover"
+              />
+            </div>
 
-            <div class="quiz-card-content">
-              <div class="quiz-card-header">
-                <h3 class="quiz-card-title">Capitals of Country</h3>
-                <span>15m</span>
+            <div class="px-6">
+              <div class="flex justify-between items-center mb-2">
+                <h3 class="font-bold text-lg text-foreground">
+                  Capitals of Country
+                </h3>
+                <span
+                  class="inline-flex items-center justify-center rounded-full border border-transparent bg-secondary text-secondary-foreground px-2 py-0.5 text-xs font-medium"
+                >
+                  15m
+                </span>
               </div>
-
-              <p class="quiz-card-description">
+              <p class="text-sm text-muted-foreground">
                 Test your knowledge about world capitals and geography.
               </p>
+            </div>
 
-              <div class="quiz-card-footer">
-                <a
-                  href="quizzes.html"
-                  class="btn-card-footer btn-outline-card-footer btn-sm"
-                  >Start</a
-                >
-              </div>
+            <div class="flex items-center px-6 pb-6">
+              <a
+                href="quizzes.html"
+                class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium h-10 px-6 w-full bg-primary text-white hover:opacity-90 transition-all"
+              >
+                Start Quiz
+              </a>
             </div>
           </article>
 
-          <article class="quiz-card">
-            <img
-              src="assets/images/quizzes/quiz-2.png"
-              alt="Capitals of Country"
-              class="quiz-card-image"
-            />
+          <!-- Quiz Card 2 -->
+          <article
+            class="flex flex-col gap-6 rounded-xl bg-card border border-border shadow-md hover:shadow-lg transition-shadow overflow-hidden"
+          >
+            <div class="relative h-48 w-full overflow-hidden">
+              <img
+                src="assets/images/quizzes/quiz-2.png"
+                alt="Capitals of Country"
+                class="h-full w-full object-cover"
+              />
+            </div>
 
-            <div class="quiz-card-content">
-              <div class="quiz-card-header">
-                <h3 class="quiz-card-title">Capitals of Country</h3>
-                <span>15m</span>
+            <div class="px-6">
+              <div class="flex justify-between items-center mb-2">
+                <h3 class="font-bold text-lg text-foreground">
+                  Capitals of Country
+                </h3>
+                <span
+                  class="inline-flex items-center justify-center rounded-full border border-transparent bg-secondary text-secondary-foreground px-2 py-0.5 text-xs font-medium"
+                >
+                  15m
+                </span>
               </div>
-
-              <p class="quiz-card-description">
+              <p class="text-sm text-muted-foreground">
                 Test your knowledge about world capitals and geography.
               </p>
+            </div>
 
-              <div class="quiz-card-footer">
-                <a
-                  href="quizzes.html"
-                  class="btn-card-footer btn-outline-card-footer btn-sm"
-                  >Start</a
-                >
-              </div>
+            <div class="flex items-center px-6 pb-6">
+              <a
+                href="quizzes.html"
+                class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium h-10 px-6 w-full bg-primary text-white hover:opacity-90 transition-all"
+              >
+                Start Quiz
+              </a>
             </div>
           </article>
 
-          <article class="quiz-card">
-            <img
-              src="assets/images/quizzes/quiz-3.png"
-              alt="Capitals of Country"
-              class="quiz-card-image"
-            />
+          <!-- Quiz Card 3 -->
+          <article
+            class="flex flex-col gap-6 rounded-xl bg-card border border-border shadow-md hover:shadow-lg transition-shadow overflow-hidden"
+          >
+            <div class="relative h-48 w-full overflow-hidden">
+              <img
+                src="assets/images/quizzes/quiz-3.png"
+                alt="Capitals of Country"
+                class="h-full w-full object-cover"
+              />
+            </div>
 
-            <div class="quiz-card-content">
-              <div class="quiz-card-header">
-                <h3 class="quiz-card-title">Capitals of Country</h3>
-                <span>15m</span>
+            <div class="px-6">
+              <div class="flex justify-between items-center mb-2">
+                <h3 class="font-bold text-lg text-foreground">
+                  Capitals of Country
+                </h3>
+                <span
+                  class="inline-flex items-center justify-center rounded-full border border-transparent bg-secondary text-secondary-foreground px-2 py-0.5 text-xs font-medium"
+                >
+                  15m
+                </span>
               </div>
-
-              <p class="quiz-card-description">
+              <p class="text-sm text-muted-foreground">
                 Test your knowledge about world capitals and geography.
               </p>
+            </div>
 
-              <div class="quiz-card-footer">
-                <a
-                  href="quizzes.html"
-                  class="btn-card-footer btn-outline-card-footer btn-sm"
-                  >Start</a
-                >
-              </div>
+            <div class="flex items-center px-6 pb-6">
+              <a
+                href="quizzes.html"
+                class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium h-10 px-6 w-full bg-primary text-white hover:opacity-90 transition-all"
+              >
+                Start Quiz
+              </a>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <footer class="footer">
-      <div class="container-custom">
-        <div class="footer-content">
-          <div class="footer-about">
-            <a href="home.html" class="about-logo">
-              <img src="assets/icons/logo.png" alt="Quiz Logo" />
-              <span>Quizzes</span>
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-3 gap-8 mb-8">
+          <div>
+            <a href="home.html" class="flex items-center space-x-2 mb-4">
+              <img
+                src="assets/icons/logo.png"
+                alt="Quiz Logo"
+                class="h-8 w-8"
+              />
+              <span class="text-xl font-semibold">Quizzes</span>
             </a>
-            <p>
+            <p class="text-gray-400">
               The leading online quiz platform to test your knowledge and learn
               new things every day.
             </p>
           </div>
 
-          <div class="footer-section">
-            <h4>Menu</h4>
-            <nav class="footer-links">
-              <a href="home.html" class="footer-link">Home</a>
-              <a href="quizzes.html" class="footer-link">Quizzes</a>
-              <a href="about.html" class="footer-link">About</a>
-              <a href="contact.html" class="footer-link">Contact</a>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Menu</h4>
+            <nav class="flex flex-col space-y-2">
+              <a
+                href="home.html"
+                class="text-gray-400 hover:text-white transition-colors"
+                >Home</a
+              >
+              <a
+                href="quizzes.html"
+                class="text-gray-400 hover:text-white transition-colors"
+                >Quizzes</a
+              >
+              <a
+                href="about.html"
+                class="text-gray-400 hover:text-white transition-colors"
+                >About</a
+              >
+              <a
+                href="contact.html"
+                class="text-gray-400 hover:text-white transition-colors"
+                >Contact</a
+              >
             </nav>
           </div>
 
-          <div class="footer-section">
-            <h4>Contact</h4>
-            <ul class="contact-details">
-              <li class="contact-detail-item">
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Contact</h4>
+            <ul class="space-y-3">
+              <li class="flex items-center space-x-3">
                 <svg
-                  class="contact-detail-icon"
+                  class="w-5 h-5 text-gray-400"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="currentColor"
@@ -247,11 +442,11 @@
                     d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
                   />
                 </svg>
-                <span>kiennt169@fpt.com</span>
+                <span class="text-gray-400">kiennt169@fpt.com</span>
               </li>
-              <li class="contact-detail-item">
+              <li class="flex items-center space-x-3">
                 <svg
-                  class="contact-detail-icon"
+                  class="w-5 h-5 text-gray-400"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="currentColor"
@@ -260,11 +455,11 @@
                     d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
                   />
                 </svg>
-                <span>+84 999 888 999</span>
+                <span class="text-gray-400">+84 999 888 999</span>
               </li>
-              <li class="contact-detail-item">
+              <li class="flex items-start space-x-3">
                 <svg
-                  class="contact-detail-icon"
+                  class="w-5 h-5 text-gray-400 mt-1"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="currentColor"
@@ -273,14 +468,18 @@
                     d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
                   />
                 </svg>
-                <span>123 Khuong Dinh, Thanh Xuan, Ha Noi, Viet Nam</span>
+                <span class="text-gray-400"
+                  >123 Khuong Dinh, Thanh Xuan, Ha Noi, Viet Nam</span
+                >
               </li>
             </ul>
           </div>
         </div>
 
-        <div class="footer-bottom">
-          <p>&copy; 2024 Quiz App. All rights reserved.</p>
+        <div class="border-t border-gray-800 pt-8 text-center">
+          <p class="text-gray-400">
+            &copy; 2024 Quiz App. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

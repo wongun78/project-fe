@@ -3,108 +3,182 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quiz App</title>
-
-    <link rel="stylesheet" href="assets/css/reset.css" />
-    <link rel="stylesheet" href="assets/css/variables.css" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="stylesheet" href="assets/css/admin.css" />
+    <title>Quiz App - Role Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body>
-    <div class="admin-layout">
-      <header class="navbar">
-        <div class="container-custom navbar-container">
-          <a href="home.html" class="navbar-logo">
-            <img src="assets/icons/logo.png" alt="Quiz Logo" />
-            <span>Quizzes</span>
-          </a>
-
-          <nav class="navbar-nav">
-            <a href="home.html" class="navbar-link">Home</a>
-            <a href="quizzes.html" class="navbar-link">Quizzes</a>
-            <a href="role-management.html" class="navbar-link active"
-              >Management</a
+  <body class="bg-gray-50">
+    <div class="flex flex-col min-h-screen">
+      <!-- Navbar -->
+      <header
+        class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50"
+      >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between h-16">
+            <!-- Logo -->
+            <a
+              href="home.html"
+              class="flex items-center gap-2 hover:opacity-80 transition-opacity"
             >
-            <a href="about.html" class="navbar-link">About</a>
-            <a href="contact.html" class="navbar-link">Contact</a>
-          </nav>
+              <img
+                src="assets/icons/logo.png"
+                alt="Quiz Logo"
+                class="h-8 w-8"
+              />
+              <span class="text-xl font-bold text-indigo-600">Quizzes</span>
+            </a>
 
-          <div class="navbar-actions">
-            <div class="user-dropdown" data-auth-ui>
-              <button
-                class="user-avatar-btn"
-                id="userAvatarBtn"
-                aria-label="User menu"
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center gap-6">
+              <a
+                href="home.html"
+                class="text-gray-700 hover:text-indigo-600 font-medium transition-colors"
+                >Home</a
               >
-                <img
-                  src="assets/images/teams/team-1.png"
-                  alt="User Avatar"
-                  class="user-avatar-icon"
-                />
-              </button>
-              <div class="user-dropdown-menu" id="userDropdownMenu">
-                <div class="dropdown-header">
-                  <p class="dropdown-name">Kien Trung</p>
+              <a
+                href="quizzes.html"
+                class="text-gray-700 hover:text-indigo-600 font-medium transition-colors"
+                >Quizzes</a
+              >
+              <a
+                href="role-management.html"
+                class="text-indigo-600 font-medium border-b-2 border-indigo-600 pb-1"
+                >Management</a
+              >
+              <a
+                href="about.html"
+                class="text-gray-700 hover:text-indigo-600 font-medium transition-colors"
+                >About</a
+              >
+              <a
+                href="contact.html"
+                class="text-gray-700 hover:text-indigo-600 font-medium transition-colors"
+                >Contact</a
+              >
+            </nav>
+
+            <!-- User Actions -->
+            <div class="flex items-center gap-3">
+              <!-- User Dropdown -->
+              <div class="relative" data-auth-ui>
+                <button
+                  id="userAvatarBtn"
+                  class="flex items-center justify-center w-10 h-10 rounded-full overflow-hidden hover:ring-2 ring-indigo-500 transition-all"
+                  aria-label="User menu"
+                >
+                  <img
+                    src="assets/images/teams/team-1.png"
+                    alt="User Avatar"
+                    class="w-full h-full object-cover"
+                  />
+                </button>
+                <div
+                  id="userDropdownMenu"
+                  class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-1 z-10"
+                >
+                  <div class="px-4 py-2 border-b border-gray-100">
+                    <p class="font-semibold text-gray-900">Kien Trung</p>
+                  </div>
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                    >Change Password</a
+                  >
+                  <div class="border-t border-gray-100"></div>
+                  <a
+                    href="login.html"
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                    >Logout</a
+                  >
                 </div>
-                <div class="dropdown-divider"></div>
-
-                <a href="#" class="dropdown-item">Change Password</a>
-                <div class="dropdown-divider"></div>
-                <a href="login.html" class="dropdown-item">Logout</a>
               </div>
-            </div>
 
-            <div class="auth-buttons" data-guest-ui style="display: none">
-              <a href="login.html" class="btn btn-outline btn-sm">Login</a>
-              <a href="register.html" class="btn btn-primary btn-sm"
-                >Register</a
-              >
-            </div>
+              <!-- Guest Buttons -->
+              <div class="hidden" data-guest-ui>
+                <a
+                  href="login.html"
+                  class="px-4 py-2 text-sm font-medium text-indigo-600 border border-indigo-600 rounded-lg hover:bg-indigo-50 transition-colors"
+                  >Login</a
+                >
+                <a
+                  href="register.html"
+                  class="px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 transition-colors"
+                  >Register</a
+                >
+              </div>
 
-            <button
-              class="navbar-mobile-toggle"
-              id="mobileMenuToggle"
-              aria-label="Toggle menu"
-            >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
+              <!-- Mobile Menu Toggle -->
+              <button
+                id="mobileMenuToggle"
+                class="md:hidden p-2 text-gray-700 hover:text-indigo-600"
+                aria-label="Toggle menu"
               >
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-              </svg>
-            </button>
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <line x1="3" y1="12" x2="21" y2="12"></line>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
 
-        <div class="mobile-menu" id="mobileMenu">
-          <nav class="mobile-menu-nav">
-            <a href="home.html" class="mobile-menu-link">Home</a>
-            <a href="quizzes.html" class="mobile-menu-link">Quizzes</a>
-            <a href="role-management.html" class="mobile-menu-link active"
+        <!-- Mobile Menu -->
+        <div
+          id="mobileMenu"
+          class="hidden md:hidden border-t border-gray-200 bg-white"
+        >
+          <nav class="px-4 py-4 space-y-2">
+            <a
+              href="home.html"
+              class="block px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg"
+              >Home</a
+            >
+            <a
+              href="quizzes.html"
+              class="block px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg"
+              >Quizzes</a
+            >
+            <a
+              href="role-management.html"
+              class="block px-4 py-2 text-indigo-600 bg-indigo-50 rounded-lg font-medium"
               >Management</a
             >
-            <a href="about.html" class="mobile-menu-link">About</a>
-            <a href="contact.html" class="mobile-menu-link">Contact</a>
+            <a
+              href="about.html"
+              class="block px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg"
+              >About</a
+            >
+            <a
+              href="contact.html"
+              class="block px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg"
+              >Contact</a
+            >
           </nav>
         </div>
       </header>
 
-      <div class="admin-content">
-        <aside class="sidebar">
-          <div class="sidebar-header">
-            <span class="sidebar-title">Menu</span>
+      <!-- Admin Layout -->
+      <div class="flex flex-1">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-white border-r border-gray-200 hidden lg:block">
+          <div class="p-4 border-b border-gray-200">
+            <span class="text-lg font-semibold text-gray-900">Menu</span>
           </div>
 
-          <nav class="sidebar-nav">
-            <a href="quiz-management.html" class="sidebar-link">
+          <nav class="p-4 space-y-1">
+            <a
+              href="quiz-management.html"
+              class="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors group"
+            >
               <svg
-                class="sidebar-icon"
+                class="w-5 h-5 text-gray-500 group-hover:text-indigo-600"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="currentColor"
@@ -116,12 +190,15 @@
                   fill="none"
                 />
               </svg>
-              Quiz Management
+              <span class="font-medium">Quiz Management</span>
             </a>
 
-            <a href="question-management.html" class="sidebar-link">
+            <a
+              href="question-management.html"
+              class="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors group"
+            >
               <svg
-                class="sidebar-icon"
+                class="w-5 h-5 text-gray-500 group-hover:text-indigo-600"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="currentColor"
@@ -133,12 +210,15 @@
                   fill="none"
                 />
               </svg>
-              Question Management
+              <span class="font-medium">Question Management</span>
             </a>
 
-            <a href="user-management.html" class="sidebar-link">
+            <a
+              href="user-management.html"
+              class="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors group"
+            >
               <svg
-                class="sidebar-icon"
+                class="w-5 h-5 text-gray-500 group-hover:text-indigo-600"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="currentColor"
@@ -150,12 +230,15 @@
                   fill="none"
                 />
               </svg>
-              User Management
+              <span class="font-medium">User Management</span>
             </a>
 
-            <a href="role-management.html" class="sidebar-link active">
+            <a
+              href="role-management.html"
+              class="flex items-center gap-3 px-4 py-3 text-indigo-600 bg-indigo-50 rounded-lg transition-colors group"
+            >
               <svg
-                class="sidebar-icon"
+                class="w-5 h-5 text-indigo-600"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="currentColor"
@@ -167,45 +250,57 @@
                   fill="none"
                 />
               </svg>
-              Role Management
+              <span class="font-semibold">Role Management</span>
             </a>
           </nav>
         </aside>
 
-        <div class="main-content">
-          <main class="page-container">
-            <div class="management-card">
-              <div class="card-header">
-                <h2 class="card-title">Role Management</h2>
+        <!-- Main Content -->
+        <main class="flex-1 p-6 overflow-auto">
+          <div class="max-w-6xl mx-auto space-y-6">
+            <!-- Search & Filter Card -->
+            <div
+              class="bg-white rounded-lg shadow-sm border border-gray-200 p-6"
+            >
+              <div class="mb-6">
+                <h2 class="text-xl font-semibold text-gray-900">
+                  Role Management
+                </h2>
               </div>
 
-              <div class="search-filter">
-                <div class="filter-group">
-                  <label class="filter-label">Name</label>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2"
+                    >Name</label
+                  >
                   <input
                     type="text"
-                    class="filter-input"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                     placeholder="Enter role name to search"
                   />
                 </div>
 
-                <div class="filter-group">
-                  <label class="filter-label">Type</label>
-                  <div class="checkbox-wrapper">
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2"
+                    >Type</label
+                  >
+                  <div class="flex items-center gap-2">
                     <input
                       type="checkbox"
                       id="status-filter"
-                      class="checkbox-input"
+                      class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
                     />
-                    <label for="status-filter" class="checkbox-label"
+                    <label for="status-filter" class="text-sm text-gray-700"
                       >Active</label
                     >
                   </div>
                 </div>
               </div>
 
-              <div class="filter-actions">
-                <button class="btn btn-primary btn-sm">
+              <div class="flex flex-wrap items-center gap-2">
+                <button
+                  class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 transition-colors"
+                >
                   <svg
                     width="16"
                     height="16"
@@ -213,14 +308,15 @@
                     fill="none"
                     stroke="currentColor"
                     stroke-width="2"
-                    style="margin-right: 0.5rem"
                   >
                     <path d="M12 5v14m7-7H5" />
                   </svg>
                   Create
                 </button>
-                <div style="display: flex; gap: 0.5rem; margin-left: auto">
-                  <button class="btn btn-outline btn-sm">
+                <div class="flex items-center gap-2 ml-auto">
+                  <button
+                    class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                  >
                     <svg
                       width="16"
                       height="16"
@@ -228,7 +324,6 @@
                       fill="none"
                       stroke="currentColor"
                       stroke-width="2"
-                      style="margin-right: 0.5rem"
                     >
                       <path
                         d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
@@ -236,7 +331,9 @@
                     </svg>
                     Clear
                   </button>
-                  <button class="btn btn-primary btn-sm">
+                  <button
+                    class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 transition-colors"
+                  >
                     <svg
                       width="16"
                       height="16"
@@ -244,7 +341,6 @@
                       fill="none"
                       stroke="currentColor"
                       stroke-width="2"
-                      style="margin-right: 0.5rem"
                     >
                       <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
@@ -254,31 +350,64 @@
               </div>
             </div>
 
-            <div class="management-card">
-              <div class="card-header">
-                <h2 class="card-title">Role List</h2>
+            <!-- Role List Card -->
+            <div
+              class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden"
+            >
+              <div class="p-6 border-b border-gray-200">
+                <h2 class="text-xl font-semibold text-gray-900">Role List</h2>
               </div>
 
-              <div style="overflow-x: auto">
-                <table class="data-table">
-                  <thead>
+              <div class="overflow-x-auto">
+                <table class="w-full">
+                  <thead class="bg-gray-50">
                     <tr>
-                      <th>Name</th>
-                      <th>Description</th>
-                      <th>Status</th>
-                      <th>Actions</th>
+                      <th
+                        class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider"
+                      >
+                        Name
+                      </th>
+                      <th
+                        class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider"
+                      >
+                        Description
+                      </th>
+                      <th
+                        class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider"
+                      >
+                        Status
+                      </th>
+                      <th
+                        class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider"
+                      >
+                        Actions
+                      </th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <td>Admin</td>
-                      <td>Full Access</td>
-                      <td>
-                        <span class="status-badge status-active">Active</span>
+                  <tbody class="bg-white divide-y divide-gray-200">
+                    <tr class="hover:bg-gray-50">
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
+                      >
+                        Admin
                       </td>
-                      <td>
-                        <div class="table-actions">
-                          <button class="btn-icon btn-edit" title="Edit">
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-700"
+                      >
+                        Full Access
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span
+                          class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800"
+                          >Active</span
+                        >
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm">
+                        <div class="flex items-center gap-2">
+                          <button
+                            class="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                            title="Edit"
+                          >
                             <svg
                               width="16"
                               height="16"
@@ -295,7 +424,10 @@
                               />
                             </svg>
                           </button>
-                          <button class="btn-icon btn-delete" title="Delete">
+                          <button
+                            class="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                            title="Delete"
+                          >
                             <svg
                               width="16"
                               height="16"
@@ -312,15 +444,29 @@
                         </div>
                       </td>
                     </tr>
-                    <tr>
-                      <td>Editor</td>
-                      <td>Editable</td>
-                      <td>
-                        <span class="status-badge status-active">Active</span>
+                    <tr class="hover:bg-gray-50">
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
+                      >
+                        Editor
                       </td>
-                      <td>
-                        <div class="table-actions">
-                          <button class="btn-icon btn-edit" title="Edit">
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-700"
+                      >
+                        Editable
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span
+                          class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800"
+                          >Active</span
+                        >
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm">
+                        <div class="flex items-center gap-2">
+                          <button
+                            class="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                            title="Edit"
+                          >
                             <svg
                               width="16"
                               height="16"
@@ -337,7 +483,10 @@
                               />
                             </svg>
                           </button>
-                          <button class="btn-icon btn-delete" title="Delete">
+                          <button
+                            class="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                            title="Delete"
+                          >
                             <svg
                               width="16"
                               height="16"
@@ -354,15 +503,29 @@
                         </div>
                       </td>
                     </tr>
-                    <tr>
-                      <td>User</td>
-                      <td>Customer</td>
-                      <td>
-                        <span class="status-badge status-active">Active</span>
+                    <tr class="hover:bg-gray-50">
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
+                      >
+                        User
                       </td>
-                      <td>
-                        <div class="table-actions">
-                          <button class="btn-icon btn-edit" title="Edit">
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-700"
+                      >
+                        Customer
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span
+                          class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800"
+                          >Active</span
+                        >
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm">
+                        <div class="flex items-center gap-2">
+                          <button
+                            class="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                            title="Edit"
+                          >
                             <svg
                               width="16"
                               height="16"
@@ -379,7 +542,10 @@
                               />
                             </svg>
                           </button>
-                          <button class="btn-icon btn-delete" title="Delete">
+                          <button
+                            class="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                            title="Delete"
+                          >
                             <svg
                               width="16"
                               height="16"
@@ -396,17 +562,29 @@
                         </div>
                       </td>
                     </tr>
-                    <tr>
-                      <td>Viewer</td>
-                      <td>Read only</td>
-                      <td>
-                        <span class="status-badge status-inactive"
+                    <tr class="hover:bg-gray-50">
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
+                      >
+                        Viewer
+                      </td>
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-700"
+                      >
+                        Read only
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span
+                          class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800"
                           >Inactive</span
                         >
                       </td>
-                      <td>
-                        <div class="table-actions">
-                          <button class="btn-icon btn-edit" title="Edit">
+                      <td class="px-6 py-4 whitespace-nowrap text-sm">
+                        <div class="flex items-center gap-2">
+                          <button
+                            class="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                            title="Edit"
+                          >
                             <svg
                               width="16"
                               height="16"
@@ -423,7 +601,10 @@
                               />
                             </svg>
                           </button>
-                          <button class="btn-icon btn-delete" title="Delete">
+                          <button
+                            class="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                            title="Delete"
+                          >
                             <svg
                               width="16"
                               height="16"
@@ -440,15 +621,29 @@
                         </div>
                       </td>
                     </tr>
-                    <tr>
-                      <td>Moderator</td>
-                      <td>Manage comments</td>
-                      <td>
-                        <span class="status-badge status-active">Active</span>
+                    <tr class="hover:bg-gray-50">
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
+                      >
+                        Moderator
                       </td>
-                      <td>
-                        <div class="table-actions">
-                          <button class="btn-icon btn-edit" title="Edit">
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-700"
+                      >
+                        Manage comments
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span
+                          class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800"
+                          >Active</span
+                        >
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm">
+                        <div class="flex items-center gap-2">
+                          <button
+                            class="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                            title="Edit"
+                          >
                             <svg
                               width="16"
                               height="16"
@@ -465,7 +660,10 @@
                               />
                             </svg>
                           </button>
-                          <button class="btn-icon btn-delete" title="Delete">
+                          <button
+                            class="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                            title="Delete"
+                          >
                             <svg
                               width="16"
                               height="16"
@@ -486,8 +684,14 @@
                 </table>
               </div>
 
-              <div class="pagination">
-                <button class="pagination-btn" disabled>
+              <!-- Pagination -->
+              <div
+                class="flex items-center justify-center gap-2 p-4 border-t border-gray-200"
+              >
+                <button
+                  class="p-2 text-gray-400 rounded-lg cursor-not-allowed"
+                  disabled
+                >
                   <svg
                     width="16"
                     height="16"
@@ -499,10 +703,24 @@
                     <path d="M15 18l-6-6 6-6" />
                   </svg>
                 </button>
-                <button class="pagination-btn active">1</button>
-                <button class="pagination-btn">2</button>
-                <button class="pagination-btn">3</button>
-                <button class="pagination-btn">
+                <button
+                  class="px-3 py-1 text-sm font-medium text-white bg-indigo-600 rounded-lg"
+                >
+                  1
+                </button>
+                <button
+                  class="px-3 py-1 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+                >
+                  2
+                </button>
+                <button
+                  class="px-3 py-1 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+                >
+                  3
+                </button>
+                <button
+                  class="p-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+                >
                   <svg
                     width="16"
                     height="16"
@@ -517,50 +735,63 @@
               </div>
             </div>
 
-            <div class="management-card">
-              <div class="card-header">
-                <h2 class="card-title">Add Role</h2>
+            <!-- Add Role Form Card -->
+            <div
+              class="bg-white rounded-lg shadow-sm border border-gray-200 p-6"
+            >
+              <div class="mb-6">
+                <h2 class="text-xl font-semibold text-gray-900">Add Role</h2>
               </div>
 
-              <div class="form-row">
-                <div style="display: flex; flex-direction: column; gap: 1.5rem">
-                  <div class="form-group">
-                    <label class="form-label">Name</label>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-6">
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2"
+                      >Name</label
+                    >
                     <input
                       type="text"
-                      class="form-input"
+                      class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                       placeholder="Enter role name"
                     />
                   </div>
 
-                  <div class="filter-group">
-                    <label class="filter-label">Type</label>
-                    <div class="checkbox-wrapper">
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2"
+                      >Type</label
+                    >
+                    <div class="flex items-center gap-2">
                       <input
                         type="checkbox"
-                        id="status-filter"
-                        class="checkbox-input"
+                        id="status-form"
+                        class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
                       />
-                      <label for="status-filter" class="checkbox-label"
+                      <label for="status-form" class="text-sm text-gray-700"
                         >Active</label
                       >
                     </div>
                   </div>
                 </div>
 
-                <div class="form-group">
-                  <label class="form-label">Description</label>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2"
+                    >Description</label
+                  >
                   <textarea
-                    class="form-input"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-y"
                     placeholder="Enter description"
                     rows="5"
-                    style="resize: vertical; min-height: 120px"
+                    style="min-height: 120px"
                   ></textarea>
                 </div>
               </div>
 
-              <div class="card-footer">
-                <button class="btn btn-outline btn-sm">
+              <div
+                class="flex items-center justify-end gap-3 mt-6 pt-6 border-t border-gray-200"
+              >
+                <button
+                  class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                >
                   <svg
                     width="16"
                     height="16"
@@ -568,7 +799,6 @@
                     fill="none"
                     stroke="currentColor"
                     stroke-width="2"
-                    style="margin-right: 0.5rem"
                   >
                     <path
                       d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
@@ -576,7 +806,9 @@
                   </svg>
                   Cancel
                 </button>
-                <button class="btn btn-primary btn-sm">
+                <button
+                  class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 transition-colors"
+                >
                   <svg
                     width="16"
                     height="16"
@@ -584,7 +816,6 @@
                     fill="none"
                     stroke="currentColor"
                     stroke-width="2"
-                    style="margin-right: 0.5rem"
                   >
                     <path
                       d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"
@@ -595,8 +826,8 @@
                 </button>
               </div>
             </div>
-          </main>
-        </div>
+          </div>
+        </main>
       </div>
     </div>
 

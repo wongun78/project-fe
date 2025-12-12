@@ -3,28 +3,56 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>403 - Access Denied | Quiz App</title>
-
-    <link rel="stylesheet" href="assets/css/reset.css" />
-    <link rel="stylesheet" href="assets/css/variables.css" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="stylesheet" href="assets/css/auth.css" />
-    <link rel="stylesheet" href="assets/css/error.css" />
+    <title>403 - Forbidden | Quiz App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body>
-    <div class="auth-container">
-      <div class="auth-card">
-        <div class="auth-header">
-          <h1 class="error-title">403 - Forbidden</h1>
-        </div>
-
-        <div class="auth-content">
-          <div class="error-description">
-            <p>You don't have permission to access this page or resource.</p>
+  <body class="bg-gray-50">
+    <div class="min-h-screen flex items-center justify-center px-4 py-12">
+      <div class="w-full max-w-md">
+        <div class="bg-white rounded-lg shadow-lg p-8">
+          <div class="mb-8 text-center">
+            <h1 class="text-4xl font-bold text-gray-900 mb-4">
+              403 - Forbidden
+            </h1>
           </div>
 
-          <div class="auth-actions">
-            <a href="home.html" class="btn btn-primary">Back to Home</a>
+          <div class="text-center space-y-4 mb-8">
+            <p class="text-gray-600">
+              You don't have permission to access this page or resource.
+            </p>
+            <p class="text-gray-600">
+              Please login with appropriate credentials or contact the
+              administrator.
+            </p>
+          </div>
+
+          <div class="flex gap-3 mb-6">
+            <a
+              href="home.html"
+              class="flex-1 px-4 py-2 text-center font-medium text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+              >Back to Home</a
+            >
+            <a
+              href="login.html"
+              class="flex-1 px-4 py-2 text-center font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors"
+              >Login</a
+            >
+          </div>
+
+          <div class="space-y-3 text-center">
+            <p>
+              <a
+                href="contact.html"
+                class="text-sm text-blue-600 hover:underline"
+                >Contact Administrator</a
+              >
+            </p>
+            <p class="text-sm text-gray-600">
+              Don't have account?
+              <a href="register.html" class="text-blue-600 hover:underline"
+                >Register</a
+              >
+            </p>
           </div>
         </div>
       </div>
