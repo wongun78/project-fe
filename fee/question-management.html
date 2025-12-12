@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quiz App - Question Management</title>
-    <script src="https://cdn.tailwindcss.com/4.0.0-beta.3"></script>
+    <title>Quiz App</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style type="text/tailwindcss">
       @theme {
         --color-primary: #38b6ff;
@@ -47,7 +47,6 @@
   </head>
   <body>
     <div class="flex h-screen w-full flex-col bg-secondary/10">
-      <!-- Navbar -->
       <header
         class="sticky top-0 z-50 border-b border-border/40 bg-background/95 backdrop-blur-sm"
       >
@@ -88,7 +87,7 @@
           <div class="flex items-center gap-2">
             <div class="relative" data-auth-ui>
               <button
-                class="flex h-8 w-8 items-center justify-center rounded-full border border-border hover:bg-accent"
+                class="flex h-8 w-8 items-center justify-center rounded-full hover:bg-accent"
                 id="userAvatarBtn"
                 aria-label="User menu"
               >
@@ -99,35 +98,37 @@
                 />
               </button>
               <div
-                class="absolute right-0 mt-2 w-48 rounded-md border bg-card shadow-lg hidden"
                 id="userDropdownMenu"
+                class="hidden absolute right-0 mt-2 w-48 rounded-md bg-white shadow-lg ring-1 ring-gray-100 ring-opacity-5 z-50"
               >
-                <div class="p-3 border-b">
-                  <p class="text-sm font-medium text-foreground">Kien Trung</p>
+                <div class="py-1" role="menu">
+                  <div
+                    class="px-4 py-2 text-sm font-semibold text-gray-900 border-b border-gray-100"
+                  >
+                    Kien Nguyen
+                  </div>
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    >Change Password</a
+                  >
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    >Logout</a
+                  >
                 </div>
-                <a
-                  href="#"
-                  class="block px-3 py-2 text-sm text-foreground hover:bg-accent"
-                  >Change Password</a
-                >
-                <div class="border-t"></div>
-                <a
-                  href="login.html"
-                  class="block px-3 py-2 text-sm text-foreground hover:bg-accent"
-                  >Logout</a
-                >
               </div>
             </div>
-
             <div class="hidden gap-2" data-guest-ui>
               <a
                 href="login.html"
-                class="inline-flex h-8 items-center justify-center rounded-md border border-input bg-background px-3 text-sm font-medium shadow-xs hover:bg-accent hover:text-accent-foreground"
+                class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2"
                 >Login</a
               >
               <a
                 href="register.html"
-                class="inline-flex h-8 items-center justify-center rounded-md bg-primary px-3 text-sm font-medium text-primary-foreground hover:bg-primary/90"
+                class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2"
                 >Register</a
               >
             </div>
@@ -138,8 +139,8 @@
               aria-label="Toggle menu"
             >
               <svg
-                width="24"
-                height="24"
+                class="h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -152,44 +153,11 @@
             </button>
           </div>
         </div>
-
-        <!-- Mobile Menu -->
-        <div class="hidden border-t bg-background" id="mobileMenu">
-          <nav class="container-custom flex flex-col py-4">
-            <a
-              href="home.html"
-              class="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-primary"
-              >Home</a
-            >
-            <a
-              href="quizzes.html"
-              class="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-primary"
-              >Quizzes</a
-            >
-            <a
-              href="question-management.html"
-              class="px-4 py-2 text-sm font-medium text-primary"
-              >Management</a
-            >
-            <a
-              href="about.html"
-              class="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-primary"
-              >About</a
-            >
-            <a
-              href="contact.html"
-              class="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-primary"
-              >Contact</a
-            >
-          </nav>
-        </div>
       </header>
 
-      <!-- Main Layout -->
       <div class="flex flex-1 overflow-hidden">
-        <!-- Sidebar -->
-        <aside class="hidden w-64 flex-col border-r bg-card md:flex">
-          <div class="flex h-16 items-center border-b px-3">
+        <aside class="hidden w-64 flex-col border-r border-gray-100 md:flex">
+          <div class="flex h-16 items-center border-b border-gray-100 px-3">
             <span class="text-xl font-bold tracking-tight">Menu</span>
           </div>
 
@@ -200,7 +168,7 @@
                 class="flex items-center gap-3 rounded-md px-3 py-2.5 text-sm font-medium transition-colors text-muted-foreground hover:bg-accent hover:text-accent-foreground"
               >
                 <svg
-                  class="h-4 w-4"
+                  class="h-5 w-5"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="none"
@@ -211,7 +179,7 @@
                     d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
                   />
                 </svg>
-                Quiz Management
+                <span>Quiz Management</span>
               </a>
 
               <a
@@ -219,7 +187,7 @@
                 class="flex items-center gap-3 rounded-md px-3 py-2.5 text-sm font-medium transition-colors bg-primary text-white shadow-sm"
               >
                 <svg
-                  class="h-4 w-4"
+                  class="h-5 w-5"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="none"
@@ -230,7 +198,7 @@
                     d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
-                Question Management
+                <span>Question Management</span>
               </a>
 
               <a
@@ -238,7 +206,7 @@
                 class="flex items-center gap-3 rounded-md px-3 py-2.5 text-sm font-medium transition-colors text-muted-foreground hover:bg-accent hover:text-accent-foreground"
               >
                 <svg
-                  class="h-4 w-4"
+                  class="h-5 w-5"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="none"
@@ -249,7 +217,7 @@
                     d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
                   />
                 </svg>
-                User Management
+                <span>User Management</span>
               </a>
 
               <a
@@ -257,7 +225,7 @@
                 class="flex items-center gap-3 rounded-md px-3 py-2.5 text-sm font-medium transition-colors text-muted-foreground hover:bg-accent hover:text-accent-foreground"
               >
                 <svg
-                  class="h-4 w-4"
+                  class="h-5 w-5"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="none"
@@ -268,65 +236,58 @@
                     d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
                   />
                 </svg>
-                Role Management
+                <span>Role Management</span>
               </a>
             </nav>
           </div>
         </aside>
 
-        <!-- Main Content -->
         <div class="flex flex-1 flex-col overflow-y-auto">
           <main class="flex-1 p-6">
             <div class="space-y-6">
-              <!-- Question Search Filter Card -->
               <div
-                class="rounded-xl border bg-card text-card-foreground shadow-sm flex flex-col gap-6 py-4"
+                class="rounded-lg border border-gray-100 text-card-foreground shadow-sm bg-white"
               >
-                <div class="px-6">
-                  <div class="font-semibold leading-none">
+                <div class="flex flex-col space-y-1.5 p-6 pb-2">
+                  <h3 class="font-semibold tracking-tight text-2xl">
                     Question Management
-                  </div>
+                  </h3>
                 </div>
 
-                <div class="px-6">
-                  <div class="flex flex-col gap-4">
-                    <div class="flex flex-col md:flex-row gap-4">
-                      <div class="space-y-2 flex-1">
-                        <label
-                          class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                          >Name</label
-                        >
-                        <input
-                          type="text"
-                          class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-xs transition-all outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]"
-                          placeholder="Enter role name to search"
-                        />
-                      </div>
-
-                      <div class="space-y-2 flex-1">
-                        <label class="text-sm font-medium leading-none"
-                          >Type</label
-                        >
-                        <select
-                          class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-xs transition-all outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]"
-                        >
-                          <option value="">Select item</option>
-                          <option value="all">All</option>
-                          <option value="multiple">Multiple Choice</option>
-                          <option value="single">Single Choice</option>
-                        </select>
-                      </div>
+                <div class="p-6">
+                  <div class="flex flex-row gap-4 items-start">
+                    <div class="flex-1 flex flex-col gap-2">
+                      <label class="text-sm font-medium">Content</label>
+                      <input
+                        type="text"
+                        class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors outline-none placeholder:text-muted-foreground focus-visible:ring-1 focus-visible:ring-ring"
+                        placeholder="Enter content to search"
+                      />
                     </div>
 
-                    <div class="flex items-center space-x-2">
+                    <div class="flex-1 flex flex-col gap-2">
+                      <label class="text-sm font-medium">Type</label>
+                      <select
+                        class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                      >
+                        <option value="">Select type</option>
+                        <option value="all">All</option>
+                        <option value="multiple">Multiple Choice</option>
+                        <option value="single">Single Choice</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="flex flex-col gap-2 pt-4">
+                    <label class="text-sm font-medium">Status</label>
+                    <div class="flex h-9 items-center gap-2">
                       <input
                         type="checkbox"
                         id="status-filter"
-                        class="h-4 w-4 rounded border border-input bg-background"
+                        class="peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
                       />
                       <label
                         for="status-filter"
-                        class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                        class="text-sm font-medium cursor-pointer select-none"
                         >Active</label
                       >
                     </div>
@@ -334,10 +295,10 @@
                 </div>
 
                 <div
-                  class="flex flex-col-reverse md:flex-row md:justify-between gap-4 border-t pt-6 px-6"
+                  class="flex flex-col-reverse md:flex-row md:justify-between gap-4 border-t border-gray-100 p-6"
                 >
                   <button
-                    class="inline-flex h-8 items-center justify-center gap-2 rounded-md bg-primary px-3 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-all"
+                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2"
                   >
                     <svg
                       class="h-4 w-4"
@@ -353,7 +314,7 @@
 
                   <div class="flex gap-2">
                     <button
-                      class="inline-flex h-8 items-center justify-center gap-2 rounded-md border border-input bg-background px-3 text-sm font-medium shadow-xs hover:bg-accent hover:text-accent-foreground transition-all text-muted-foreground"
+                      class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 text-muted-foreground"
                     >
                       <svg
                         class="h-4 w-4"
@@ -369,7 +330,7 @@
                       Clear
                     </button>
                     <button
-                      class="inline-flex h-8 items-center justify-center gap-2 rounded-md bg-primary px-3 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-all"
+                      class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2"
                     >
                       <svg
                         class="h-4 w-4"
@@ -386,308 +347,172 @@
                 </div>
               </div>
 
-              <!-- Question Table Card -->
               <div
-                class="rounded-xl border bg-card text-card-foreground shadow-sm flex flex-col gap-6 py-4"
+                class="rounded-lg border border-gray-100 text-card-foreground shadow-sm bg-white"
               >
-                <div class="px-6 border-b pb-6">
-                  <div class="font-semibold leading-none">Question List</div>
+                <div
+                  class="flex flex-col space-y-1.5 p-6 border-b border-gray-100"
+                >
+                  <h3 class="font-semibold tracking-tight text-2xl">
+                    Question List
+                  </h3>
                 </div>
 
-                <div class="p-0">
-                  <div class="overflow-x-auto">
-                    <table class="w-full caption-bottom text-sm">
-                      <thead class="bg-muted/50">
-                        <tr
-                          class="border-b transition-colors hover:bg-muted/50"
+                <div class="p-0 overflow-x-auto">
+                  <table class="w-full text-sm">
+                    <thead class="[&_tr]:border-b">
+                      <tr
+                        class="border-b border-gray-100 transition-colors hover:bg-muted/50 bg-muted/50"
+                      >
+                        <th
+                          class="h-12 px-6 text-left align-middle font-medium text-muted-foreground"
                         >
-                          <th
-                            class="h-12 px-6 text-left align-middle font-medium text-muted-foreground w-[40%]"
+                          Content
+                        </th>
+                        <th
+                          class="h-12 px-4 text-left align-middle font-medium text-muted-foreground"
+                        >
+                          Type
+                        </th>
+                        <th
+                          class="h-12 px-4 text-center align-middle font-medium text-muted-foreground"
+                        >
+                          Answers
+                        </th>
+                        <th
+                          class="h-12 px-4 text-left align-middle font-medium text-muted-foreground"
+                        >
+                          Status
+                        </th>
+                        <th
+                          class="h-12 px-6 text-right align-middle font-medium text-muted-foreground"
+                        >
+                          Action
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody class="[&_tr:last-child]:border-0">
+                      <tr
+                        class="border-b border-gray-100 transition-colors hover:bg-muted/50"
+                      >
+                        <td class="p-4 pl-6 align-middle font-medium">
+                          Who is the inventor of the airplane?
+                        </td>
+                        <td class="p-4 align-middle">MultipleChoice</td>
+                        <td class="p-4 align-middle text-center">4</td>
+                        <td class="p-4 align-middle">
+                          <span
+                            class="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors border-transparent bg-green-100 text-green-700 shadow-sm"
+                            >Active</span
                           >
-                            Content
-                          </th>
-                          <th
-                            class="h-12 px-4 text-left align-middle font-medium text-muted-foreground"
+                        </td>
+                        <td class="p-4 pr-6 align-middle text-right">
+                          <div class="flex justify-end gap-1">
+                            <button
+                              class="inline-flex items-center justify-center rounded-md h-8 w-8 text-blue-500 hover:text-blue-600 hover:bg-blue-50"
+                              title="Edit"
+                            >
+                              <svg
+                                class="h-4 w-4"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                              >
+                                <path
+                                  d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"
+                                />
+                                <path
+                                  d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"
+                                />
+                              </svg>
+                            </button>
+                            <button
+                              class="inline-flex items-center justify-center rounded-md h-8 w-8 text-red-500 hover:text-red-600 hover:bg-red-50"
+                              title="Delete"
+                            >
+                              <svg
+                                class="h-4 w-4"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                              >
+                                <path
+                                  d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                                />
+                              </svg>
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr
+                        class="border-b border-gray-100 transition-colors hover:bg-muted/50"
+                      >
+                        <td class="p-4 pl-6 align-middle font-medium">
+                          Where is Viet Nam?
+                        </td>
+                        <td class="p-4 align-middle">SingleChoice</td>
+                        <td class="p-4 align-middle text-center">4</td>
+                        <td class="p-4 align-middle">
+                          <span
+                            class="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors border-transparent bg-green-100 text-green-700 shadow-sm"
+                            >Active</span
                           >
-                            Type
-                          </th>
-                          <th
-                            class="h-12 px-4 text-center align-middle font-medium text-muted-foreground"
-                          >
-                            Answers
-                          </th>
-                          <th
-                            class="h-12 px-4 text-left align-middle font-medium text-muted-foreground"
-                          >
-                            Status
-                          </th>
-                          <th
-                            class="h-12 px-6 text-right align-middle font-medium text-muted-foreground"
-                          >
-                            Action
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr
-                          class="border-b transition-colors hover:bg-muted/50"
-                        >
-                          <td class="p-4 pl-6 align-middle font-medium">
-                            Who is the inventor of the airplane?
-                          </td>
-                          <td class="p-4 align-middle">MultipleChoice</td>
-                          <td class="p-4 align-middle text-center">4</td>
-                          <td class="p-4 align-middle">Yes</td>
-                          <td class="p-4 pr-6 align-middle text-right">
-                            <div class="flex justify-end">
-                              <button
-                                class="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-blue-50 text-blue-500 hover:text-blue-600 transition-colors"
-                                title="Edit"
+                        </td>
+                        <td class="p-4 pr-6 align-middle text-right">
+                          <div class="flex justify-end gap-1">
+                            <button
+                              class="inline-flex items-center justify-center rounded-md h-8 w-8 text-blue-500 hover:text-blue-600 hover:bg-blue-50"
+                              title="Edit"
+                            >
+                              <svg
+                                class="h-4 w-4"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
                               >
-                                <svg
-                                  class="h-4 w-4"
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  stroke-width="2"
-                                >
-                                  <path
-                                    d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"
-                                  />
-                                  <path
-                                    d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"
-                                  />
-                                </svg>
-                              </button>
-                              <button
-                                class="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-red-50 text-red-500 hover:text-red-600 transition-colors"
-                                title="Delete"
+                                <path
+                                  d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"
+                                />
+                                <path
+                                  d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"
+                                />
+                              </svg>
+                            </button>
+                            <button
+                              class="inline-flex items-center justify-center rounded-md h-8 w-8 text-red-500 hover:text-red-600 hover:bg-red-50"
+                              title="Delete"
+                            >
+                              <svg
+                                class="h-4 w-4"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
                               >
-                                <svg
-                                  class="h-4 w-4"
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  stroke-width="2"
-                                >
-                                  <path
-                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                                  />
-                                </svg>
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr
-                          class="border-b transition-colors hover:bg-muted/50"
-                        >
-                          <td class="p-4 pl-6 align-middle font-medium">
-                            Who is the inventor of the World Wide Web?
-                          </td>
-                          <td class="p-4 align-middle">MultipleChoice</td>
-                          <td class="p-4 align-middle text-center">4</td>
-                          <td class="p-4 align-middle">Yes</td>
-                          <td class="p-4 pr-6 align-middle text-right">
-                            <div class="flex justify-end">
-                              <button
-                                class="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-blue-50 text-blue-500 hover:text-blue-600 transition-colors"
-                                title="Edit"
-                              >
-                                <svg
-                                  class="h-4 w-4"
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  stroke-width="2"
-                                >
-                                  <path
-                                    d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"
-                                  />
-                                  <path
-                                    d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"
-                                  />
-                                </svg>
-                              </button>
-                              <button
-                                class="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-red-50 text-red-500 hover:text-red-600 transition-colors"
-                                title="Delete"
-                              >
-                                <svg
-                                  class="h-4 w-4"
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  stroke-width="2"
-                                >
-                                  <path
-                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                                  />
-                                </svg>
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr
-                          class="border-b transition-colors hover:bg-muted/50"
-                        >
-                          <td class="p-4 pl-6 align-middle font-medium">
-                            Where is Viet Nam?
-                          </td>
-                          <td class="p-4 align-middle">MultipleChoice</td>
-                          <td class="p-4 align-middle text-center">4</td>
-                          <td class="p-4 align-middle">Yes</td>
-                          <td class="p-4 pr-6 align-middle text-right">
-                            <div class="flex justify-end">
-                              <button
-                                class="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-blue-50 text-blue-500 hover:text-blue-600 transition-colors"
-                                title="Edit"
-                              >
-                                <svg
-                                  class="h-4 w-4"
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  stroke-width="2"
-                                >
-                                  <path
-                                    d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"
-                                  />
-                                  <path
-                                    d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"
-                                  />
-                                </svg>
-                              </button>
-                              <button
-                                class="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-red-50 text-red-500 hover:text-red-600 transition-colors"
-                                title="Delete"
-                              >
-                                <svg
-                                  class="h-4 w-4"
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  stroke-width="2"
-                                >
-                                  <path
-                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                                  />
-                                </svg>
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr
-                          class="border-b transition-colors hover:bg-muted/50"
-                        >
-                          <td class="p-4 pl-6 align-middle font-medium">
-                            What is the capital of France?
-                          </td>
-                          <td class="p-4 align-middle">SingleChoice</td>
-                          <td class="p-4 align-middle text-center">4</td>
-                          <td class="p-4 align-middle">Yes</td>
-                          <td class="p-4 pr-6 align-middle text-right">
-                            <div class="flex justify-end">
-                              <button
-                                class="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-blue-50 text-blue-500 hover:text-blue-600 transition-colors"
-                                title="Edit"
-                              >
-                                <svg
-                                  class="h-4 w-4"
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  stroke-width="2"
-                                >
-                                  <path
-                                    d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"
-                                  />
-                                  <path
-                                    d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"
-                                  />
-                                </svg>
-                              </button>
-                              <button
-                                class="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-red-50 text-red-500 hover:text-red-600 transition-colors"
-                                title="Delete"
-                              >
-                                <svg
-                                  class="h-4 w-4"
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  stroke-width="2"
-                                >
-                                  <path
-                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                                  />
-                                </svg>
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr
-                          class="border-b transition-colors hover:bg-muted/50"
-                        >
-                          <td class="p-4 pl-6 align-middle font-medium">
-                            Who is the inventor of the alternating current?
-                          </td>
-                          <td class="p-4 align-middle">MultipleChoice</td>
-                          <td class="p-4 align-middle text-center">4</td>
-                          <td class="p-4 align-middle">Yes</td>
-                          <td class="p-4 pr-6 align-middle text-right">
-                            <div class="flex justify-end">
-                              <button
-                                class="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-blue-50 text-blue-500 hover:text-blue-600 transition-colors"
-                                title="Edit"
-                              >
-                                <svg
-                                  class="h-4 w-4"
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  stroke-width="2"
-                                >
-                                  <path
-                                    d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"
-                                  />
-                                  <path
-                                    d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"
-                                  />
-                                </svg>
-                              </button>
-                              <button
-                                class="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-red-50 text-red-500 hover:text-red-600 transition-colors"
-                                title="Delete"
-                              >
-                                <svg
-                                  class="h-4 w-4"
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  stroke-width="2"
-                                >
-                                  <path
-                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                                  />
-                                </svg>
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
+                                <path
+                                  d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                                />
+                              </svg>
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
 
                 <div
-                  class="flex items-center justify-between border-t py-4 px-6"
+                  class="flex items-center justify-between px-6 py-4 border-t border-gray-100"
                 >
                   <div
-                    class="flex items-center space-x-2 text-sm text-muted-foreground"
+                    class="flex flex-1 items-center gap-2 text-sm text-muted-foreground"
                   >
-                    <span>Items per page:</span>
+                    <span class="whitespace-nowrap">Items per page:</span>
                     <select
-                      class="flex h-8 w-[70px] rounded-md border border-input bg-transparent px-2 py-1 text-sm shadow-xs"
+                      class="h-8 w-[70px] rounded-md border border-input bg-transparent px-2 py-1 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
                     >
                       <option value="10">10</option>
                       <option value="20">20</option>
@@ -695,108 +520,141 @@
                     </select>
                   </div>
 
-                  <div class="flex items-center gap-1">
-                    <button
-                      class="inline-flex h-8 w-8 items-center justify-center rounded-md border border-input bg-background shadow-xs hover:bg-accent hover:text-accent-foreground disabled:pointer-events-none disabled:opacity-50"
-                      disabled
-                    >
-                      <svg
-                        class="h-4 w-4"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      >
-                        <path d="M15 18l-6-6 6-6" />
-                      </svg>
-                    </button>
-                    <button
-                      class="inline-flex h-8 w-8 items-center justify-center rounded-md bg-primary text-primary-foreground shadow-xs"
-                    >
-                      1
-                    </button>
-                    <button
-                      class="inline-flex h-8 w-8 items-center justify-center rounded-md border border-input bg-background shadow-xs hover:bg-accent hover:text-accent-foreground"
-                    >
-                      2
-                    </button>
-                    <span
-                      class="inline-flex h-8 w-8 items-center justify-center"
-                      >...</span
-                    >
-                    <button
-                      class="inline-flex h-8 w-8 items-center justify-center rounded-md border border-input bg-background shadow-xs hover:bg-accent hover:text-accent-foreground"
-                    >
-                      <svg
-                        class="h-4 w-4"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      >
-                        <path d="M9 18l6-6-6-6" />
-                      </svg>
-                    </button>
+                  <nav class="flex items-center justify-center">
+                    <ul class="flex flex-row items-center gap-1">
+                      <li>
+                        <a
+                          href="#"
+                          class="inline-flex h-9 items-center justify-center gap-2 whitespace-nowrap rounded-md px-3 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground disabled:pointer-events-none disabled:opacity-50"
+                        >
+                          <svg
+                            class="h-4 w-4"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <path d="M15 18l-6-6 6-6" />
+                          </svg>
+                          <span class="hidden sm:inline-block">Previous</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="inline-flex h-9 w-9 items-center justify-center rounded-md border border-input bg-background text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground"
+                          >1</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="inline-flex h-9 w-9 items-center justify-center rounded-md text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
+                          >2</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="inline-flex h-9 w-9 items-center justify-center rounded-md text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
+                          >3</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="inline-flex h-9 items-center justify-center gap-2 whitespace-nowrap rounded-md px-3 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
+                        >
+                          <span class="hidden sm:inline-block">Next</span>
+                          <svg
+                            class="h-4 w-4"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <path d="M9 18l6-6-6-6" />
+                          </svg>
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+
+                  <div
+                    class="hidden flex-1 items-center justify-end text-sm text-muted-foreground sm:flex"
+                  >
+                    1-3 of 32
                   </div>
                 </div>
               </div>
 
-              <!-- Question Form Card -->
               <div
-                class="rounded-xl border bg-card text-card-foreground shadow-sm flex flex-col gap-6 py-4"
+                class="rounded-lg border border-gray-100 text-card-foreground shadow-sm bg-white"
               >
-                <div class="px-6 border-b pb-6">
-                  <div class="font-semibold leading-none">Add Question</div>
+                <div
+                  class="flex flex-col space-y-1.5 p-6 border-b border-gray-100"
+                >
+                  <h3 class="font-semibold tracking-tight text-2xl">
+                    Add Question
+                  </h3>
                 </div>
-
-                <div class="pt-6 px-6">
-                  <div class="flex flex-col gap-6">
-                    <div class="flex flex-col md:flex-row gap-6">
-                      <div class="space-y-2 flex-1">
-                        <label class="text-sm font-medium leading-none"
-                          >Content</label
-                        >
+                <div class="p-6">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-6">
+                      <div class="flex flex-col gap-2">
+                        <label class="text-sm font-medium">Content</label>
                         <textarea
-                          class="flex min-h-[100px] w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-xs transition-all outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]"
+                          class="flex min-h-[120px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring resize-y"
                           placeholder="Enter question content"
                           rows="4"
                         ></textarea>
                       </div>
 
-                      <div class="space-y-2 flex-1">
-                        <label class="text-sm font-medium leading-none"
-                          >Question Type</label
-                        >
-                        <select
-                          class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-xs transition-all outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]"
-                        >
-                          <option value="">Select Question Type</option>
-                          <option value="multiple">Multiple Choice</option>
-                          <option value="single">Single Choice</option>
-                        </select>
+                      <div class="flex flex-col gap-2">
+                        <label class="text-sm font-medium">Status</label>
+                        <div class="flex h-9 items-center gap-2">
+                          <input
+                            type="checkbox"
+                            id="question-active"
+                            class="peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                          />
+                          <label
+                            for="question-active"
+                            class="text-sm font-medium cursor-pointer select-none"
+                            >Active</label
+                          >
+                        </div>
                       </div>
                     </div>
 
-                    <div class="flex items-center space-x-2">
-                      <input
-                        type="checkbox"
-                        id="question-active"
-                        class="h-4 w-4 rounded border border-input bg-background"
-                      />
-                      <label
-                        for="question-active"
-                        class="text-sm font-medium leading-none"
-                        >Active</label
+                    <div class="flex flex-col gap-2">
+                      <label class="text-sm font-medium">Question Type</label>
+                      <select
+                        class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors outline-none focus-visible:ring-1 focus-visible:ring-ring"
                       >
+                        <option value="">Select Question Type</option>
+                        <option value="multiple">Multiple Choice</option>
+                        <option value="single">Single Choice</option>
+                      </select>
                     </div>
                   </div>
                 </div>
 
                 <div
-                  class="flex flex-col-reverse md:flex-row md:justify-between gap-4 border-t pt-6 px-6"
+                  class="flex flex-col-reverse md:flex-row md:justify-between gap-4 border-t border-gray-100 p-6"
                 >
                   <button
-                    class="inline-flex h-8 items-center justify-center gap-2 rounded-md px-3 text-sm font-medium transition-all bg-blue-400 hover:bg-blue-500 text-white"
+                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors bg-primary text-white hover:bg-blue-600 shadow h-9 px-4 py-2"
                   >
                     <svg
                       class="h-4 w-4"
@@ -809,10 +667,9 @@
                     </svg>
                     Show Answers
                   </button>
-
                   <div class="flex gap-2">
                     <button
-                      class="inline-flex h-8 items-center justify-center gap-2 rounded-md border border-input bg-background px-3 text-sm font-medium shadow-xs hover:bg-accent hover:text-accent-foreground transition-all text-muted-foreground"
+                      class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 text-muted-foreground"
                     >
                       <svg
                         class="h-4 w-4"
@@ -828,7 +685,7 @@
                       Cancel
                     </button>
                     <button
-                      class="inline-flex h-8 items-center justify-center gap-2 rounded-md bg-primary px-3 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-all"
+                      class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2"
                     >
                       <svg
                         class="h-4 w-4"
@@ -848,244 +705,104 @@
                 </div>
               </div>
 
-              <!-- Answer Table Card -->
               <div
-                class="rounded-xl border bg-card text-card-foreground shadow-sm flex flex-col gap-6 py-4"
+                class="rounded-lg border border-gray-100 text-card-foreground shadow-sm bg-white"
               >
-                <div class="px-6 border-b pb-6">
-                  <div class="font-semibold leading-none">Answer List</div>
+                <div
+                  class="flex flex-col space-y-1.5 p-6 border-b border-gray-100"
+                >
+                  <h3 class="font-semibold tracking-tight text-2xl">
+                    Answer List
+                  </h3>
                 </div>
-
-                <div class="p-0">
-                  <div class="overflow-x-auto">
-                    <table class="w-full caption-bottom text-sm">
-                      <thead class="bg-muted/50">
-                        <tr
-                          class="border-b transition-colors hover:bg-muted/50"
+                <div class="p-0 overflow-x-auto">
+                  <table class="w-full text-sm">
+                    <thead class="[&_tr]:border-b">
+                      <tr
+                        class="border-b border-gray-100 transition-colors hover:bg-muted/50 bg-muted/50"
+                      >
+                        <th
+                          class="h-12 px-6 text-left align-middle font-medium text-muted-foreground w-[40%]"
                         >
-                          <th
-                            class="h-12 px-6 text-left align-middle font-medium text-muted-foreground w-[40%]"
+                          Content
+                        </th>
+                        <th
+                          class="h-12 px-4 text-left align-middle font-medium text-muted-foreground"
+                        >
+                          Is Correct
+                        </th>
+                        <th
+                          class="h-12 px-4 text-left align-middle font-medium text-muted-foreground"
+                        >
+                          Status
+                        </th>
+                        <th
+                          class="h-12 px-6 text-right align-middle font-medium text-muted-foreground"
+                        >
+                          Actions
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody class="[&_tr:last-child]:border-0">
+                      <tr
+                        class="border-b border-gray-100 transition-colors hover:bg-muted/50"
+                      >
+                        <td class="p-4 pl-6 align-middle font-medium">
+                          Wright brothers
+                        </td>
+                        <td class="p-4 align-middle">
+                          <span class="text-green-600 font-medium">True</span>
+                        </td>
+                        <td class="p-4 align-middle">
+                          <span
+                            class="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold border-transparent bg-green-100 text-green-700 shadow-sm"
+                            >Active</span
                           >
-                            Content
-                          </th>
-                          <th
-                            class="h-12 px-4 text-left align-middle font-medium text-muted-foreground"
-                          >
-                            Is Correct
-                          </th>
-                          <th
-                            class="h-12 px-4 text-left align-middle font-medium text-muted-foreground"
-                          >
-                            Status
-                          </th>
-                          <th
-                            class="h-12 px-6 text-right align-middle font-medium text-muted-foreground"
-                          >
-                            Actions
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr
-                          class="border-b transition-colors hover:bg-muted/50"
-                        >
-                          <td class="p-4 pl-6 align-middle font-medium">
-                            Wright brothers
-                          </td>
-                          <td class="p-4 align-middle">True</td>
-                          <td class="p-4 align-middle">Yes</td>
-                          <td class="p-4 pr-6 align-middle text-right">
-                            <div class="flex justify-end">
-                              <button
-                                class="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-blue-50 text-blue-500 hover:text-blue-600 transition-colors"
-                                title="Edit"
+                        </td>
+                        <td class="p-4 pr-6 align-middle text-right">
+                          <div class="flex justify-end gap-1">
+                            <button
+                              class="inline-flex items-center justify-center rounded-md h-8 w-8 text-blue-500 hover:text-blue-600 hover:bg-blue-50"
+                            >
+                              <svg
+                                class="h-4 w-4"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
                               >
-                                <svg
-                                  class="h-4 w-4"
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  stroke-width="2"
-                                >
-                                  <path
-                                    d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"
-                                  />
-                                  <path
-                                    d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"
-                                  />
-                                </svg>
-                              </button>
-                              <button
-                                class="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-red-50 text-red-500 hover:text-red-600 transition-colors"
-                                title="Delete"
+                                <path
+                                  d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"
+                                />
+                                <path
+                                  d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"
+                                />
+                              </svg>
+                            </button>
+                            <button
+                              class="inline-flex items-center justify-center rounded-md h-8 w-8 text-red-500 hover:text-red-600 hover:bg-red-50"
+                            >
+                              <svg
+                                class="h-4 w-4"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
                               >
-                                <svg
-                                  class="h-4 w-4"
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  stroke-width="2"
-                                >
-                                  <path
-                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                                  />
-                                </svg>
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr
-                          class="border-b transition-colors hover:bg-muted/50"
-                        >
-                          <td class="p-4 pl-6 align-middle font-medium">
-                            Alexander Graham Bell
-                          </td>
-                          <td class="p-4 align-middle">False</td>
-                          <td class="p-4 align-middle">Yes</td>
-                          <td class="p-4 pr-6 align-middle text-right">
-                            <div class="flex justify-end">
-                              <button
-                                class="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-blue-50 text-blue-500 hover:text-blue-600 transition-colors"
-                                title="Edit"
-                              >
-                                <svg
-                                  class="h-4 w-4"
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  stroke-width="2"
-                                >
-                                  <path
-                                    d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"
-                                  />
-                                  <path
-                                    d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"
-                                  />
-                                </svg>
-                              </button>
-                              <button
-                                class="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-red-50 text-red-500 hover:text-red-600 transition-colors"
-                                title="Delete"
-                              >
-                                <svg
-                                  class="h-4 w-4"
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  stroke-width="2"
-                                >
-                                  <path
-                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                                  />
-                                </svg>
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr
-                          class="border-b transition-colors hover:bg-muted/50"
-                        >
-                          <td class="p-4 pl-6 align-middle font-medium">
-                            Albert Einstein
-                          </td>
-                          <td class="p-4 align-middle">False</td>
-                          <td class="p-4 align-middle">Yes</td>
-                          <td class="p-4 pr-6 align-middle text-right">
-                            <div class="flex justify-end">
-                              <button
-                                class="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-blue-50 text-blue-500 hover:text-blue-600 transition-colors"
-                                title="Edit"
-                              >
-                                <svg
-                                  class="h-4 w-4"
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  stroke-width="2"
-                                >
-                                  <path
-                                    d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"
-                                  />
-                                  <path
-                                    d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"
-                                  />
-                                </svg>
-                              </button>
-                              <button
-                                class="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-red-50 text-red-500 hover:text-red-600 transition-colors"
-                                title="Delete"
-                              >
-                                <svg
-                                  class="h-4 w-4"
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  stroke-width="2"
-                                >
-                                  <path
-                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                                  />
-                                </svg>
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr
-                          class="border-b transition-colors hover:bg-muted/50"
-                        >
-                          <td class="p-4 pl-6 align-middle font-medium">
-                            Charles Babbage
-                          </td>
-                          <td class="p-4 align-middle">False</td>
-                          <td class="p-4 align-middle">cell</td>
-                          <td class="p-4 pr-6 align-middle text-right">
-                            <div class="flex justify-end">
-                              <button
-                                class="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-blue-50 text-blue-500 hover:text-blue-600 transition-colors"
-                                title="Edit"
-                              >
-                                <svg
-                                  class="h-4 w-4"
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  stroke-width="2"
-                                >
-                                  <path
-                                    d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"
-                                  />
-                                  <path
-                                    d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"
-                                  />
-                                </svg>
-                              </button>
-                              <button
-                                class="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-red-50 text-red-500 hover:text-red-600 transition-colors"
-                                title="Delete"
-                              >
-                                <svg
-                                  class="h-4 w-4"
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  stroke-width="2"
-                                >
-                                  <path
-                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                                  />
-                                </svg>
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
+                                <path
+                                  d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                                />
+                              </svg>
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
-
-                <div class="flex justify-end p-6">
+                <div class="flex justify-end p-6 border-t border-gray-100">
                   <button
-                    class="inline-flex h-8 items-center justify-center gap-2 rounded-md bg-primary px-3 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-all"
+                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2"
                   >
                     <svg
                       class="h-4 w-4"
@@ -1096,63 +813,75 @@
                     >
                       <path d="M12 5v14m7-7H5" />
                     </svg>
-                    Add
+                    Add Answer
                   </button>
                 </div>
               </div>
 
-              <!-- Answer Form Card -->
               <div
-                class="rounded-xl border bg-card text-card-foreground shadow-sm flex flex-col gap-6 py-4"
+                class="rounded-lg border border-gray-100 text-card-foreground shadow-sm bg-white"
               >
-                <div class="px-6 border-b pb-6">
-                  <div class="font-semibold leading-none">Add Answer</div>
+                <div
+                  class="flex flex-col space-y-1.5 p-6 border-b border-gray-100"
+                >
+                  <h3 class="font-semibold tracking-tight text-2xl">
+                    Add Answer
+                  </h3>
+                </div>
+                <div class="p-6">
+                  <div class="flex flex-col">
+                    <div class="space-y-6">
+                      <div class="flex flex-col gap-2">
+                        <label class="text-sm font-medium">Description</label>
+                        <textarea
+                          class="flex min-h-[120px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring resize-y"
+                          placeholder="Enter answer description"
+                          rows="3"
+                        ></textarea>
+                      </div>
+                    </div>
+                    <div class="space-y-6">
+                      <div class="flex flex-row gap-4 pt-2">
+                        <div class="flex flex-col gap-2 pt-4">
+                          <label class="text-sm font-medium">Is Correct?</label>
+                          <div class="flex h-9 items-center gap-2">
+                            <input
+                              type="checkbox"
+                              id="status-filter"
+                              class="peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                            />
+                            <label
+                              for="status-filter"
+                              class="text-sm font-medium cursor-pointer select-none"
+                              >Active</label
+                            >
+                          </div>
+                        </div>
+                        <div class="flex flex-col gap-2 pt-4">
+                          <label class="text-sm font-medium">Status</label>
+                          <div class="flex h-9 items-center gap-2">
+                            <input
+                              type="checkbox"
+                              id="status-filter"
+                              class="peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                            />
+                            <label
+                              for="status-filter"
+                              class="text-sm font-medium cursor-pointer select-none"
+                              >Active</label
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
-                <div class="px-6">
-                  <div class="space-y-2">
-                    <label class="text-sm font-medium leading-none"
-                      >Description</label
-                    >
-                    <textarea
-                      class="flex min-h-[80px] w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-xs transition-all outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]"
-                      placeholder="Enter your email"
-                      rows="3"
-                    ></textarea>
-                  </div>
-
-                  <div class="flex gap-8 mt-6">
-                    <div class="flex items-center space-x-2">
-                      <input
-                        type="checkbox"
-                        id="answer-active"
-                        class="h-4 w-4 rounded border border-input bg-background"
-                      />
-                      <label
-                        for="answer-active"
-                        class="text-sm font-medium leading-none"
-                        >Is Active?</label
-                      >
-                    </div>
-
-                    <div class="flex items-center space-x-2">
-                      <input
-                        type="checkbox"
-                        id="answer-correct"
-                        class="h-4 w-4 rounded border border-input bg-background"
-                      />
-                      <label
-                        for="answer-correct"
-                        class="text-sm font-medium leading-none"
-                        >Is Correct?</label
-                      >
-                    </div>
-                  </div>
-                </div>
-
-                <div class="flex gap-2 justify-end border-t pt-6 px-6">
+                <div
+                  class="flex justify-end gap-2 border-t border-gray-100 p-6"
+                >
                   <button
-                    class="inline-flex h-8 items-center justify-center gap-2 rounded-md border border-input bg-background px-3 text-sm font-medium shadow-xs hover:bg-accent hover:text-accent-foreground transition-all text-muted-foreground"
+                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 text-muted-foreground"
                   >
                     <svg
                       class="h-4 w-4"
@@ -1168,7 +897,7 @@
                     Cancel
                   </button>
                   <button
-                    class="inline-flex h-8 items-center justify-center gap-2 rounded-md bg-primary px-3 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-all"
+                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2"
                   >
                     <svg
                       class="h-4 w-4"
@@ -1191,7 +920,6 @@
         </div>
       </div>
     </div>
-
     <script src="assets/js/main.js"></script>
   </body>
 </html>

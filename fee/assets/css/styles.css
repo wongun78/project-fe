@@ -1,12 +1,4 @@
-/* 
-  Tailwind CSS v4.1 - Custom Configuration
-  Using Play CDN (@tailwindcss/browser@4)
-  Matching React project-fe theme
-*/
-
-/* Theme Customization */
 @theme {
-  /* Custom Colors - Define as Tailwind utilities */
   --color-primary: #38b6ff;
   --color-secondary: #f1f5f9;
   --color-muted: #f1f5f9;
@@ -16,7 +8,6 @@
   --color-border: #e2e8f0;
 }
 
-/* Custom Utility Classes */
 .container-custom {
   max-width: 80rem;
   margin-left: auto;
@@ -39,7 +30,6 @@
   }
 }
 
-/* Custom Color Classes Matching React */
 .bg-background {
   background-color: #ffffff;
 }
@@ -84,7 +74,6 @@
   border-color: transparent;
 }
 
-/* Reset & Base Styles */
 *,
 *::before,
 *::after {
@@ -142,7 +131,6 @@ select {
   font: inherit;
 }
 
-/* Focus Styles */
 :focus-visible {
   outline: 2px solid #38b6ff;
   outline-offset: 2px;

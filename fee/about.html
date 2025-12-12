@@ -65,142 +65,112 @@
     </style>
   </head>
   <body class="bg-background">
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-16">
-          <a href="home.html" class="flex items-center space-x-2">
-            <img src="assets/icons/logo.png" alt="Quiz Logo" class="h-8 w-8" />
-            <span class="text-xl font-semibold text-gray-900">Quizzes</span>
-          </a>
+    <header
+      class="sticky top-0 z-50 border-b border-border/40 bg-background/95 backdrop-blur-sm"
+    >
+      <div class="container-custom flex h-16 items-center justify-between">
+        <a href="home.html" class="flex items-center gap-2 font-bold">
+          <img src="assets/icons/logo.png" alt="Quiz Logo" class="h-8 w-8" />
+          <span class="text-xl tracking-tight text-foreground">Quizzes</span>
+        </a>
 
-          <nav class="hidden md:flex space-x-8">
-            <a
-              href="home.html"
-              class="text-gray-600 hover:text-gray-900 transition-colors"
-              >Home</a
-            >
-            <a
-              href="quizzes.html"
-              class="text-gray-600 hover:text-gray-900 transition-colors"
-              >Quizzes</a
-            >
-            <a
-              href="#"
-              class="text-gray-600 hover:text-gray-900 transition-colors"
-              data-auth-required
-              >Management</a
-            >
-            <a
-              href="about.html"
-              class="text-blue-600 font-medium border-b-2 border-blue-600 pb-1"
-              >About</a
-            >
-            <a
-              href="contact.html"
-              class="text-gray-600 hover:text-gray-900 transition-colors"
-              >Contact</a
-            >
-          </nav>
+        <nav class="hidden gap-6 md:flex items-center">
+          <a
+            href="home.html"
+            class="text-sm font-medium transition-colors text-muted-foreground hover:text-primary"
+            >Home</a
+          >
+          <a
+            href="quizzes.html"
+            class="text-sm font-medium transition-colors text-muted-foreground hover:text-primary"
+            >Quizzes</a
+          >
+          <a
+            href="quiz-management.html"
+            class="text-sm font-medium transition-colors text-muted-foreground hover:text-primary"
+            data-auth-required
+            >Management</a
+          >
+          <a
+            href="about.html"
+            class="text-sm font-medium transition-colors text-primary"
+            >About</a
+          >
+          <a
+            href="contact.html"
+            class="text-sm font-medium transition-colors text-muted-foreground hover:text-primary"
+            >Contact</a
+          >
+        </nav>
 
-          <div class="flex items-center space-x-4">
-            <div class="relative hidden md:block" data-auth-ui>
-              <button
-                id="userAvatarBtn"
-                class="flex items-center space-x-2 focus:outline-none"
-                aria-label="User menu"
-              >
-                <img
-                  src="assets/images/teams/team-1.png"
-                  alt="User Avatar"
-                  class="h-8 w-8 rounded-full object-cover"
-                />
-              </button>
-              <div
-                id="userDropdownMenu"
-                class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 hidden"
-              >
-                <div class="px-4 py-2 border-b border-gray-200">
-                  <p class="text-sm font-semibold text-gray-900">Kien Trung</p>
+        <div class="flex items-center gap-2">
+          <div class="relative" data-auth-ui>
+            <button
+              class="flex h-8 w-8 items-center justify-center rounded-full hover:bg-accent"
+              id="userAvatarBtn"
+              aria-label="User menu"
+            >
+              <img
+                src="assets/images/teams/team-1.png"
+                alt="User Avatar"
+                class="h-8 w-8 rounded-full object-cover"
+              />
+            </button>
+            <div
+              id="userDropdownMenu"
+              class="hidden absolute right-0 mt-2 w-48 rounded-md bg-white shadow-lg ring-1 ring-gray-100 ring-opacity-5 z-50"
+            >
+              <div class="py-1" role="menu">
+                <div
+                  class="px-4 py-2 text-sm font-semibold text-gray-900 border-b border-gray-100"
+                >
+                  Kien Nguyen
                 </div>
                 <a
                   href="#"
                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                   >Change Password</a
                 >
-                <div class="border-t border-gray-200 my-1"></div>
                 <a
-                  href="login.html"
+                  href="#"
                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                   >Logout</a
                 >
               </div>
             </div>
-
-            <div
-              class="hidden md:flex space-x-3"
-              data-guest-ui
-              style="display: none"
-            >
-              <a
-                href="login.html"
-                class="px-4 py-2 text-sm font-medium text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
-                >Login</a
-              >
-              <a
-                href="register.html"
-                class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors"
-                >Register</a
-              >
-            </div>
-
-            <button
-              id="mobileMenuToggle"
-              class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
-              aria-label="Toggle menu"
-            >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-              </svg>
-            </button>
           </div>
-        </div>
-      </div>
+          <div class="hidden gap-2" data-guest-ui>
+            <a
+              href="login.html"
+              class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2"
+              >Login</a
+            >
+            <a
+              href="register.html"
+              class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2"
+              >Register</a
+            >
+          </div>
 
-      <div
-        id="mobileMenu"
-        class="hidden md:hidden border-t border-gray-200 bg-white"
-      >
-        <nav class="px-4 py-3 space-y-2">
-          <a
-            href="home.html"
-            class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-lg"
-            >Home</a
+          <button
+            class="md:hidden flex h-8 w-8 items-center justify-center rounded-md hover:bg-accent"
+            id="mobileMenuToggle"
+            aria-label="Toggle menu"
           >
-          <a
-            href="quizzes.html"
-            class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-lg"
-            >Quizzes</a
-          >
-          <a
-            href="about.html"
-            class="block px-3 py-2 text-blue-600 font-medium bg-blue-50 rounded-lg"
-            >About</a
-          >
-          <a
-            href="contact.html"
-            class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-lg"
-            >Contact</a
-          >
-        </nav>
+            <svg
+              class="h-6 w-6"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
       </div>
     </header>
 
@@ -282,7 +252,7 @@
       </div>
     </section>
 
-    <section class="py-12 bg-muted/30">
+    <section class="py-12 bg-white">
       <div class="container-custom">
         <div class="text-center mb-10">
           <h2 class="text-2xl md:text-3xl font-bold text-foreground mt-2">
@@ -291,46 +261,43 @@
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          <!-- Team Member 1 -->
           <article
-            class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow p-6 text-center"
+            class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow pt-25 text-center"
           >
             <img
               src="assets/images/teams/team-1.png"
               alt="Cong Dinh"
-              class="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
+              class="w-64 h-64 rounded-full mx-auto mb-4 object-cover"
             />
-            <div class="space-y-2">
+            <div class="">
               <h3 class="text-xl font-semibold text-foreground">Cong Dinh</h3>
               <p class="text-muted-foreground">Tech Lead</p>
             </div>
           </article>
 
-          <!-- Team Member 2 -->
           <article
-            class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow p-6 text-center"
+            class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow p-25 text-center"
           >
             <img
               src="assets/images/teams/team-2.png"
               alt="Trung Kien"
-              class="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
+              class="w-64 h-64 rounded-full mx-auto mb-4 object-cover"
             />
-            <div class="space-y-2">
+            <div class="">
               <h3 class="text-xl font-semibold text-foreground">Trung Kien</h3>
               <p class="text-muted-foreground">QA Engineer</p>
             </div>
           </article>
 
-          <!-- Team Member 3 -->
           <article
-            class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow p-6 text-center"
+            class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow p-25 text-center"
           >
             <img
               src="assets/images/teams/team-3.png"
               alt="Minh Tuan"
-              class="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
+              class="w-64 h-64 rounded-full mx-auto mb-4 object-cover"
             />
-            <div class="space-y-2">
+            <div class="">
               <h3 class="text-xl font-semibold text-foreground">Minh Tuan</h3>
               <p class="text-muted-foreground">Developer</p>
             </div>
@@ -339,11 +306,11 @@
       </div>
     </section>
 
-    <footer class="bg-gray-900 text-white py-12">
+    <footer class="bg-white text-gray-600 border-t border-gray-300 py-4">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid md:grid-cols-3 gap-8 mb-8">
           <div>
-            <a href="home.html" class="flex items-center space-x-2 mb-4">
+            <a href="home.html" class="flex items-center mb-4">
               <img
                 src="assets/icons/logo.png"
                 alt="Quiz Logo"
@@ -359,7 +326,7 @@
 
           <div>
             <h4 class="text-lg font-semibold mb-4">Menu</h4>
-            <nav class="flex flex-col space-y-2">
+            <nav class="flex flex-col">
               <a
                 href="home.html"
                 class="text-gray-400 hover:text-white transition-colors"
@@ -431,7 +398,7 @@
           </div>
         </div>
 
-        <div class="border-t border-gray-800 pt-8 text-center">
+        <div class="border-t border-gray-300 pt-4 text-center">
           <p class="text-gray-400">
             &copy; 2024 Quiz App. All rights reserved.
           </p>

@@ -6,13 +6,13 @@ document.addEventListener("DOMContentLoaded", function () {
   const authRequiredLinks = document.querySelectorAll("[data-auth-required]");
 
   if (isAuthenticated) {
-    authUI.forEach((el) => (el.style.display = ""));
-    guestUI.forEach((el) => (el.style.display = "none"));
-    authRequiredLinks.forEach((el) => (el.style.display = ""));
+    authUI.forEach((el) => el.classList.remove("hidden"));
+    guestUI.forEach((el) => el.classList.add("hidden"));
+    authRequiredLinks.forEach((el) => el.classList.remove("hidden"));
   } else {
-    authUI.forEach((el) => (el.style.display = "none"));
-    guestUI.forEach((el) => (el.style.display = ""));
-    authRequiredLinks.forEach((el) => (el.style.display = "none"));
+    authUI.forEach((el) => el.classList.add("hidden"));
+    guestUI.forEach((el) => el.classList.remove("hidden"));
+    authRequiredLinks.forEach((el) => el.classList.add("hidden"));
   }
 
   const mobileMenuToggle = document.getElementById("mobileMenuToggle");
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (mobileMenuToggle && mobileMenu) {
     mobileMenuToggle.addEventListener("click", function () {
-      mobileMenu.classList.toggle("active");
+      mobileMenu.classList.toggle("hidden");
     });
 
     document.addEventListener("click", function (event) {
@@ -32,15 +32,15 @@ document.addEventListener("DOMContentLoaded", function () {
       if (
         !isClickInsideMenu &&
         !isClickOnToggle &&
-        mobileMenu.classList.contains("active")
+        !mobileMenu.classList.contains("hidden")
       ) {
-        mobileMenu.classList.remove("active");
+        mobileMenu.classList.add("hidden");
       }
     });
 
     window.addEventListener("resize", function () {
       if (window.innerWidth >= 768) {
-        mobileMenu.classList.remove("active");
+        mobileMenu.classList.add("hidden");
       }
     });
   }
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (userAvatarBtn && userDropdownMenu) {
     userAvatarBtn.addEventListener("click", function (e) {
       e.stopPropagation();
-      userDropdownMenu.classList.toggle("active");
+      userDropdownMenu.classList.toggle("hidden");
     });
 
     document.addEventListener("click", function (event) {
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
         !userDropdownMenu.contains(event.target) &&
         !userAvatarBtn.contains(event.target)
       ) {
-        userDropdownMenu.classList.remove("active");
+        userDropdownMenu.classList.add("hidden");
       }
     });
   }
