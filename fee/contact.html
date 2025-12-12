@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz App</title>
 
-    <!-- CSS -->
     <link rel="stylesheet" href="assets/css/reset.css" />
     <link rel="stylesheet" href="assets/css/variables.css" />
     <link rel="stylesheet" href="assets/css/main.css" />
@@ -13,7 +12,6 @@
     <link rel="stylesheet" href="assets/css/contact.css" />
   </head>
   <body>
-    <!-- Navbar -->
     <header class="navbar">
       <div class="container-custom navbar-container">
         <a href="home.html" class="navbar-logo">
@@ -24,13 +22,40 @@
         <nav class="navbar-nav">
           <a href="home.html" class="navbar-link">Home</a>
           <a href="quizzes.html" class="navbar-link">Quizzes</a>
+          <a href="#" class="navbar-link" data-auth-required>Management</a>
           <a href="about.html" class="navbar-link">About</a>
           <a href="contact.html" class="navbar-link active">Contact</a>
         </nav>
 
         <div class="navbar-actions">
-          <a href="login.html" class="btn btn-outline btn-sm">Login</a>
-          <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+          <div class="user-dropdown" data-auth-ui>
+            <button
+              class="user-avatar-btn"
+              id="userAvatarBtn"
+              aria-label="User menu"
+            >
+              <img
+                src="assets/images/teams/team-1.png"
+                alt="User Avatar"
+                class="user-avatar-icon"
+              />
+            </button>
+            <div class="user-dropdown-menu" id="userDropdownMenu">
+              <div class="dropdown-header">
+                <p class="dropdown-name">Kien Trung</p>
+              </div>
+              <div class="dropdown-divider"></div>
+
+              <a href="#" class="dropdown-item">Change Password</a>
+              <div class="dropdown-divider"></div>
+              <a href="login.html" class="dropdown-item">Logout</a>
+            </div>
+          </div>
+
+          <div class="auth-buttons" data-guest-ui style="display: none">
+            <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+            <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+          </div>
 
           <button
             class="navbar-mobile-toggle"
@@ -129,7 +154,6 @@
             </form>
           </div>
 
-          <!-- Contact Information -->
           <div class="contact-info-section">
             <h2 class="section-title">Our Information</h2>
             <p class="section-description">
@@ -179,7 +203,6 @@
               </li>
             </ul>
 
-            <!-- Social Media Links -->
             <div class="social-links">
               <a href="#" class="social-link" aria-label="TikTok">
                 <svg
@@ -231,12 +254,14 @@
       </div>
     </div>
 
-    <!-- Footer -->
     <footer class="footer">
       <div class="container-custom">
         <div class="footer-content">
           <div class="footer-about">
-            <h3>Quiz App</h3>
+            <a href="home.html" class="about-logo">
+              <img src="assets/icons/logo.png" alt="Quiz Logo" />
+              <span>Quizzes</span>
+            </a>
             <p>
               The leading online quiz platform to test your knowledge and learn
               new things every day.
@@ -306,6 +331,5 @@
     </footer>
 
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/auth.js"></script>
   </body>
 </html>

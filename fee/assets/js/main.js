@@ -1,6 +1,24 @@
+const isAuthenticated = true;
+
 document.addEventListener("DOMContentLoaded", function () {
+  const authUI = document.querySelectorAll("[data-auth-ui]");
+  const guestUI = document.querySelectorAll("[data-guest-ui]");
+  const authRequiredLinks = document.querySelectorAll("[data-auth-required]");
+
+  if (isAuthenticated) {
+    authUI.forEach((el) => (el.style.display = ""));
+    guestUI.forEach((el) => (el.style.display = "none"));
+    authRequiredLinks.forEach((el) => (el.style.display = ""));
+  } else {
+    authUI.forEach((el) => (el.style.display = "none"));
+    guestUI.forEach((el) => (el.style.display = ""));
+    authRequiredLinks.forEach((el) => (el.style.display = "none"));
+  }
+
   const mobileMenuToggle = document.getElementById("mobileMenuToggle");
   const mobileMenu = document.getElementById("mobileMenu");
+  const userAvatarBtn = document.getElementById("userAvatarBtn");
+  const userDropdownMenu = document.getElementById("userDropdownMenu");
 
   if (mobileMenuToggle && mobileMenu) {
     mobileMenuToggle.addEventListener("click", function () {
@@ -23,6 +41,22 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("resize", function () {
       if (window.innerWidth >= 768) {
         mobileMenu.classList.remove("active");
+      }
+    });
+  }
+
+  if (userAvatarBtn && userDropdownMenu) {
+    userAvatarBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      userDropdownMenu.classList.toggle("active");
+    });
+
+    document.addEventListener("click", function (event) {
+      if (
+        !userDropdownMenu.contains(event.target) &&
+        !userAvatarBtn.contains(event.target)
+      ) {
+        userDropdownMenu.classList.remove("active");
       }
     });
   }
@@ -53,45 +87,5 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     }
   });
 });
-
-function validateForm(formId) {
-  const form = document.getElementById(formId);
-  if (!form) return false;
-
-  const inputs = form.querySelectorAll("input[required], textarea[required]");
-  let isValid = true;
-
-  inputs.forEach((input) => {
-    if (!input.value.trim()) {
-      isValid = false;
-      input.classList.add("error");
-      showError(input, "This field is required");
-    } else {
-      input.classList.remove("error");
-      hideError(input);
-    }
-  });
-
-  return isValid;
-}
-
-function showError(input, message) {
-  const errorElement = input.nextElementSibling;
-  if (errorElement && errorElement.classList.contains("error-message")) {
-    errorElement.textContent = message;
-  } else {
-    const error = document.createElement("span");
-    error.className = "error-message";
-    error.textContent = message;
-    input.parentNode.insertBefore(error, input.nextSibling);
-  }
-}
-
-function hideError(input) {
-  const errorElement = input.nextElementSibling;
-  if (errorElement && errorElement.classList.contains("error-message")) {
-    errorElement.remove();
-  }
-}
 
 setActiveNavLink();

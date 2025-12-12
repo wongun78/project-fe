@@ -61,7 +61,7 @@
   font-size: 0.875rem;
   font-weight: 500;
   border-radius: var(--radius);
-  transition: var(--transition-colors), var(--transition-transform);
+  transition: var(--transition-colors);
   cursor: pointer;
   border: none;
   white-space: nowrap;
@@ -103,8 +103,23 @@
   font-weight: 500;
   border-top-right-radius: var(--radius);
   border-bottom-right-radius: var(--radius);
-  transition: var(--transition-colors), var(--transition-transform);
+  transition: var(--transition-colors);
   cursor: pointer;
   border: none;
   white-space: nowrap;
+}
+
+.about-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: -0.025em;
+  color: var(--foreground);
+}
+
+.about-logo img {
+  height: 2rem;
+  width: 2rem;
 }

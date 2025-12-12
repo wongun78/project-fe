@@ -127,3 +127,18 @@
   flex-shrink: 0;
   color: var(--primary);
 }
+
+.about-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: -0.025em;
+  color: var(--foreground);
+}
+
+.about-logo img {
+  height: 2rem;
+  width: 2rem;
+}

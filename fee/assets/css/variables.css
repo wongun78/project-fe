@@ -1,9 +1,6 @@
 :root {
   --radius: 0.625rem;
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
 
   --background: #ffffff;
   --foreground: #1e293b;
@@ -18,15 +15,6 @@
   --secondary-foreground: #334155;
   --muted: #f1f5f9;
   --muted-foreground: #64748b;
-  --accent: #f1f5f9;
-  --accent-foreground: #334155;
-
-  --destructive: #ef4444;
-  --destructive-foreground: #ffffff;
-  --success: #10b981;
-  --success-foreground: #ffffff;
-  --warning: #f59e0b;
-  --warning-foreground: #ffffff;
 
   --border: #e2e8f0;
   --input: #e2e8f0;
@@ -38,12 +26,9 @@
   --container-padding: 1rem;
   --section-padding-y: 3rem;
 
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
     0 4px 6px -4px rgb(0 0 0 / 0.1);
 
   --transition-colors: color 150ms ease-in-out,
     background-color 150ms ease-in-out, border-color 150ms ease-in-out;
-  --transition-transform: transform 150ms ease-in-out;
 }

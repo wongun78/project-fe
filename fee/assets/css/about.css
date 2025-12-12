@@ -126,12 +126,12 @@
   border-radius: var(--radius-lg);
   padding: 1.5rem;
   text-align: center;
-  transition: var(--transition-transform), box-shadow 150ms ease-in-out;
+  transition: var(--transition-colors), box-shadow 150ms ease-in-out;
 }
 
 .team-card:hover {
-  transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
+  border-color: var(--primary);
 }
 
 .team-avatar {

@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz App</title>
 
-    <!-- CSS -->
     <link rel="stylesheet" href="assets/css/reset.css" />
     <link rel="stylesheet" href="assets/css/variables.css" />
     <link rel="stylesheet" href="assets/css/main.css" />
@@ -14,15 +13,12 @@
   <body>
     <div class="auth-container">
       <div class="auth-card">
-        <!-- Card Header -->
         <div class="auth-header">
           <h1 class="auth-title">Register</h1>
         </div>
 
-        <!-- Card Content -->
         <div class="auth-content">
           <form class="auth-form" id="registerForm">
-            <!-- First Name & Last Name -->
             <div class="form-grid">
               <div class="form-group">
                 <label for="firstName" class="form-label">First Name</label>
@@ -31,7 +27,6 @@
                   id="firstName"
                   class="form-input"
                   placeholder="Enter your first name"
-                  required
                 />
               </div>
 
@@ -42,12 +37,10 @@
                   id="lastName"
                   class="form-input"
                   placeholder="Enter your last name"
-                  required
                 />
               </div>
             </div>
 
-            <!-- Email -->
             <div class="form-group">
               <label for="email" class="form-label">Email Address</label>
               <input
@@ -55,11 +48,9 @@
                 id="email"
                 class="form-input"
                 placeholder="Enter your email"
-                required
               />
             </div>
 
-            <!-- Username & Phone -->
             <div class="form-grid">
               <div class="form-group">
                 <label for="username" class="form-label">Username</label>
@@ -68,7 +59,6 @@
                   id="username"
                   class="form-input"
                   placeholder="Enter your username"
-                  required
                 />
               </div>
 
@@ -83,7 +73,6 @@
               </div>
             </div>
 
-            <!-- Password -->
             <div class="form-group">
               <label for="password" class="form-label">Password</label>
               <input
@@ -91,11 +80,9 @@
                 id="password"
                 class="form-input"
                 placeholder="Enter your password"
-                required
               />
             </div>
 
-            <!-- Confirm Password -->
             <div class="form-group">
               <label for="confirmPassword" class="form-label"
                 >Confirm Password</label
@@ -105,18 +92,15 @@
                 id="confirmPassword"
                 class="form-input"
                 placeholder="Confirm your password"
-                required
               />
             </div>
 
-            <!-- Actions -->
             <div class="auth-actions">
               <a href="home.html" class="btn btn-outline">Back to Home</a>
               <button type="submit" class="btn btn-primary">Register</button>
             </div>
           </form>
 
-          <!-- Additional Links -->
           <div class="auth-links">
             <p class="auth-link-item">
               <span class="text-muted">Already have an account? </span>
@@ -127,8 +111,6 @@
       </div>
     </div>
 
-    <!-- JavaScript -->
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/auth.js"></script>
   </body>
 </html>
