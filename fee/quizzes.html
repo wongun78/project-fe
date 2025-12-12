@@ -4,9 +4,67 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz App</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+      @theme {
+        --color-primary: #38b6ff;
+        --color-secondary: #f1f5f9;
+        --color-muted: #64748b;
+        --color-foreground: #0f172a;
+        --color-background: #ffffff;
+        --color-border: #e2e8f0;
+      }
+      .bg-primary {
+        background-color: #38b6ff;
+      }
+      .text-primary {
+        color: #38b6ff;
+      }
+      .bg-secondary {
+        background-color: #f1f5f9;
+      }
+      .bg-muted {
+        background-color: #f1f5f9;
+      }
+      .text-muted {
+        color: #64748b;
+      }
+      .text-muted-foreground {
+        color: #64748b;
+      }
+      .text-foreground {
+        color: #0f172a;
+      }
+      .bg-foreground {
+        background-color: #0f172a;
+      }
+      .bg-background {
+        background-color: #ffffff;
+      }
+      .border-input {
+        border-color: #e2e8f0;
+      }
+      .border-border {
+        border-color: #e2e8f0;
+      }
+      .container-custom {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+      @media (min-width: 640px) {
+        .container-custom {
+          padding: 0 1.5rem;
+        }
+      }
+      @media (min-width: 1024px) {
+        .container-custom {
+          padding: 0 2rem;
+        }
+      }
+    </style>
   </head>
-  <body class="bg-gray-50">
+  <body class="bg-background">
     <header class="bg-white shadow-sm sticky top-0 z-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
@@ -146,132 +204,137 @@
       </div>
     </header>
 
-    <section class="py-12 md:py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-3xl mx-auto text-center">
-          <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            Take a Quiz
-          </h1>
+    <section class="container-custom py-12 md:py-12">
+      <div class="w-full mx-auto text-center space-y-6">
+        <h1 class="text-3xl font-bold tracking-tight">Take a Quiz</h1>
 
-          <form
-            class="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center"
-          >
+        <form class="flex flex-col sm:flex-row items-center w-full">
+          <div class="relative w-full">
             <input
               type="text"
               placeholder="Enter quiz code to take a quiz"
-              class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              class="flex h-12 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
             />
+          </div>
 
-            <button
-              type="submit"
-              class="px-6 py-3 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors whitespace-nowrap"
-            >
-              Take Quiz
-            </button>
-          </form>
-        </div>
+          <button
+            type="submit"
+            class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-bold transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring bg-primary text-white shadow hover:bg-primary/90 h-12 px-8 w-full sm:w-auto"
+          >
+            Take Quiz
+          </button>
+        </form>
       </div>
     </section>
 
-    <section class="py-12 md:py-16">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="mb-8">
-          <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center">
-            QUIZZES
+    <section class="py-12 bg-muted/30">
+      <div class="container-custom">
+        <div class="text-center mb-10">
+          <h2 class="text-2xl md:text-3xl font-bold text-foreground mt-2">
+            Quizzes
           </h2>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           <article
-            class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+            class="rounded-lg border-none shadow-md overflow-hidden hover:shadow-lg transition-shadow bg-white"
           >
-            <img
-              src="assets/images/quizzes/quiz-1.png"
-              alt="Capitals of Country"
-              class="w-full h-48 object-cover"
-            />
+            <div class="relative h-48 w-full overflow-hidden">
+              <img
+                src="assets/images/quizzes/quiz-1.png"
+                alt="Capitals of Country"
+                class="h-full w-full object-cover"
+              />
+            </div>
 
-            <div class="p-6">
-              <div class="flex justify-between items-start mb-3">
-                <h3 class="text-xl font-semibold text-gray-900">
-                  Capitals of Country
-                </h3>
-                <span class="text-sm text-gray-600">15m</span>
-              </div>
-
-              <p class="text-gray-600 mb-4">
-                Test your knowledge about world capitals and geography.
-              </p>
-
-              <div>
-                <a
-                  href="quizzes.html"
-                  class="inline-block px-4 py-2 text-sm font-medium text-blue-600 border border-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
-                  >Start</a
+            <div class="p-4">
+              <div class="flex justify-between items-center mb-2">
+                <h3 class="font-bold text-lg">Capitals of Country</h3>
+                <span
+                  class="inline-flex items-center rounded-md bg-secondary px-2 py-1 text-xs font-medium text-foreground"
+                  >15m</span
                 >
               </div>
+
+              <p class="text-sm text-muted-foreground">
+                Test your knowledge about world capitals and geography.
+              </p>
+            </div>
+
+            <div class="p-4 pt-0">
+              <a
+                href="quizzes.html"
+                class="inline-flex items-center justify-center w-full whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring bg-primary text-white shadow hover:bg-primary/90 h-10 px-4 py-2"
+                >Start Quiz</a
+              >
             </div>
           </article>
 
           <article
-            class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+            class="rounded-lg border-none shadow-md overflow-hidden hover:shadow-lg transition-shadow bg-white"
           >
-            <img
-              src="assets/images/quizzes/quiz-2.png"
-              alt="Capitals of Country"
-              class="w-full h-48 object-cover"
-            />
+            <div class="relative h-48 w-full overflow-hidden">
+              <img
+                src="assets/images/quizzes/quiz-2.png"
+                alt="Capitals of Country"
+                class="h-full w-full object-cover"
+              />
+            </div>
 
-            <div class="p-6">
-              <div class="flex justify-between items-start mb-3">
-                <h3 class="text-xl font-semibold text-gray-900">
-                  Capitals of Country
-                </h3>
-                <span class="text-sm text-gray-600">15m</span>
-              </div>
-
-              <p class="text-gray-600 mb-4">
-                Test your knowledge about world capitals and geography.
-              </p>
-
-              <div>
-                <a
-                  href="quizzes.html"
-                  class="inline-block px-4 py-2 text-sm font-medium text-blue-600 border border-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
-                  >Start</a
+            <div class="p-4">
+              <div class="flex justify-between items-center mb-2">
+                <h3 class="font-bold text-lg">Capitals of Country</h3>
+                <span
+                  class="inline-flex items-center rounded-md bg-secondary px-2 py-1 text-xs font-medium text-foreground"
+                  >15m</span
                 >
               </div>
+
+              <p class="text-sm text-muted-foreground">
+                Test your knowledge about world capitals and geography.
+              </p>
+            </div>
+
+            <div class="p-4 pt-0">
+              <a
+                href="quizzes.html"
+                class="inline-flex items-center justify-center w-full whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring bg-primary text-white shadow hover:bg-primary/90 h-10 px-4 py-2"
+                >Start Quiz</a
+              >
             </div>
           </article>
 
           <article
-            class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+            class="rounded-lg border-none shadow-md overflow-hidden hover:shadow-lg transition-shadow bg-white"
           >
-            <img
-              src="assets/images/quizzes/quiz-3.png"
-              alt="Capitals of Country"
-              class="w-full h-48 object-cover"
-            />
+            <div class="relative h-48 w-full overflow-hidden">
+              <img
+                src="assets/images/quizzes/quiz-3.png"
+                alt="Capitals of Country"
+                class="h-full w-full object-cover"
+              />
+            </div>
 
-            <div class="p-6">
-              <div class="flex justify-between items-start mb-3">
-                <h3 class="text-xl font-semibold text-gray-900">
-                  Capitals of Country
-                </h3>
-                <span class="text-sm text-gray-600">15m</span>
-              </div>
-
-              <p class="text-gray-600 mb-4">
-                Test your knowledge about world capitals and geography.
-              </p>
-
-              <div>
-                <a
-                  href="quizzes.html"
-                  class="inline-block px-4 py-2 text-sm font-medium text-blue-600 border border-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
-                  >Start</a
+            <div class="p-4">
+              <div class="flex justify-between items-center mb-2">
+                <h3 class="font-bold text-lg">Capitals of Country</h3>
+                <span
+                  class="inline-flex items-center rounded-md bg-secondary px-2 py-1 text-xs font-medium text-foreground"
+                  >15m</span
                 >
               </div>
+
+              <p class="text-sm text-muted-foreground">
+                Test your knowledge about world capitals and geography.
+              </p>
+            </div>
+
+            <div class="p-4 pt-0">
+              <a
+                href="quizzes.html"
+                class="inline-flex items-center justify-center w-full whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring bg-primary text-white shadow hover:bg-primary/90 h-10 px-4 py-2"
+                >Start Quiz</a
+              >
             </div>
           </article>
         </div>
