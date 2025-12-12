@@ -3,66 +3,137 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quiz App</title>
+    <title>Quiz App - Question Management</title>
+    <script src="https://cdn.tailwindcss.com/4.0.0-beta.3"></script>
+    <style type="text/tailwindcss">
+      @theme {
+        --color-primary: #38b6ff;
+        --color-primary-foreground: #ffffff;
+        --color-secondary: #f1f5f9;
+        --color-secondary-foreground: #0f172a;
+        --color-muted: #f1f5f9;
+        --color-muted-foreground: #64748b;
+        --color-accent: #f1f5f9;
+        --color-accent-foreground: #0f172a;
+        --color-destructive: #ef4444;
+        --color-destructive-foreground: #ffffff;
+        --color-foreground: #0f172a;
+        --color-card: #ffffff;
+        --color-card-foreground: #0f172a;
+        --color-background: #ffffff;
+        --color-border: #e2e8f0;
+        --color-input: #e2e8f0;
+        --color-ring: #38b6ff;
+      }
 
-    <link rel="stylesheet" href="assets/css/reset.css" />
-    <link rel="stylesheet" href="assets/css/variables.css" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="stylesheet" href="assets/css/admin.css" />
+      .container-custom {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+
+      @media (min-width: 640px) {
+        .container-custom {
+          padding: 0 1.5rem;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .container-custom {
+          padding: 0 2rem;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div class="admin-layout">
-      <header class="navbar">
-        <div class="container-custom navbar-container">
-          <a href="home.html" class="navbar-logo">
-            <img src="assets/icons/logo.png" alt="Quiz Logo" />
-            <span>Quizzes</span>
+    <div class="flex h-screen w-full flex-col bg-secondary/10">
+      <!-- Navbar -->
+      <header
+        class="sticky top-0 z-50 border-b border-border/40 bg-background/95 backdrop-blur-sm"
+      >
+        <div class="container-custom flex h-16 items-center justify-between">
+          <a href="home.html" class="flex items-center gap-2 font-bold">
+            <img src="assets/icons/logo.png" alt="Quiz Logo" class="h-8 w-8" />
+            <span class="text-xl tracking-tight text-foreground">Quizzes</span>
           </a>
 
-          <nav class="navbar-nav">
-            <a href="home.html" class="navbar-link">Home</a>
-            <a href="quizzes.html" class="navbar-link">Quizzes</a>
-            <a href="question-management.html" class="navbar-link active"
+          <nav class="hidden gap-6 md:flex items-center">
+            <a
+              href="home.html"
+              class="text-sm font-medium transition-colors text-muted-foreground hover:text-primary"
+              >Home</a
+            >
+            <a
+              href="quizzes.html"
+              class="text-sm font-medium transition-colors text-muted-foreground hover:text-primary"
+              >Quizzes</a
+            >
+            <a
+              href="question-management.html"
+              class="text-sm font-medium transition-colors text-primary"
               >Management</a
             >
-            <a href="about.html" class="navbar-link">About</a>
-            <a href="contact.html" class="navbar-link">Contact</a>
+            <a
+              href="about.html"
+              class="text-sm font-medium transition-colors text-muted-foreground hover:text-primary"
+              >About</a
+            >
+            <a
+              href="contact.html"
+              class="text-sm font-medium transition-colors text-muted-foreground hover:text-primary"
+              >Contact</a
+            >
           </nav>
 
-          <div class="navbar-actions">
-            <div class="user-dropdown" data-auth-ui>
+          <div class="flex items-center gap-2">
+            <div class="relative" data-auth-ui>
               <button
-                class="user-avatar-btn"
+                class="flex h-8 w-8 items-center justify-center rounded-full border border-border hover:bg-accent"
                 id="userAvatarBtn"
                 aria-label="User menu"
               >
                 <img
                   src="assets/images/teams/team-1.png"
                   alt="User Avatar"
-                  class="user-avatar-icon"
+                  class="h-8 w-8 rounded-full object-cover"
                 />
               </button>
-              <div class="user-dropdown-menu" id="userDropdownMenu">
-                <div class="dropdown-header">
-                  <p class="dropdown-name">Kien Trung</p>
+              <div
+                class="absolute right-0 mt-2 w-48 rounded-md border bg-card shadow-lg hidden"
+                id="userDropdownMenu"
+              >
+                <div class="p-3 border-b">
+                  <p class="text-sm font-medium text-foreground">Kien Trung</p>
                 </div>
-                <div class="dropdown-divider"></div>
-
-                <a href="#" class="dropdown-item">Change Password</a>
-                <div class="dropdown-divider"></div>
-                <a href="login.html" class="dropdown-item">Logout</a>
+                <a
+                  href="#"
+                  class="block px-3 py-2 text-sm text-foreground hover:bg-accent"
+                  >Change Password</a
+                >
+                <div class="border-t"></div>
+                <a
+                  href="login.html"
+                  class="block px-3 py-2 text-sm text-foreground hover:bg-accent"
+                  >Logout</a
+                >
               </div>
             </div>
 
-            <div class="auth-buttons" data-guest-ui style="display: none">
-              <a href="login.html" class="btn btn-outline btn-sm">Login</a>
-              <a href="register.html" class="btn btn-primary btn-sm"
+            <div class="hidden gap-2" data-guest-ui>
+              <a
+                href="login.html"
+                class="inline-flex h-8 items-center justify-center rounded-md border border-input bg-background px-3 text-sm font-medium shadow-xs hover:bg-accent hover:text-accent-foreground"
+                >Login</a
+              >
+              <a
+                href="register.html"
+                class="inline-flex h-8 items-center justify-center rounded-md bg-primary px-3 text-sm font-medium text-primary-foreground hover:bg-primary/90"
                 >Register</a
               >
             </div>
 
             <button
-              class="navbar-mobile-toggle"
+              class="md:hidden flex h-8 w-8 items-center justify-center rounded-md hover:bg-accent"
               id="mobileMenuToggle"
               aria-label="Toggle menu"
             >
@@ -82,512 +153,1013 @@
           </div>
         </div>
 
-        <div class="mobile-menu" id="mobileMenu">
-          <nav class="mobile-menu-nav">
-            <a href="home.html" class="mobile-menu-link">Home</a>
-            <a href="quizzes.html" class="mobile-menu-link">Quizzes</a>
-            <a href="question-management.html" class="mobile-menu-link active"
+        <!-- Mobile Menu -->
+        <div class="hidden border-t bg-background" id="mobileMenu">
+          <nav class="container-custom flex flex-col py-4">
+            <a
+              href="home.html"
+              class="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-primary"
+              >Home</a
+            >
+            <a
+              href="quizzes.html"
+              class="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-primary"
+              >Quizzes</a
+            >
+            <a
+              href="question-management.html"
+              class="px-4 py-2 text-sm font-medium text-primary"
               >Management</a
             >
-            <a href="about.html" class="mobile-menu-link">About</a>
-            <a href="contact.html" class="mobile-menu-link">Contact</a>
+            <a
+              href="about.html"
+              class="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-primary"
+              >About</a
+            >
+            <a
+              href="contact.html"
+              class="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-primary"
+              >Contact</a
+            >
           </nav>
         </div>
       </header>
 
-      <div class="admin-content">
-        <aside class="sidebar">
-          <div class="sidebar-header">
-            <span class="sidebar-title">Menu</span>
+      <!-- Main Layout -->
+      <div class="flex flex-1 overflow-hidden">
+        <!-- Sidebar -->
+        <aside class="hidden w-64 flex-col border-r bg-card md:flex">
+          <div class="flex h-16 items-center border-b px-3">
+            <span class="text-xl font-bold tracking-tight">Menu</span>
           </div>
 
-          <nav class="sidebar-nav">
-            <a href="quiz-management.html" class="sidebar-link">
-              <svg
-                class="sidebar-icon"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
+          <div class="flex-1 overflow-y-auto py-4">
+            <nav class="grid gap-1 px-2">
+              <a
+                href="quiz-management.html"
+                class="flex items-center gap-3 rounded-md px-3 py-2.5 text-sm font-medium transition-colors text-muted-foreground hover:bg-accent hover:text-accent-foreground"
               >
-                <path
-                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+                <svg
+                  class="h-4 w-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
                   stroke="currentColor"
                   stroke-width="2"
-                  fill="none"
-                />
-              </svg>
-              Quiz Management
-            </a>
+                >
+                  <path
+                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+                  />
+                </svg>
+                Quiz Management
+              </a>
 
-            <a href="question-management.html" class="sidebar-link active">
-              <svg
-                class="sidebar-icon"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
+              <a
+                href="question-management.html"
+                class="flex items-center gap-3 rounded-md px-3 py-2.5 text-sm font-medium transition-colors bg-primary text-white shadow-sm"
               >
-                <path
-                  d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                <svg
+                  class="h-4 w-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
                   stroke="currentColor"
                   stroke-width="2"
-                  fill="none"
-                />
-              </svg>
-              Question Management
-            </a>
+                >
+                  <path
+                    d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                Question Management
+              </a>
 
-            <a href="user-management.html" class="sidebar-link">
-              <svg
-                class="sidebar-icon"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
+              <a
+                href="user-management.html"
+                class="flex items-center gap-3 rounded-md px-3 py-2.5 text-sm font-medium transition-colors text-muted-foreground hover:bg-accent hover:text-accent-foreground"
               >
-                <path
-                  d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+                <svg
+                  class="h-4 w-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
                   stroke="currentColor"
                   stroke-width="2"
-                  fill="none"
-                />
-              </svg>
-              User Management
-            </a>
+                >
+                  <path
+                    d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+                  />
+                </svg>
+                User Management
+              </a>
 
-            <a href="role-management.html" class="sidebar-link">
-              <svg
-                class="sidebar-icon"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
+              <a
+                href="role-management.html"
+                class="flex items-center gap-3 rounded-md px-3 py-2.5 text-sm font-medium transition-colors text-muted-foreground hover:bg-accent hover:text-accent-foreground"
               >
-                <path
-                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                <svg
+                  class="h-4 w-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
                   stroke="currentColor"
                   stroke-width="2"
-                  fill="none"
-                />
-              </svg>
-              Role Management
-            </a>
-          </nav>
+                >
+                  <path
+                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                  />
+                </svg>
+                Role Management
+              </a>
+            </nav>
+          </div>
         </aside>
 
-        <div class="main-content">
-          <main class="page-container">
-            <div class="management-card">
-              <div class="card-header">
-                <h2 class="card-title">Question Management</h2>
-              </div>
-
-              <div class="search-filter">
-                <div class="filter-group">
-                  <label class="filter-label">Name</label>
-                  <input
-                    type="text"
-                    class="filter-input"
-                    placeholder="Enter role name to search"
-                  />
+        <!-- Main Content -->
+        <div class="flex flex-1 flex-col overflow-y-auto">
+          <main class="flex-1 p-6">
+            <div class="space-y-6">
+              <!-- Question Search Filter Card -->
+              <div
+                class="rounded-xl border bg-card text-card-foreground shadow-sm flex flex-col gap-6 py-4"
+              >
+                <div class="px-6">
+                  <div class="font-semibold leading-none">
+                    Question Management
+                  </div>
                 </div>
 
-                <div class="filter-group">
-                  <label class="filter-label">Type</label>
-                  <select class="form-select">
-                    <option value="">Select item</option>
-                    <option value="all">All</option>
-                    <option value="multiple">Multiple Choice</option>
-                    <option value="single">Single Choice</option>
-                  </select>
-                </div>
-              </div>
-              <div class="filter-group">
-                <label class="filter-label">Type</label>
-                <div class="checkbox-wrapper">
-                  <input
-                    type="checkbox"
-                    id="status-filter"
-                    class="checkbox-input"
-                  />
-                  <label for="status-filter" class="checkbox-label"
-                    >Active</label
-                  >
-                </div>
-              </div>
+                <div class="px-6">
+                  <div class="flex flex-col gap-4">
+                    <div class="flex flex-col md:flex-row gap-4">
+                      <div class="space-y-2 flex-1">
+                        <label
+                          class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                          >Name</label
+                        >
+                        <input
+                          type="text"
+                          class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-xs transition-all outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]"
+                          placeholder="Enter role name to search"
+                        />
+                      </div>
 
-              <div class="filter-actions">
-                <button class="btn btn-primary btn-sm">
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    style="margin-right: 0.5rem"
-                  >
-                    <path d="M12 5v14m7-7H5" />
-                  </svg>
-                  Create
-                </button>
-                <div style="display: flex; gap: 0.5rem; margin-left: auto">
-                  <button class="btn btn-outline btn-sm">
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      style="margin-right: 0.5rem"
-                    >
-                      <path
-                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                      <div class="space-y-2 flex-1">
+                        <label class="text-sm font-medium leading-none"
+                          >Type</label
+                        >
+                        <select
+                          class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-xs transition-all outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]"
+                        >
+                          <option value="">Select item</option>
+                          <option value="all">All</option>
+                          <option value="multiple">Multiple Choice</option>
+                          <option value="single">Single Choice</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="flex items-center space-x-2">
+                      <input
+                        type="checkbox"
+                        id="status-filter"
+                        class="h-4 w-4 rounded border border-input bg-background"
                       />
-                    </svg>
-                    Clear
-                  </button>
-                  <button class="btn btn-primary btn-sm">
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      style="margin-right: 0.5rem"
-                    >
-                      <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                    </svg>
-                    Search
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div class="management-card">
-              <div class="card-header">
-                <h2 class="card-title">Question List</h2>
-              </div>
-
-              <div style="overflow-x: auto">
-                <table class="data-table">
-                  <thead>
-                    <tr>
-                      <th style="width: 40%">Content</th>
-                      <th>Type</th>
-                      <th style="text-align: center">Answers</th>
-                      <th>Status</th>
-                      <th>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Who is the inventor of the airplane?</td>
-                      <td>MultipleChoice</td>
-                      <td style="text-align: center">4</td>
-                      <td>Yes</td>
-                      <td>
-                        <div class="table-actions">
-                          <button class="btn-icon btn-edit" title="Edit">
-                            <svg
-                              width="16"
-                              height="16"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="2"
-                            >
-                              <path
-                                d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"
-                              />
-                              <path
-                                d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"
-                              />
-                            </svg>
-                          </button>
-                          <button class="btn-icon btn-delete" title="Delete">
-                            <svg
-                              width="16"
-                              height="16"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="2"
-                            >
-                              <path
-                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                              />
-                            </svg>
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Who is the inventor of the World Wide Web?</td>
-                      <td>MultipleChoice</td>
-                      <td style="text-align: center">4</td>
-                      <td>Yes</td>
-                      <td>
-                        <div class="table-actions">
-                          <button class="btn-icon btn-edit" title="Edit">
-                            <svg
-                              width="16"
-                              height="16"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="2"
-                            >
-                              <path
-                                d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"
-                              />
-                              <path
-                                d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"
-                              />
-                            </svg>
-                          </button>
-                          <button class="btn-icon btn-delete" title="Delete">
-                            <svg
-                              width="16"
-                              height="16"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="2"
-                            >
-                              <path
-                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                              />
-                            </svg>
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Where is Viet Nam?</td>
-                      <td>MultipleChoice</td>
-                      <td style="text-align: center">4</td>
-                      <td>Yes</td>
-                      <td>
-                        <div class="table-actions">
-                          <button class="btn-icon btn-edit" title="Edit">
-                            <svg
-                              width="16"
-                              height="16"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="2"
-                            >
-                              <path
-                                d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"
-                              />
-                              <path
-                                d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"
-                              />
-                            </svg>
-                          </button>
-                          <button class="btn-icon btn-delete" title="Delete">
-                            <svg
-                              width="16"
-                              height="16"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="2"
-                            >
-                              <path
-                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                              />
-                            </svg>
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>What is the capital of France?</td>
-                      <td>SingleChoice</td>
-                      <td style="text-align: center">4</td>
-                      <td>Yes</td>
-                      <td>
-                        <div class="table-actions">
-                          <button class="btn-icon btn-edit" title="Edit">
-                            <svg
-                              width="16"
-                              height="16"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="2"
-                            >
-                              <path
-                                d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"
-                              />
-                              <path
-                                d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"
-                              />
-                            </svg>
-                          </button>
-                          <button class="btn-icon btn-delete" title="Delete">
-                            <svg
-                              width="16"
-                              height="16"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="2"
-                            >
-                              <path
-                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                              />
-                            </svg>
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Who is the inventor of the alternating current?</td>
-                      <td>MultipleChoice</td>
-                      <td style="text-align: center">4</td>
-                      <td>Yes</td>
-                      <td>
-                        <div class="table-actions">
-                          <button class="btn-icon btn-edit" title="Edit">
-                            <svg
-                              width="16"
-                              height="16"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="2"
-                            >
-                              <path
-                                d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"
-                              />
-                              <path
-                                d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"
-                              />
-                            </svg>
-                          </button>
-                          <button class="btn-icon btn-delete" title="Delete">
-                            <svg
-                              width="16"
-                              height="16"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="2"
-                            >
-                              <path
-                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                              />
-                            </svg>
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div class="pagination">
-                <button class="pagination-btn" disabled>
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path d="M15 18l-6-6 6-6" />
-                  </svg>
-                </button>
-                <button class="pagination-btn active">1</button>
-                <button class="pagination-btn">2</button>
-                <button class="pagination-btn">...</button>
-                <button class="pagination-btn">
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path d="M9 18l6-6-6-6" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-
-            <div class="management-card">
-              <div class="card-header">
-                <h2 class="card-title">Add Question</h2>
-              </div>
-
-              <div class="form-row">
-                <div class="form-group">
-                  <label class="form-label">Content</label>
-                  <textarea
-                    class="form-textarea"
-                    placeholder="Enter question content"
-                    rows="4"
-                  ></textarea>
+                      <label
+                        for="status-filter"
+                        class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                        >Active</label
+                      >
+                    </div>
+                  </div>
                 </div>
 
-                <div class="form-group">
-                  <label class="form-label">Question Type</label>
-                  <select class="form-select">
-                    <option value="">Select Question Type</option>
-                    <option value="multiple">Multiple Choice</option>
-                    <option value="single">Single Choice</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="filter-group" style="padding-top: 1rem">
-                <label class="filter-label">Type</label>
-                <div class="checkbox-wrapper">
-                  <input
-                    type="checkbox"
-                    id="status-filter"
-                    class="checkbox-input"
-                  />
-                  <label for="status-filter" class="checkbox-label"
-                    >Active</label
-                  >
-                </div>
-              </div>
-
-              <div class="card-footer" style="justify-content: space-between">
-                <button
-                  class="btn btn-sm"
-                  style="background-color: #60a5fa; color: white"
+                <div
+                  class="flex flex-col-reverse md:flex-row md:justify-between gap-4 border-t pt-6 px-6"
                 >
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    style="margin-right: 0.5rem"
+                  <button
+                    class="inline-flex h-8 items-center justify-center gap-2 rounded-md bg-primary px-3 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-all"
                   >
-                    <path d="M12 5v14m7-7H5" />
-                  </svg>
-                  Show Answers
-                </button>
-
-                <div style="display: flex; gap: 0.75rem">
-                  <button class="btn btn-outline btn-sm">
                     <svg
-                      width="16"
-                      height="16"
+                      class="h-4 w-4"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
                       stroke-width="2"
-                      style="margin-right: 0.5rem"
+                    >
+                      <path d="M12 5v14m7-7H5" />
+                    </svg>
+                    Create
+                  </button>
+
+                  <div class="flex gap-2">
+                    <button
+                      class="inline-flex h-8 items-center justify-center gap-2 rounded-md border border-input bg-background px-3 text-sm font-medium shadow-xs hover:bg-accent hover:text-accent-foreground transition-all text-muted-foreground"
+                    >
+                      <svg
+                        class="h-4 w-4"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path
+                          d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                        />
+                      </svg>
+                      Clear
+                    </button>
+                    <button
+                      class="inline-flex h-8 items-center justify-center gap-2 rounded-md bg-primary px-3 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-all"
+                    >
+                      <svg
+                        class="h-4 w-4"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                      </svg>
+                      Search
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Question Table Card -->
+              <div
+                class="rounded-xl border bg-card text-card-foreground shadow-sm flex flex-col gap-6 py-4"
+              >
+                <div class="px-6 border-b pb-6">
+                  <div class="font-semibold leading-none">Question List</div>
+                </div>
+
+                <div class="p-0">
+                  <div class="overflow-x-auto">
+                    <table class="w-full caption-bottom text-sm">
+                      <thead class="bg-muted/50">
+                        <tr
+                          class="border-b transition-colors hover:bg-muted/50"
+                        >
+                          <th
+                            class="h-12 px-6 text-left align-middle font-medium text-muted-foreground w-[40%]"
+                          >
+                            Content
+                          </th>
+                          <th
+                            class="h-12 px-4 text-left align-middle font-medium text-muted-foreground"
+                          >
+                            Type
+                          </th>
+                          <th
+                            class="h-12 px-4 text-center align-middle font-medium text-muted-foreground"
+                          >
+                            Answers
+                          </th>
+                          <th
+                            class="h-12 px-4 text-left align-middle font-medium text-muted-foreground"
+                          >
+                            Status
+                          </th>
+                          <th
+                            class="h-12 px-6 text-right align-middle font-medium text-muted-foreground"
+                          >
+                            Action
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr
+                          class="border-b transition-colors hover:bg-muted/50"
+                        >
+                          <td class="p-4 pl-6 align-middle font-medium">
+                            Who is the inventor of the airplane?
+                          </td>
+                          <td class="p-4 align-middle">MultipleChoice</td>
+                          <td class="p-4 align-middle text-center">4</td>
+                          <td class="p-4 align-middle">Yes</td>
+                          <td class="p-4 pr-6 align-middle text-right">
+                            <div class="flex justify-end">
+                              <button
+                                class="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-blue-50 text-blue-500 hover:text-blue-600 transition-colors"
+                                title="Edit"
+                              >
+                                <svg
+                                  class="h-4 w-4"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                >
+                                  <path
+                                    d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"
+                                  />
+                                  <path
+                                    d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"
+                                  />
+                                </svg>
+                              </button>
+                              <button
+                                class="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-red-50 text-red-500 hover:text-red-600 transition-colors"
+                                title="Delete"
+                              >
+                                <svg
+                                  class="h-4 w-4"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                >
+                                  <path
+                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                                  />
+                                </svg>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr
+                          class="border-b transition-colors hover:bg-muted/50"
+                        >
+                          <td class="p-4 pl-6 align-middle font-medium">
+                            Who is the inventor of the World Wide Web?
+                          </td>
+                          <td class="p-4 align-middle">MultipleChoice</td>
+                          <td class="p-4 align-middle text-center">4</td>
+                          <td class="p-4 align-middle">Yes</td>
+                          <td class="p-4 pr-6 align-middle text-right">
+                            <div class="flex justify-end">
+                              <button
+                                class="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-blue-50 text-blue-500 hover:text-blue-600 transition-colors"
+                                title="Edit"
+                              >
+                                <svg
+                                  class="h-4 w-4"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                >
+                                  <path
+                                    d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"
+                                  />
+                                  <path
+                                    d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"
+                                  />
+                                </svg>
+                              </button>
+                              <button
+                                class="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-red-50 text-red-500 hover:text-red-600 transition-colors"
+                                title="Delete"
+                              >
+                                <svg
+                                  class="h-4 w-4"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                >
+                                  <path
+                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                                  />
+                                </svg>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr
+                          class="border-b transition-colors hover:bg-muted/50"
+                        >
+                          <td class="p-4 pl-6 align-middle font-medium">
+                            Where is Viet Nam?
+                          </td>
+                          <td class="p-4 align-middle">MultipleChoice</td>
+                          <td class="p-4 align-middle text-center">4</td>
+                          <td class="p-4 align-middle">Yes</td>
+                          <td class="p-4 pr-6 align-middle text-right">
+                            <div class="flex justify-end">
+                              <button
+                                class="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-blue-50 text-blue-500 hover:text-blue-600 transition-colors"
+                                title="Edit"
+                              >
+                                <svg
+                                  class="h-4 w-4"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                >
+                                  <path
+                                    d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"
+                                  />
+                                  <path
+                                    d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"
+                                  />
+                                </svg>
+                              </button>
+                              <button
+                                class="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-red-50 text-red-500 hover:text-red-600 transition-colors"
+                                title="Delete"
+                              >
+                                <svg
+                                  class="h-4 w-4"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                >
+                                  <path
+                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                                  />
+                                </svg>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr
+                          class="border-b transition-colors hover:bg-muted/50"
+                        >
+                          <td class="p-4 pl-6 align-middle font-medium">
+                            What is the capital of France?
+                          </td>
+                          <td class="p-4 align-middle">SingleChoice</td>
+                          <td class="p-4 align-middle text-center">4</td>
+                          <td class="p-4 align-middle">Yes</td>
+                          <td class="p-4 pr-6 align-middle text-right">
+                            <div class="flex justify-end">
+                              <button
+                                class="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-blue-50 text-blue-500 hover:text-blue-600 transition-colors"
+                                title="Edit"
+                              >
+                                <svg
+                                  class="h-4 w-4"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                >
+                                  <path
+                                    d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"
+                                  />
+                                  <path
+                                    d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"
+                                  />
+                                </svg>
+                              </button>
+                              <button
+                                class="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-red-50 text-red-500 hover:text-red-600 transition-colors"
+                                title="Delete"
+                              >
+                                <svg
+                                  class="h-4 w-4"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                >
+                                  <path
+                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                                  />
+                                </svg>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr
+                          class="border-b transition-colors hover:bg-muted/50"
+                        >
+                          <td class="p-4 pl-6 align-middle font-medium">
+                            Who is the inventor of the alternating current?
+                          </td>
+                          <td class="p-4 align-middle">MultipleChoice</td>
+                          <td class="p-4 align-middle text-center">4</td>
+                          <td class="p-4 align-middle">Yes</td>
+                          <td class="p-4 pr-6 align-middle text-right">
+                            <div class="flex justify-end">
+                              <button
+                                class="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-blue-50 text-blue-500 hover:text-blue-600 transition-colors"
+                                title="Edit"
+                              >
+                                <svg
+                                  class="h-4 w-4"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                >
+                                  <path
+                                    d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"
+                                  />
+                                  <path
+                                    d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"
+                                  />
+                                </svg>
+                              </button>
+                              <button
+                                class="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-red-50 text-red-500 hover:text-red-600 transition-colors"
+                                title="Delete"
+                              >
+                                <svg
+                                  class="h-4 w-4"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                >
+                                  <path
+                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                                  />
+                                </svg>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div
+                  class="flex items-center justify-between border-t py-4 px-6"
+                >
+                  <div
+                    class="flex items-center space-x-2 text-sm text-muted-foreground"
+                  >
+                    <span>Items per page:</span>
+                    <select
+                      class="flex h-8 w-[70px] rounded-md border border-input bg-transparent px-2 py-1 text-sm shadow-xs"
+                    >
+                      <option value="10">10</option>
+                      <option value="20">20</option>
+                      <option value="50">50</option>
+                    </select>
+                  </div>
+
+                  <div class="flex items-center gap-1">
+                    <button
+                      class="inline-flex h-8 w-8 items-center justify-center rounded-md border border-input bg-background shadow-xs hover:bg-accent hover:text-accent-foreground disabled:pointer-events-none disabled:opacity-50"
+                      disabled
+                    >
+                      <svg
+                        class="h-4 w-4"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path d="M15 18l-6-6 6-6" />
+                      </svg>
+                    </button>
+                    <button
+                      class="inline-flex h-8 w-8 items-center justify-center rounded-md bg-primary text-primary-foreground shadow-xs"
+                    >
+                      1
+                    </button>
+                    <button
+                      class="inline-flex h-8 w-8 items-center justify-center rounded-md border border-input bg-background shadow-xs hover:bg-accent hover:text-accent-foreground"
+                    >
+                      2
+                    </button>
+                    <span
+                      class="inline-flex h-8 w-8 items-center justify-center"
+                      >...</span
+                    >
+                    <button
+                      class="inline-flex h-8 w-8 items-center justify-center rounded-md border border-input bg-background shadow-xs hover:bg-accent hover:text-accent-foreground"
+                    >
+                      <svg
+                        class="h-4 w-4"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path d="M9 18l6-6-6-6" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Question Form Card -->
+              <div
+                class="rounded-xl border bg-card text-card-foreground shadow-sm flex flex-col gap-6 py-4"
+              >
+                <div class="px-6 border-b pb-6">
+                  <div class="font-semibold leading-none">Add Question</div>
+                </div>
+
+                <div class="pt-6 px-6">
+                  <div class="flex flex-col gap-6">
+                    <div class="flex flex-col md:flex-row gap-6">
+                      <div class="space-y-2 flex-1">
+                        <label class="text-sm font-medium leading-none"
+                          >Content</label
+                        >
+                        <textarea
+                          class="flex min-h-[100px] w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-xs transition-all outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]"
+                          placeholder="Enter question content"
+                          rows="4"
+                        ></textarea>
+                      </div>
+
+                      <div class="space-y-2 flex-1">
+                        <label class="text-sm font-medium leading-none"
+                          >Question Type</label
+                        >
+                        <select
+                          class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-xs transition-all outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]"
+                        >
+                          <option value="">Select Question Type</option>
+                          <option value="multiple">Multiple Choice</option>
+                          <option value="single">Single Choice</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="flex items-center space-x-2">
+                      <input
+                        type="checkbox"
+                        id="question-active"
+                        class="h-4 w-4 rounded border border-input bg-background"
+                      />
+                      <label
+                        for="question-active"
+                        class="text-sm font-medium leading-none"
+                        >Active</label
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="flex flex-col-reverse md:flex-row md:justify-between gap-4 border-t pt-6 px-6"
+                >
+                  <button
+                    class="inline-flex h-8 items-center justify-center gap-2 rounded-md px-3 text-sm font-medium transition-all bg-blue-400 hover:bg-blue-500 text-white"
+                  >
+                    <svg
+                      class="h-4 w-4"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path d="M12 5v14m7-7H5" />
+                    </svg>
+                    Show Answers
+                  </button>
+
+                  <div class="flex gap-2">
+                    <button
+                      class="inline-flex h-8 items-center justify-center gap-2 rounded-md border border-input bg-background px-3 text-sm font-medium shadow-xs hover:bg-accent hover:text-accent-foreground transition-all text-muted-foreground"
+                    >
+                      <svg
+                        class="h-4 w-4"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path
+                          d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                        />
+                      </svg>
+                      Cancel
+                    </button>
+                    <button
+                      class="inline-flex h-8 items-center justify-center gap-2 rounded-md bg-primary px-3 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-all"
+                    >
+                      <svg
+                        class="h-4 w-4"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path
+                          d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"
+                        />
+                        <path d="M17 21v-8H7v8M7 3v5h8" />
+                      </svg>
+                      Save
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Answer Table Card -->
+              <div
+                class="rounded-xl border bg-card text-card-foreground shadow-sm flex flex-col gap-6 py-4"
+              >
+                <div class="px-6 border-b pb-6">
+                  <div class="font-semibold leading-none">Answer List</div>
+                </div>
+
+                <div class="p-0">
+                  <div class="overflow-x-auto">
+                    <table class="w-full caption-bottom text-sm">
+                      <thead class="bg-muted/50">
+                        <tr
+                          class="border-b transition-colors hover:bg-muted/50"
+                        >
+                          <th
+                            class="h-12 px-6 text-left align-middle font-medium text-muted-foreground w-[40%]"
+                          >
+                            Content
+                          </th>
+                          <th
+                            class="h-12 px-4 text-left align-middle font-medium text-muted-foreground"
+                          >
+                            Is Correct
+                          </th>
+                          <th
+                            class="h-12 px-4 text-left align-middle font-medium text-muted-foreground"
+                          >
+                            Status
+                          </th>
+                          <th
+                            class="h-12 px-6 text-right align-middle font-medium text-muted-foreground"
+                          >
+                            Actions
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr
+                          class="border-b transition-colors hover:bg-muted/50"
+                        >
+                          <td class="p-4 pl-6 align-middle font-medium">
+                            Wright brothers
+                          </td>
+                          <td class="p-4 align-middle">True</td>
+                          <td class="p-4 align-middle">Yes</td>
+                          <td class="p-4 pr-6 align-middle text-right">
+                            <div class="flex justify-end">
+                              <button
+                                class="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-blue-50 text-blue-500 hover:text-blue-600 transition-colors"
+                                title="Edit"
+                              >
+                                <svg
+                                  class="h-4 w-4"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                >
+                                  <path
+                                    d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"
+                                  />
+                                  <path
+                                    d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"
+                                  />
+                                </svg>
+                              </button>
+                              <button
+                                class="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-red-50 text-red-500 hover:text-red-600 transition-colors"
+                                title="Delete"
+                              >
+                                <svg
+                                  class="h-4 w-4"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                >
+                                  <path
+                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                                  />
+                                </svg>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr
+                          class="border-b transition-colors hover:bg-muted/50"
+                        >
+                          <td class="p-4 pl-6 align-middle font-medium">
+                            Alexander Graham Bell
+                          </td>
+                          <td class="p-4 align-middle">False</td>
+                          <td class="p-4 align-middle">Yes</td>
+                          <td class="p-4 pr-6 align-middle text-right">
+                            <div class="flex justify-end">
+                              <button
+                                class="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-blue-50 text-blue-500 hover:text-blue-600 transition-colors"
+                                title="Edit"
+                              >
+                                <svg
+                                  class="h-4 w-4"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                >
+                                  <path
+                                    d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"
+                                  />
+                                  <path
+                                    d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"
+                                  />
+                                </svg>
+                              </button>
+                              <button
+                                class="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-red-50 text-red-500 hover:text-red-600 transition-colors"
+                                title="Delete"
+                              >
+                                <svg
+                                  class="h-4 w-4"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                >
+                                  <path
+                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                                  />
+                                </svg>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr
+                          class="border-b transition-colors hover:bg-muted/50"
+                        >
+                          <td class="p-4 pl-6 align-middle font-medium">
+                            Albert Einstein
+                          </td>
+                          <td class="p-4 align-middle">False</td>
+                          <td class="p-4 align-middle">Yes</td>
+                          <td class="p-4 pr-6 align-middle text-right">
+                            <div class="flex justify-end">
+                              <button
+                                class="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-blue-50 text-blue-500 hover:text-blue-600 transition-colors"
+                                title="Edit"
+                              >
+                                <svg
+                                  class="h-4 w-4"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                >
+                                  <path
+                                    d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"
+                                  />
+                                  <path
+                                    d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"
+                                  />
+                                </svg>
+                              </button>
+                              <button
+                                class="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-red-50 text-red-500 hover:text-red-600 transition-colors"
+                                title="Delete"
+                              >
+                                <svg
+                                  class="h-4 w-4"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                >
+                                  <path
+                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                                  />
+                                </svg>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr
+                          class="border-b transition-colors hover:bg-muted/50"
+                        >
+                          <td class="p-4 pl-6 align-middle font-medium">
+                            Charles Babbage
+                          </td>
+                          <td class="p-4 align-middle">False</td>
+                          <td class="p-4 align-middle">cell</td>
+                          <td class="p-4 pr-6 align-middle text-right">
+                            <div class="flex justify-end">
+                              <button
+                                class="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-blue-50 text-blue-500 hover:text-blue-600 transition-colors"
+                                title="Edit"
+                              >
+                                <svg
+                                  class="h-4 w-4"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                >
+                                  <path
+                                    d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"
+                                  />
+                                  <path
+                                    d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"
+                                  />
+                                </svg>
+                              </button>
+                              <button
+                                class="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-red-50 text-red-500 hover:text-red-600 transition-colors"
+                                title="Delete"
+                              >
+                                <svg
+                                  class="h-4 w-4"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                >
+                                  <path
+                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                                  />
+                                </svg>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="flex justify-end p-6">
+                  <button
+                    class="inline-flex h-8 items-center justify-center gap-2 rounded-md bg-primary px-3 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-all"
+                  >
+                    <svg
+                      class="h-4 w-4"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path d="M12 5v14m7-7H5" />
+                    </svg>
+                    Add
+                  </button>
+                </div>
+              </div>
+
+              <!-- Answer Form Card -->
+              <div
+                class="rounded-xl border bg-card text-card-foreground shadow-sm flex flex-col gap-6 py-4"
+              >
+                <div class="px-6 border-b pb-6">
+                  <div class="font-semibold leading-none">Add Answer</div>
+                </div>
+
+                <div class="px-6">
+                  <div class="space-y-2">
+                    <label class="text-sm font-medium leading-none"
+                      >Description</label
+                    >
+                    <textarea
+                      class="flex min-h-[80px] w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-xs transition-all outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]"
+                      placeholder="Enter your email"
+                      rows="3"
+                    ></textarea>
+                  </div>
+
+                  <div class="flex gap-8 mt-6">
+                    <div class="flex items-center space-x-2">
+                      <input
+                        type="checkbox"
+                        id="answer-active"
+                        class="h-4 w-4 rounded border border-input bg-background"
+                      />
+                      <label
+                        for="answer-active"
+                        class="text-sm font-medium leading-none"
+                        >Is Active?</label
+                      >
+                    </div>
+
+                    <div class="flex items-center space-x-2">
+                      <input
+                        type="checkbox"
+                        id="answer-correct"
+                        class="h-4 w-4 rounded border border-input bg-background"
+                      />
+                      <label
+                        for="answer-correct"
+                        class="text-sm font-medium leading-none"
+                        >Is Correct?</label
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex gap-2 justify-end border-t pt-6 px-6">
+                  <button
+                    class="inline-flex h-8 items-center justify-center gap-2 rounded-md border border-input bg-background px-3 text-sm font-medium shadow-xs hover:bg-accent hover:text-accent-foreground transition-all text-muted-foreground"
+                  >
+                    <svg
+                      class="h-4 w-4"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
                     >
                       <path
                         d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
@@ -595,15 +1167,15 @@
                     </svg>
                     Cancel
                   </button>
-                  <button class="btn btn-primary btn-sm">
+                  <button
+                    class="inline-flex h-8 items-center justify-center gap-2 rounded-md bg-primary px-3 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-all"
+                  >
                     <svg
-                      width="16"
-                      height="16"
+                      class="h-4 w-4"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
                       stroke-width="2"
-                      style="margin-right: 0.5rem"
                     >
                       <path
                         d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"
@@ -613,286 +1185,6 @@
                     Save
                   </button>
                 </div>
-              </div>
-            </div>
-
-            <div class="management-card">
-              <div class="card-header">
-                <h2 class="card-title">Answer List</h2>
-              </div>
-
-              <div style="overflow-x: auto">
-                <table class="data-table">
-                  <thead>
-                    <tr>
-                      <th style="width: 40%">Content</th>
-                      <th>Is Correct</th>
-                      <th>Status</th>
-                      <th>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Wright brothers</td>
-                      <td>True</td>
-                      <td>Yes</td>
-                      <td>
-                        <div class="table-actions">
-                          <button class="btn-icon btn-edit" title="Edit">
-                            <svg
-                              width="16"
-                              height="16"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="2"
-                            >
-                              <path
-                                d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"
-                              />
-                              <path
-                                d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"
-                              />
-                            </svg>
-                          </button>
-                          <button class="btn-icon btn-delete" title="Delete">
-                            <svg
-                              width="16"
-                              height="16"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="2"
-                            >
-                              <path
-                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                              />
-                            </svg>
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Alexander Graham Bell</td>
-                      <td>False</td>
-                      <td>Yes</td>
-                      <td>
-                        <div class="table-actions">
-                          <button class="btn-icon btn-edit" title="Edit">
-                            <svg
-                              width="16"
-                              height="16"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="2"
-                            >
-                              <path
-                                d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"
-                              />
-                              <path
-                                d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"
-                              />
-                            </svg>
-                          </button>
-                          <button class="btn-icon btn-delete" title="Delete">
-                            <svg
-                              width="16"
-                              height="16"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="2"
-                            >
-                              <path
-                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                              />
-                            </svg>
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Albert Einstein</td>
-                      <td>False</td>
-                      <td>Yes</td>
-                      <td>
-                        <div class="table-actions">
-                          <button class="btn-icon btn-edit" title="Edit">
-                            <svg
-                              width="16"
-                              height="16"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="2"
-                            >
-                              <path
-                                d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"
-                              />
-                              <path
-                                d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"
-                              />
-                            </svg>
-                          </button>
-                          <button class="btn-icon btn-delete" title="Delete">
-                            <svg
-                              width="16"
-                              height="16"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="2"
-                            >
-                              <path
-                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                              />
-                            </svg>
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Charles Babbage</td>
-                      <td>False</td>
-                      <td>cell</td>
-                      <td>
-                        <div class="table-actions">
-                          <button class="btn-icon btn-edit" title="Edit">
-                            <svg
-                              width="16"
-                              height="16"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="2"
-                            >
-                              <path
-                                d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"
-                              />
-                              <path
-                                d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"
-                              />
-                            </svg>
-                          </button>
-                          <button class="btn-icon btn-delete" title="Delete">
-                            <svg
-                              width="16"
-                              height="16"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="2"
-                            >
-                              <path
-                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                              />
-                            </svg>
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div
-                style="padding: 1rem; display: flex; justify-content: flex-end"
-              >
-                <button class="btn btn-primary btn-sm">
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    style="margin-right: 0.5rem"
-                  >
-                    <path d="M12 5v14m7-7H5" />
-                  </svg>
-                  Add
-                </button>
-              </div>
-            </div>
-
-            <div class="management-card">
-              <div class="card-header">
-                <h2 class="card-title">Add Answer</h2>
-              </div>
-
-              <div class="form-group">
-                <label class="form-label">Description</label>
-                <textarea
-                  class="form-textarea"
-                  placeholder="Enter your email"
-                  rows="3"
-                ></textarea>
-              </div>
-
-              <div style="display: flex; gap: 2rem; margin-top: 1rem">
-                <div class="filter-group" style="padding-top: 1rem">
-                  <label class="filter-label">Is Active?</label>
-                  <div class="checkbox-wrapper">
-                    <input
-                      type="checkbox"
-                      id="status-filter"
-                      class="checkbox-input"
-                    />
-                    <label for="status-filter" class="checkbox-label"
-                      >Active</label
-                    >
-                  </div>
-                </div>
-                <div class="filter-group" style="padding-top: 1rem">
-                  <label class="filter-label">Type</label>
-                  <div class="checkbox-wrapper">
-                    <input
-                      type="checkbox"
-                      id="status-filter"
-                      class="checkbox-input"
-                    />
-                    <label for="status-filter" class="checkbox-label"
-                      >Active</label
-                    >
-                  </div>
-                </div>
-              </div>
-
-              <div class="card-footer">
-                <button class="btn btn-outline btn-sm">
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    style="margin-right: 0.5rem"
-                  >
-                    <path
-                      d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-                    />
-                  </svg>
-                  Cancel
-                </button>
-                <button class="btn btn-primary btn-sm">
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    style="margin-right: 0.5rem"
-                  >
-                    <path
-                      d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"
-                    />
-                    <path d="M17 21v-8H7v8M7 3v5h8" />
-                  </svg>
-                  Save
-                </button>
               </div>
             </div>
           </main>
