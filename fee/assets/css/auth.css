@@ -5,7 +5,10 @@
   align-items: center;
   min-height: 100vh;
   padding: 3rem 1rem;
-  background-color: var(--primary);
+  background-image: url("../images/bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .auth-card {
