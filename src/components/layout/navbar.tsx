@@ -123,17 +123,9 @@ const Navbar = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-56" align="end" forceMount>
                 <DropdownMenuLabel className="font-normal">
-                  <div className="flex flex-col space-y-1">
-                    <p className="text-sm font-medium leading-none">
-                      Kien Trung
-                    </p>
-                    <p className="text-xs leading-none text-muted-foreground">
-                      kiennt169@fpt.com
-                    </p>
-                  </div>
+                  <p className="text-sm font-medium leading-none">Kien Trung</p>
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>Profile Settings</DropdownMenuItem>
                 <DropdownMenuItem>Change Password</DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem className="text-red-600 cursor-pointer">
