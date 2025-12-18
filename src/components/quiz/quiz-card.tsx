@@ -1,6 +1,5 @@
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 import type { Quiz } from "@/types/quiz";
 
@@ -10,7 +9,7 @@ interface QuizCardProps {
 
 const QuizCard = ({ quiz }: QuizCardProps) => {
   return (
-    <Card className="overflow-hidden border-none shadow-md hover:shadow-lg transition-shadow">
+    <Card className="overflow-hidden border-none shadow-md hover:shadow-lg transition-shadow cursor-pointer">
       <div className="relative h-48 w-full overflow-hidden">
         <img
           src={quiz.image}
@@ -19,18 +18,18 @@ const QuizCard = ({ quiz }: QuizCardProps) => {
         />
       </div>
 
-      <CardContent className="p-4">
+      <CardContent className="px-4">
         <div className="flex justify-between items-center mb-2">
           <h3 className="font-bold text-lg">{quiz.title}</h3>
-          <Badge variant="secondary">{quiz.duration}</Badge>
+          <h3 className="text-muted-foreground text-xs">{quiz.duration}</h3>
         </div>
         <p className="text-sm text-muted-foreground">{quiz.description}</p>
       </CardContent>
 
       <CardFooter className="p-4 pt-0">
-        <Link to={`/quiz/${quiz.id}`}>
-          <Button className="w-full" size="lg">
-            Start Quiz
+        <Link to={`/quiz/${quiz.id}`} className="w-full">
+          <Button className="w-full cursor-pointer" size="lg">
+            Start
           </Button>
         </Link>
       </CardFooter>

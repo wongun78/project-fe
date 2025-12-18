@@ -16,6 +16,7 @@ const QUIZZES: Quiz[] = [
     title: "General Knowledge Quiz",
     description: "A quiz to test your general knowledge.",
     duration: "10M",
+    status: "active",
     image: quiz1Img,
   },
   {
@@ -23,6 +24,7 @@ const QUIZZES: Quiz[] = [
     title: "Science Quiz",
     description: "A quiz focused on scientific facts and concepts.",
     duration: "15M",
+    status: "active",
     image: quiz2Img,
   },
   {
@@ -30,6 +32,7 @@ const QUIZZES: Quiz[] = [
     title: "Science Quiz",
     description: "A quiz focused on scientific facts and concepts.",
     duration: "15M",
+    status: "inactive",
     image: quiz3Img,
   },
 ];
@@ -79,7 +82,7 @@ const QUESTIONS: Question[] = [
 
 const QuizManagementPage = () => {
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <QuizSearchFilter />
       <QuizTable quizzes={QUIZZES} />
       <QuizForm />

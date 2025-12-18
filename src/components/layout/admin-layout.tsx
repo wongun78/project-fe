@@ -12,7 +12,7 @@ const AdminLayout = () => {
         <Sidebar />
 
         <div className="flex flex-1 flex-col overflow-y-auto">
-          <main className="flex-1 p-6">
+          <main className="p-4">
             <Outlet />
           </main>
 

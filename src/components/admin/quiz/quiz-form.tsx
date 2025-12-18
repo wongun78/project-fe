@@ -44,22 +44,25 @@ const QuizForm = () => {
               <Input placeholder="Enter thumbnail URL" />
             </div>
           </div>
-          <div className="flex items-center space-x-2">
-            <Checkbox id="new-status" />
-            <Label htmlFor="new-status">Active</Label>
+          <div className="space-y-2">
+            <Label>Status</Label>
+            <div className="flex items-center space-x-2">
+              <Checkbox id="new-status" />
+              <Label htmlFor="new-status">Active</Label>
+            </div>
           </div>
         </div>
       </CardContent>
       <CardFooter className="flex flex-col-reverse md:flex-row md:justify-between gap-4 border-t pt-6">
         <Button>
-          <FaPlus className="mr-2" /> Show Questions
+          <FaPlus /> Show Questions
         </Button>
         <div className="flex gap-2">
           <Button variant="outline" className="text-muted-foreground">
-            <FaSync className="mr-2" /> Clear
+            <FaSync /> Clear
           </Button>
           <Button>
-            <FaSave className="mr-2" /> Save
+            <FaSave /> Save
           </Button>
         </div>
       </CardFooter>

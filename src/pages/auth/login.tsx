@@ -11,8 +11,8 @@ import { Link } from "react-router-dom";
 
 export default function LoginPage() {
   return (
-    <div className="flex min-h-screen flex-col bg-primary justify-center px-6 py-12">
-      <div className="sm:mx-auto sm:w-full sm:max-w-md">
+    <div className="flex min-h-screen flex-col bg-primary justify-center">
+      <div className="mx-auto w-full max-w-md">
         <CardLogin>
           <CardHeader>
             <CardTitle className="text-center text-2xl">Login</CardTitle>
@@ -21,13 +21,18 @@ export default function LoginPage() {
             <form className="space-y-4">
               <div className="space-y-1">
                 <Label htmlFor="username">Username</Label>
-                <Input id="username" placeholder="Enter your username" />
+                <Input
+                  id="username"
+                  name="username"
+                  placeholder="Enter your username"
+                />
               </div>
 
               <div className="space-y-1">
                 <Label htmlFor="password">Password</Label>
                 <Input
                   id="password"
+                  name="password"
                   type="password"
                   placeholder="Enter your password"
                 />
@@ -37,18 +42,18 @@ export default function LoginPage() {
                 <Button
                   type="button"
                   variant="outline"
-                  className="flex-1"
+                  className="flex-1 border-none shadow-none"
                   asChild
                 >
                   <Link to="/">Back to Home</Link>
                 </Button>
-                <Button type="submit" className="flex-1">
+                <Button type="submit" className="flex-1 cursor-pointer">
                   Login
                 </Button>
               </div>
             </form>
 
-            <div className="mt-6 space-y-2">
+            <div className="mt-4 space-y-2">
               <p className="text-center text-sm">
                 <Link
                   to="#"
@@ -59,7 +64,7 @@ export default function LoginPage() {
               </p>
               <p className="text-center text-sm">
                 <span className="text-muted-foreground">
-                  Don't have account?{" "}
+                  Don't have an account?{" "}
                 </span>
                 <Link
                   to="/register"

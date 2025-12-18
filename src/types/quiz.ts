@@ -3,5 +3,6 @@ export interface Quiz {
   title: string;
   description: string;
   duration: string;
+  status: "active" | "inactive";
   image: string;
 }

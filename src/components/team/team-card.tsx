@@ -7,7 +7,7 @@ interface TeamCardProps {
 
 const TeamCard = ({ team }: TeamCardProps) => {
   return (
-    <Card className="overflow-hidden border-none shadow-md hover:shadow-lg transition-shadow">
+    <Card className="overflow-hidden border-none shadow-md hover:shadow-lg transition-shadow cursor-pointer">
       <div className="relative h-full w-full overflow-hidden">
         <img
           src={team.image}

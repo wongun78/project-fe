@@ -56,7 +56,7 @@ const ANSWERS = [
 
 const QuestionManagementPage = () => {
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <QuestionSearchFilter />
       <QuestionTable questions={QUESTIONS} />
       <QuestionForm />

@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import {
   CardContent,
   CardHeader,
@@ -45,10 +46,32 @@ const AnswerTable = ({ answers }: AnswerTableProps) => {
           </TableHeader>
           <TableBody>
             {answers.map((answer) => (
-              <TableRow key={answer.id}>
+              <TableRow key={answer.id} className="even:bg-muted/30">
                 <TableCell className="pl-6">{answer.content}</TableCell>
-                <TableCell>{answer.isCorrect}</TableCell>
-                <TableCell>{answer.status}</TableCell>
+                <TableCell>
+                  <Badge
+                    variant="outline"
+                    className={
+                      answer.isCorrect === "True"
+                        ? "bg-success/20 text-success border-success/30"
+                        : "bg-muted text-muted-foreground border-muted-foreground/30"
+                    }
+                  >
+                    {answer.isCorrect}
+                  </Badge>
+                </TableCell>
+                <TableCell>
+                  <Badge
+                    variant="outline"
+                    className={
+                      answer.status === "Yes"
+                        ? "bg-success/20 text-success border-success/30"
+                        : "bg-muted text-muted-foreground border-muted-foreground/30"
+                    }
+                  >
+                    {answer.status}
+                  </Badge>
+                </TableCell>
                 <TableCell className="text-right pr-6">
                   <div className="flex justify-end gap-2">
                     <Button
@@ -61,7 +84,7 @@ const AnswerTable = ({ answers }: AnswerTableProps) => {
                     <Button
                       variant="ghost"
                       size="icon"
-                      className="h-8 w-8 text-red-500 hover:text-red-600 hover:bg-red-50"
+                      className="h-8 w-8 text-destructive hover:text-destructive hover:bg-destructive/10"
                     >
                       <FaTrash />
                     </Button>
@@ -72,9 +95,9 @@ const AnswerTable = ({ answers }: AnswerTableProps) => {
           </TableBody>
         </Table>
 
-        <div className="p-4 flex justify-end">
+        <div className="pt-2 px-2 flex justify-end border-t ">
           <Button>
-            <FaPlus className="mr-2" /> Add
+            <FaPlus /> Add
           </Button>
         </div>
       </CardContent>

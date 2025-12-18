@@ -38,7 +38,7 @@ const QuestionForm = () => {
             <div className="space-y-2 flex-1">
               <Label>Question Type</Label>
               <Select>
-                <SelectTrigger>
+                <SelectTrigger className="w-full">
                   <SelectValue placeholder="Select Question Type" />
                 </SelectTrigger>
                 <SelectContent>
@@ -49,23 +49,26 @@ const QuestionForm = () => {
             </div>
           </div>
 
-          <div className="flex items-center space-x-2">
-            <Checkbox id="new-q-active" />
-            <Label htmlFor="new-q-active">Active</Label>
+          <div className="space-y-2">
+            <Label>Status</Label>
+            <div className="flex items-center space-x-2">
+              <Checkbox id="new-q-active" />
+              <Label htmlFor="new-q-active">Active</Label>
+            </div>
           </div>
         </div>
       </CardContent>
       <CardFooter className="flex flex-col-reverse md:flex-row md:justify-between gap-4 border-t pt-6">
-        <Button className="bg-blue-400 hover:bg-blue-500">
-          <FaPlus className="mr-2" /> Show Answers
+        <Button>
+          <FaPlus /> Show Answers
         </Button>
 
         <div className="flex gap-2">
           <Button variant="outline" className="text-muted-foreground">
-            <FaSync className="mr-2" /> Cancel
+            <FaSync /> Cancel
           </Button>
           <Button>
-            <FaSave className="mr-2" /> Save
+            <FaSave /> Save
           </Button>
         </div>
       </CardFooter>

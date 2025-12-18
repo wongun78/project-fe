@@ -12,7 +12,7 @@ const ROLES = [
 
 const RoleManagementPage = () => {
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <RoleSearchFilter />
       <RoleTable roles={ROLES} />
       <RoleForm />

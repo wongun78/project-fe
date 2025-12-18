@@ -11,8 +11,8 @@ import { Link } from "react-router-dom";
 
 export default function RegisterPage() {
   return (
-    <div className="flex min-h-screen flex-col bg-primary justify-center px-6 py-12">
-      <div className="sm:mx-auto sm:w-full sm:max-w-md">
+    <div className="flex min-h-screen flex-col bg-primary justify-center">
+      <div className="mx-auto w-full max-w-md">
         <CardLogin>
           <CardHeader>
             <CardTitle className="text-center text-2xl">Register</CardTitle>
@@ -70,12 +70,12 @@ export default function RegisterPage() {
                 <Button
                   type="button"
                   variant="outline"
-                  className="flex-1"
+                  className="flex-1 border-none shadow-none"
                   asChild
                 >
                   <Link to="/">Back to Home</Link>
                 </Button>
-                <Button type="submit" className="flex-1">
+                <Button type="submit" className="flex-1 cursor-pointer">
                   Register
                 </Button>
               </div>

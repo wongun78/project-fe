@@ -37,12 +37,12 @@ const AdminSidebar = () => {
     <aside className="hidden w-64 flex-col border-r bg-card md:flex">
       <div className="flex h-16 items-center border-b px-3">
         <Link to="/">
-          <span className="text-xl font-bold tracking-tight">Menu</span>
+          <span className="text-xl font-bold">Menu</span>
         </Link>
       </div>
 
       <div className="flex-1 overflow-y-auto py-4">
-        <nav className="grid gap-1 px-2">
+        <nav className="flex flex-col gap-1 px-2">
           {MENU_ITEMS.map((item, index) => {
             const isActive = location.pathname.startsWith(item.path);
 

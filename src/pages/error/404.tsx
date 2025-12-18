@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 export default function NotFoundPage() {
   return (
     <div className="flex min-h-screen flex-col bg-primary justify-center px-6 py-12">
-      <div className="sm:mx-auto sm:w-full sm:max-w-md">
+      <div className="md:mx-auto md:w-full md:max-w-md">
         <CardLogin>
           <CardHeader>
             <CardTitle className="text-center text-2xl">

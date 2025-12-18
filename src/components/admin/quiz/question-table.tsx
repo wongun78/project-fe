@@ -18,10 +18,9 @@ import {
 import {
   Pagination,
   PaginationContent,
+  PaginationEllipsis,
   PaginationItem,
   PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
 } from "@/components/ui/pagination";
 import {
   Select,
@@ -30,7 +29,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { FaTrash } from "react-icons/fa";
+import {
+  FaTrash,
+  FaAngleDoubleLeft,
+  FaAngleLeft,
+  FaAngleRight,
+  FaAngleDoubleRight,
+} from "react-icons/fa";
 import type { Question } from "@/types/question";
 
 interface QuestionTableProps {
@@ -58,7 +63,7 @@ const QuestionTable = ({ questions }: QuestionTableProps) => {
           </TableHeader>
           <TableBody>
             {questions.map((question) => (
-              <TableRow key={question.id}>
+              <TableRow key={question.id} className="even:bg-muted/30">
                 <TableCell className="font-medium pl-6">
                   {question.content}
                 </TableCell>
@@ -72,8 +77,8 @@ const QuestionTable = ({ questions }: QuestionTableProps) => {
                     variant="outline"
                     className={
                       question.status === "Active"
-                        ? "bg-green-100 text-green-700 border-green-200"
-                        : "bg-red-100 text-red-700 border-red-200"
+                        ? "bg-success/20 text-success border-success/30"
+                        : "bg-destructive/20 text-destructive border-destructive/30"
                     }
                   >
                     {question.status}
@@ -84,7 +89,7 @@ const QuestionTable = ({ questions }: QuestionTableProps) => {
                     <Button
                       variant="ghost"
                       size="icon"
-                      className="h-8 w-8 text-red-500 hover:text-red-600 hover:bg-red-50"
+                      className="h-8 w-8 text-destructive hover:text-destructive hover:bg-destructive/10"
                     >
                       <FaTrash />
                     </Button>
@@ -96,7 +101,7 @@ const QuestionTable = ({ questions }: QuestionTableProps) => {
         </Table>
       </CardContent>
 
-      <CardFooter className="flex items-center justify-between border-t py-4">
+      <CardFooter className="flex items-center justify-between border-t">
         <div className="flex items-center space-x-2 text-sm text-muted-foreground">
           <span>Items per page:</span>
           <Select defaultValue="10">
@@ -115,23 +120,73 @@ const QuestionTable = ({ questions }: QuestionTableProps) => {
         <Pagination className="w-auto">
           <PaginationContent>
             <PaginationItem>
-              <PaginationPrevious href="#" />
+              <Button
+                variant="outline"
+                size="icon"
+                className="h-8 w-8 rounded-full border-primary text-primary hover:bg-primary/10"
+              >
+                <FaAngleDoubleLeft />
+              </Button>
             </PaginationItem>
             <PaginationItem>
-              <PaginationLink href="#" isActive>
+              <Button
+                variant="outline"
+                size="icon"
+                className="h-8 w-8 rounded-full border-primary text-primary hover:bg-primary/10"
+              >
+                <FaAngleLeft />
+              </Button>
+            </PaginationItem>
+            <PaginationItem>
+              <PaginationLink
+                href="#"
+                isActive
+                className="rounded-full border-primary bg-primary text-primary-foreground hover:bg-primary/90"
+              >
                 1
               </PaginationLink>
             </PaginationItem>
             <PaginationItem>
-              <PaginationLink href="#">2</PaginationLink>
+              <PaginationLink
+                href="#"
+                className="rounded-full border-primary text-primary hover:bg-primary/10"
+              >
+                2
+              </PaginationLink>
             </PaginationItem>
             <PaginationItem>
-              <PaginationNext href="#" />
+              <PaginationLink
+                href="#"
+                className="rounded-full border-primary text-primary hover:bg-primary/10"
+              >
+                3
+              </PaginationLink>
+            </PaginationItem>
+            <PaginationItem>
+              <PaginationEllipsis />
+            </PaginationItem>
+            <PaginationItem>
+              <Button
+                variant="outline"
+                size="icon"
+                className="h-8 w-8 rounded-full border-primary text-primary hover:bg-primary/10"
+              >
+                <FaAngleRight />
+              </Button>
+            </PaginationItem>
+            <PaginationItem>
+              <Button
+                variant="outline"
+                size="icon"
+                className="h-8 w-8 rounded-full border-primary text-primary hover:bg-primary/10"
+              >
+                <FaAngleDoubleRight />
+              </Button>
             </PaginationItem>
           </PaginationContent>
         </Pagination>
 
-        <div className="text-sm text-muted-foreground hidden sm:block">
+        <div className="text-sm text-muted-foreground hidden md:block">
           1-{questions.length} of 32
         </div>
       </CardFooter>

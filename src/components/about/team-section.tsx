@@ -28,17 +28,19 @@ const featuredTeams: Team[] = [
 
 const FeaturedTeams = () => {
   return (
-    <section className="py-12 bg-muted/30">
+    <section className="py-12">
       <div className="container-custom">
         <div className="text-center mb-10">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mt-2">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground">
             Our Team
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="flex flex-col md:flex-row gap-4">
           {featuredTeams.map((team) => (
-            <TeamCard key={team.id} team={team} />
+            <div key={team.id} className="flex-1 min-w-[250px]">
+              <TeamCard team={team} />
+            </div>
           ))}
         </div>
       </div>

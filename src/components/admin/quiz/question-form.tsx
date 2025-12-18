@@ -29,7 +29,7 @@ const QuestionForm = () => {
             <div className="space-y-2 flex-1">
               <Label>Question Type</Label>
               <Select>
-                <SelectTrigger>
+                <SelectTrigger className="w-full">
                   <SelectValue placeholder="Select question type" />
                 </SelectTrigger>
                 <SelectContent>
@@ -41,7 +41,7 @@ const QuestionForm = () => {
             </div>
             <div className="space-y-2 flex-1">
               <Label>Order</Label>
-              <Input placeholder="Enter order question in quiz" />
+              <Input type="number" placeholder="Enter order question in quiz" />
             </div>
           </div>
         </div>
@@ -50,10 +50,10 @@ const QuestionForm = () => {
         <div></div>
         <div className="flex gap-2">
           <Button variant="outline" className="text-muted-foreground">
-            <FaSync className="mr-2" /> Clear
+            <FaSync /> Clear
           </Button>
           <Button>
-            <FaSave className="mr-2" /> Save
+            <FaSave /> Save
           </Button>
         </div>
       </CardFooter>

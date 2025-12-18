@@ -17,31 +17,37 @@ const AnswerForm = () => {
       <CardHeader className="border-b">
         <CardTitle>Add Answer</CardTitle>
       </CardHeader>
-      <CardContent className="pt-6">
+      <CardContent>
         <div className="space-y-4">
           <div className="space-y-2">
             <Label>Description</Label>
             <Textarea placeholder="Enter your email" className="min-h-20" />
           </div>
 
-          <div className="flex gap-8">
-            <div className="flex items-center space-x-2">
-              <Checkbox id="ans-correct" />
-              <Label htmlFor="ans-correct">Is Correct?</Label>
+          <div className="flex gap-4">
+            <div className="space-y-2 flex-1">
+              <Label>Is Correct</Label>
+              <div className="flex items-center space-x-2">
+                <Checkbox id="ans-correct" />
+                <Label htmlFor="ans-correct">Yes</Label>
+              </div>
             </div>
-            <div className="flex items-center space-x-2">
-              <Checkbox id="ans-active" />
-              <Label htmlFor="ans-active">Active</Label>
+            <div className="space-y-2 flex-1">
+              <Label>Status</Label>
+              <div className="flex items-center space-x-2">
+                <Checkbox id="ans-active" />
+                <Label htmlFor="ans-active">Active</Label>
+              </div>
             </div>
           </div>
         </div>
       </CardContent>
       <CardFooter className="flex justify-end gap-4 border-t pt-6">
         <Button variant="outline" className="text-muted-foreground">
-          <FaSync className="mr-2" /> Cancel
+          <FaSync /> Cancel
         </Button>
         <Button>
-          <FaSave className="mr-2" /> Save
+          <FaSave /> Save
         </Button>
       </CardFooter>
     </CardWrap>

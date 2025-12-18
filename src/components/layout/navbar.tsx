@@ -18,18 +18,19 @@ const Navbar = () => {
   return (
     <header className="sticky top-0 z-50 border-b border-border/40 bg-background/95 backdrop-blur-sm">
       <div className="container-custom flex h-16 items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 font-bold">
+        <Link
+          to="/"
+          className="flex items-center gap-2 font-bold cursor-pointer"
+        >
           <img src={logoIcon} alt="Quiz Logo" className="h-8 w-8" />
-          <span className="text-xl tracking-tight text-foreground">
-            Quizzes
-          </span>
+          <span className="text-xl text-foreground">Quizzes</span>
         </Link>
 
         <nav className="hidden gap-6 md:flex items-center">
           <NavLink
             to="/"
             className={({ isActive }) =>
-              `text-sm font-medium transition-colors ${
+              `text-sm font-medium transition-colors cursor-pointer ${
                 isActive
                   ? "text-primary"
                   : "text-muted-foreground hover:text-primary"
@@ -41,7 +42,7 @@ const Navbar = () => {
           <NavLink
             to="/quizzes"
             className={({ isActive }) =>
-              `text-sm font-medium transition-colors ${
+              `text-sm font-medium transition-colors cursor-pointer ${
                 isActive
                   ? "text-primary"
                   : "text-muted-foreground hover:text-primary"
@@ -55,7 +56,7 @@ const Navbar = () => {
             <NavLink
               to="/admin"
               className={({ isActive }) =>
-                `text-sm font-medium transition-colors ${
+                `text-sm font-medium transition-colors cursor-pointer ${
                   isActive
                     ? "text-primary"
                     : "text-muted-foreground hover:text-primary"
@@ -69,7 +70,7 @@ const Navbar = () => {
           <NavLink
             to="/about"
             className={({ isActive }) =>
-              `text-sm font-medium transition-colors ${
+              `text-sm font-medium transition-colors cursor-pointer ${
                 isActive
                   ? "text-primary"
                   : "text-muted-foreground hover:text-primary"
@@ -81,7 +82,7 @@ const Navbar = () => {
           <NavLink
             to="/contact"
             className={({ isActive }) =>
-              `text-sm font-medium transition-colors ${
+              `text-sm font-medium transition-colors cursor-pointer ${
                 isActive
                   ? "text-primary"
                   : "text-muted-foreground hover:text-primary"
@@ -97,7 +98,7 @@ const Navbar = () => {
             <>
               <Link
                 to="/login"
-                className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+                className="text-sm font-medium text-foreground hover:text-primary transition-colors cursor-pointer"
               >
                 Login
               </Link>
@@ -112,7 +113,7 @@ const Navbar = () => {
                   variant="ghost"
                   className="relative h-10 w-10 rounded-full"
                 >
-                  <Avatar className="h-10 w-10 border">
+                  <Avatar className="h-10 w-10 border p-1 cursor-pointer">
                     <AvatarImage
                       src="https://api.dicebear.com/9.x/avataaars/svg?seed=KienTrung"
                       alt="User"
@@ -126,9 +127,11 @@ const Navbar = () => {
                   <p className="text-sm font-medium leading-none">Kien Trung</p>
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>Change Password</DropdownMenuItem>
+                <DropdownMenuItem className="cursor-pointer">
+                  Change Password
+                </DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem className="text-red-600 cursor-pointer">
+                <DropdownMenuItem className="text-destructive cursor-pointer">
                   Log out
                 </DropdownMenuItem>
               </DropdownMenuContent>

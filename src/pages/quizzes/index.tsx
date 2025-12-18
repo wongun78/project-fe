@@ -5,23 +5,23 @@ import { Input } from "@/components/ui/input";
 const QuizPage = () => {
   return (
     <>
-      <section className="container-custom py-12 md:py-12">
-        <div className="w-full mx-auto text-center space-y-6">
-          <h1 className="text-3xl font-bold tracking-tight">Take a Quiz</h1>
+      <section className="container-custom pt-12">
+        <div className="mx-auto text-center space-y-6">
+          <h1 className="text-3xl font-bold">Take a Quiz</h1>
 
-          <form className="flex flex-col sm:flex-row items-center w-full">
+          <form className="flex flex-col md:flex-row items-center w-full gap-2 md:gap-0">
             <div className="relative w-full">
               <Input
                 type="text"
                 placeholder="Enter quiz code to take a quiz"
-                className="h-12 text-base shadow-sm"
+                className="h-10 text-base shadow-sm md:rounded-r-none"
               />
             </div>
 
             <Button
               type="submit"
               size="lg"
-              className="h-12 px-8 w-full sm:w-auto font-bold"
+              className="h-10 px-8 w-full md:w-auto font-bold md:rounded-l-none cursor-pointer"
             >
               Take Quiz
             </Button>

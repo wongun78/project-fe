@@ -9,39 +9,44 @@ const featuredQuizzes: Quiz[] = [
   {
     id: "1",
     title: "Capitals of Country",
-    description: "Test your knowledge about world capitals and geography.",
+    description: "Test your knowledge about world capitals.",
     image: quiz1Img,
     duration: "15m",
+    status: "active",
   },
   {
     id: "2",
     title: "Capitals of Country",
-    description: "Test your knowledge about world capitals and geography.",
+    description: "Test your knowledge about world capitals.",
     image: quiz2Img,
     duration: "15m",
+    status: "active",
   },
   {
     id: "3",
     title: "Capitals of Country",
-    description: "Test your knowledge about world capitals and geography.",
+    description: "Test your knowledge about world capitals.",
     image: quiz3Img,
     duration: "15m",
+    status: "active",
   },
 ];
 
 const FeaturedQuizzes = () => {
   return (
-    <section className="py-12 bg-muted/30">
+    <section className="py-12">
       <div className="container-custom">
         <div className="text-center mb-10">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mt-2">
-            Quizzes
+            QUIZZES
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="flex flex-col md:flex-row gap-4">
           {featuredQuizzes.map((quiz) => (
-            <QuizCard key={quiz.id} quiz={quiz} />
+            <div key={quiz.id} className="flex-1">
+              <QuizCard quiz={quiz} />
+            </div>
           ))}
         </div>
       </div>

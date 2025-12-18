@@ -18,7 +18,7 @@ const UserForm = () => {
         <CardTitle>Add User</CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-2">
             <Label>First Name</Label>
             <Input placeholder="Enter first name" />
@@ -44,21 +44,28 @@ const UserForm = () => {
             <Input type="password" placeholder="Confirm password" />
           </div>
           <div className="space-y-2">
+            <Label>Date of Birth</Label>
+            <Input type="date" placeholder="Enter date of birth" />
+          </div>
+          <div className="space-y-2">
             <Label>Phone Number</Label>
             <Input placeholder="Enter phone number" />
           </div>
-          <div className="flex items-center space-x-2 pt-8">
-            <Checkbox id="new-status" />
-            <Label htmlFor="new-status">Active</Label>
+          <div className="space-y-2">
+            <Label>Status</Label>
+            <div className="flex items-center space-x-2">
+              <Checkbox id="new-status" />
+              <Label htmlFor="new-status">Active</Label>
+            </div>
           </div>
         </div>
       </CardContent>
       <CardFooter className="flex justify-end gap-4 border-t pt-6">
         <Button variant="outline" className="text-muted-foreground">
-          <FaSync className="mr-2" /> Cancel
+          <FaSync /> Cancel
         </Button>
         <Button>
-          <FaPlus className="mr-2" /> Save
+          <FaPlus /> Save
         </Button>
       </CardFooter>
     </CardWrap>

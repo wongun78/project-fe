@@ -14,7 +14,7 @@ import { FaPlus, FaSync, FaSearch } from "react-icons/fa";
 const QuizSearchFilter = () => {
   return (
     <CardWrap>
-      <CardHeader>
+      <CardHeader className="border-b">
         <CardTitle>Quiz Management</CardTitle>
       </CardHeader>
       <CardContent>
@@ -32,17 +32,17 @@ const QuizSearchFilter = () => {
           </div>
         </div>
       </CardContent>
-      <CardFooter className="flex flex-col-reverse md:flex-row md:justify-between gap-4 border-t pt-6">
+      <CardFooter className="flex flex-col-reverse md:flex-row md:justify-between gap-4 border-t">
         <Button>
-          <FaPlus className="mr-2" /> Create
+          <FaPlus /> Create
         </Button>
 
         <div className="flex gap-2">
           <Button variant="outline" className="text-muted-foreground">
-            <FaSync className="mr-2" /> Clear
+            <FaSync /> Clear
           </Button>
           <Button>
-            <FaSearch className="mr-2" /> Search
+            <FaSearch /> Search
           </Button>
         </div>
       </CardFooter>
