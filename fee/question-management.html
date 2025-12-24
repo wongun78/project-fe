@@ -222,7 +222,6 @@
                     fill="none"
                     stroke="currentColor"
                     stroke-width="2"
-                    style="margin-right: 0.5rem"
                   >
                     <path d="M12 5v14m7-7H5" />
                   </svg>
@@ -237,7 +236,6 @@
                       fill="none"
                       stroke="currentColor"
                       stroke-width="2"
-                      style="margin-right: 0.5rem"
                     >
                       <path
                         d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
@@ -253,7 +251,6 @@
                       fill="none"
                       stroke="currentColor"
                       stroke-width="2"
-                      style="margin-right: 0.5rem"
                     >
                       <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
@@ -501,13 +498,70 @@
                 </div>
 
                 <div class="pagination">
-                  <button class="pagination-btn" disabled>Previous</button>
-                  <button class="pagination-btn active">1</button>
+                  <button
+                    class="pagination-btn first"
+                    disabled
+                    aria-label="First page"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      aria-hidden="true"
+                    >
+                      <polyline points="17 18 11 12 17 6"></polyline>
+                      <polyline points="11 18 5 12 11 6"></polyline>
+                    </svg>
+                  </button>
+
+                  <button
+                    class="pagination-btn"
+                    disabled
+                    aria-label="Previous page"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      aria-hidden="true"
+                    >
+                      <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                  </button>
+
+                  <button class="pagination-btn active" aria-current="page">
+                    1
+                  </button>
                   <button class="pagination-btn">2</button>
                   <button class="pagination-btn">3</button>
-                  <button class="pagination-btn">Next</button>
-                </div>
 
+                  <button class="pagination-btn" aria-label="Next page">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      aria-hidden="true"
+                    >
+                      <polyline points="9 6 15 12 9 18"></polyline>
+                    </svg>
+                  </button>
+
+                  <button class="pagination-btn last" aria-label="Last page">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      aria-hidden="true"
+                    >
+                      <polyline points="7 18 13 12 7 6"></polyline>
+                      <polyline points="13 18 19 12 13 6"></polyline>
+                    </svg>
+                  </button>
+                </div>
                 <div class="pagination-info">1-5 of 48</div>
               </div>
             </div>
@@ -552,10 +606,7 @@
               </div>
 
               <div class="card-footer" style="justify-content: space-between">
-                <button
-                  class="btn btn-sm"
-                  style="background-color: #60a5fa; color: white"
-                >
+                <button class="btn btn-primary btn-sm">
                   <svg
                     width="16"
                     height="16"
@@ -563,7 +614,6 @@
                     fill="none"
                     stroke="currentColor"
                     stroke-width="2"
-                    style="margin-right: 0.5rem"
                   >
                     <path d="M12 5v14m7-7H5" />
                   </svg>
@@ -579,7 +629,6 @@
                       fill="none"
                       stroke="currentColor"
                       stroke-width="2"
-                      style="margin-right: 0.5rem"
                     >
                       <path
                         d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
@@ -595,7 +644,6 @@
                       fill="none"
                       stroke="currentColor"
                       stroke-width="2"
-                      style="margin-right: 0.5rem"
                     >
                       <path
                         d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"
@@ -789,7 +837,12 @@
               </div>
 
               <div
-                style="padding: 1rem; display: flex; justify-content: flex-end"
+                style="
+                  padding: 1rem;
+                  display: flex;
+                  justify-content: flex-end;
+                  padding-bottom: 0;
+                "
               >
                 <button class="btn btn-primary btn-sm">
                   <svg
@@ -799,7 +852,6 @@
                     fill="none"
                     stroke="currentColor"
                     stroke-width="2"
-                    style="margin-right: 0.5rem"
                   >
                     <path d="M12 5v14m7-7H5" />
                   </svg>
@@ -822,7 +874,7 @@
                 ></textarea>
               </div>
 
-              <div style="display: flex; gap: 2rem; margin-top: 1rem">
+              <div style="display: flex; gap: 2rem">
                 <div class="filter-group" style="padding-top: 1rem">
                   <label class="filter-label">Is Active?</label>
                   <div class="checkbox-wrapper">
@@ -860,7 +912,6 @@
                     fill="none"
                     stroke="currentColor"
                     stroke-width="2"
-                    style="margin-right: 0.5rem"
                   >
                     <path
                       d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
@@ -876,7 +927,6 @@
                     fill="none"
                     stroke="currentColor"
                     stroke-width="2"
-                    style="margin-right: 0.5rem"
                   >
                     <path
                       d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"

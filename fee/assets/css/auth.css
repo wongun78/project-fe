@@ -32,6 +32,27 @@
   color: var(--card-foreground);
 }
 
+/* Validation styles for auth forms */
+.input-error {
+  color: #ef4444;
+  font-size: 0.8rem;
+  margin-top: 0.35rem;
+}
+
+.input-invalid {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.06);
+}
+
+.auth-success {
+  margin-top: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  background-color: #dcfce7;
+  color: #064e3b;
+  border-radius: var(--radius);
+  font-weight: 500;
+}
+
 .auth-content {
   padding: 1.5rem;
 }

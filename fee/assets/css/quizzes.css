@@ -1,10 +1,10 @@
 /* Quiz Code Section */
 .quiz-code-section {
-  padding: 3rem 0;
+  padding: 1.5rem 0;
 }
 
 .quiz-code-container {
-  max-width: 48rem;
+  max-width: 78rem;
   margin: 0 auto;
   text-align: center;
   display: flex;

@@ -83,8 +83,16 @@
   border-radius: 50%;
   background-color: transparent;
   color: var(--foreground);
-  transition: var(--transition-colors);
+  transition: var(--transition-colors), box-shadow 150ms ease-in-out;
   cursor: pointer;
+  border: 1px solid var(--border);
+  padding: 0.125rem;
+}
+
+.user-avatar-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(56, 182, 255, 0.12);
+  border-color: var(--ring);
 }
 
 .user-avatar-btn:hover {
@@ -92,8 +100,11 @@
 }
 
 .user-avatar-icon {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
 }
 
 .user-dropdown-menu {
@@ -189,7 +200,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 0.2rem;
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
   font-weight: 500;
@@ -232,7 +243,7 @@
 
 .hero-section {
   width: 100%;
-  padding: 3rem 0;
+  padding: 1.5rem 0;
   background-color: var(--background);
 }
 
@@ -279,7 +290,7 @@
 }
 
 .hero-image {
-  max-width: 28rem;
+  max-width: 35rem;
   width: 100%;
   height: auto;
 }
@@ -312,7 +323,7 @@
 .quiz-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .quiz-card {
@@ -503,4 +514,29 @@
   .quiz-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+
+/* Global validation / form feedback styles */
+.input-error {
+  color: #ef4444;
+  font-size: 0.8rem;
+  margin-top: 0.35rem;
+}
+
+input.input-invalid,
+textarea.input-invalid,
+select.input-invalid {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.06);
+}
+
+.form-success,
+.contact-success,
+.auth-success {
+  margin-top: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  background-color: #dcfce7;
+  color: #064e3b;
+  border-radius: var(--radius);
+  font-weight: 500;
 }

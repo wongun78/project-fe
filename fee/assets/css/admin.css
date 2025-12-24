@@ -120,14 +120,27 @@
   background-color: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  overflow: visible;
 }
 
 .card-header {
+  position: relative;
+  padding-bottom: 1rem;
   margin-bottom: 1rem;
 }
 
+.card-header::after {
+  content: "";
+  position: absolute;
+  left: -1rem;
+  right: -1rem;
+  bottom: 0;
+  height: 1px;
+  background-color: var(--border);
+  z-index: 1;
+}
 .card-title {
   font-size: 1.25rem;
   font-weight: 600;
@@ -145,6 +158,8 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  flex: 1 1 0%;
+  min-width: 0;
 }
 
 .filter-label {
@@ -202,6 +217,21 @@
 
 .data-table tbody tr:hover {
   background-color: var(--muted);
+}
+
+/* Rotating/alternating row colors for visual distinction */
+.data-table tbody tr:nth-child(odd) {
+  background-color: var(--list-1);
+  color: var(--list-text-contrast);
+}
+.data-table tbody tr:nth-child(even) {
+  background-color: var(--list-2);
+  color: var(--list-text-contrast);
+}
+
+/* Keep hover state clear and slightly darker */
+.data-table tbody tr:hover {
+  filter: brightness(0.96);
 }
 
 .table-actions {
@@ -298,20 +328,22 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 2rem;
-  height: 2rem;
-  padding: 0 0.5rem;
+  min-width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
   font-size: 0.875rem;
-  border-radius: var(--radius);
-  transition: var(--transition-colors);
+  border-radius: 9999px;
+  transition: var(--transition-colors), box-shadow 160ms ease;
   cursor: pointer;
   border: 1px solid var(--border);
   background-color: var(--background);
   color: var(--foreground);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
 }
 
 .pagination-btn:hover:not(:disabled) {
   background-color: var(--secondary);
+  transform: translateY(-1px);
 }
 
 .pagination-btn.active {
@@ -323,6 +355,39 @@
 .pagination-btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+/* Focus styles — visible and accessible */
+.pagination-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(56, 182, 255, 0.12);
+}
+
+/* Make numeric page buttons slightly smaller and icon-friendly */
+.pagination-btn.size-sm {
+  height: 2rem;
+  min-width: 2.25rem;
+  padding: 0 0.4rem;
+}
+
+/* Prev/Next labels: keep text but allow icons to sit nicely */
+.pagination-btn svg {
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* hide textual labels inside pagination buttons to show icons-only */
+.pagination-label {
+  display: none;
+}
+
+/* Slightly larger spacing for first/last buttons */
+.pagination-btn.first,
+.pagination-btn.last {
+  min-width: 2.5rem;
+  height: 2.5rem;
 }
 
 .pagination-info {
@@ -468,12 +533,24 @@
 }
 
 .card-footer {
+  position: relative;
   display: flex;
   justify-content: flex-end;
   gap: 0.75rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--border);
+  padding-top: 1rem;
   margin-top: 1.5rem;
+}
+
+.card-footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -1rem;
+  right: -1rem;
+  height: 1px;
+  background-color: var(--border);
+  pointer-events: none;
+  z-index: 1;
 }
 @media (min-width: 768px) {
   .sidebar {
@@ -494,13 +571,13 @@
   }
 
   .page-container {
-    padding: 2rem;
+    padding: 1rem;
   }
 }
 
 @media (min-width: 1024px) {
   .search-filter {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 

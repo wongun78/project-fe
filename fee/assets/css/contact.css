@@ -1,6 +1,6 @@
 .contact-container {
   min-height: calc(100vh - 4rem);
-  padding: var(--section-padding-y) 0;
+  padding: 1.5rem 0;
 }
 
 .contact-page-header {
@@ -20,6 +20,23 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 3rem;
+}
+.input-error {
+  color: #ef4444;
+  font-size: 0.8rem;
+  margin-top: 0.35rem;
+}
+.input-invalid {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.06);
+}
+.contact-success {
+  margin-top: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  background-color: #dcfce7;
+  color: #064e3b;
+  border-radius: var(--radius);
+  font-weight: 500;
 }
 
 .section-title {
@@ -41,8 +58,11 @@
 }
 
 .contact-submit {
-  width: 100%;
-  padding: 0.75rem 2rem;
+  display: inline-flex;
+  align-items: center;
+  width: auto;
+  padding: 0.5rem 1rem;
+  max-width: 4rem;
 }
 
 .contact-info-section {
@@ -74,13 +94,11 @@
 .social-links {
   display: flex;
   align-items: center;
-  gap: 1rem;
 }
 
 .social-link {
   display: flex;
   align-items: center;
-  justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
   color: var(--foreground);
