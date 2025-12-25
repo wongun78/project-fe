@@ -87,7 +87,7 @@
           <div class="flex items-center gap-2">
             <div class="relative" data-auth-ui>
               <button
-                class="flex h-8 w-8 items-center justify-center rounded-full hover:bg-accent"
+                class="flex h-8 w-8 items-center justify-center border border-input rounded-full hover:bg-accent"
                 id="userAvatarBtn"
                 aria-label="User menu"
               >
@@ -243,8 +243,8 @@
         </aside>
 
         <div class="flex flex-1 flex-col overflow-y-auto">
-          <main class="flex-1 p-6">
-            <div class="space-y-6">
+          <main class="flex-1 p-4">
+            <div class="space-y-4">
               <div
                 class="rounded-lg border border-gray-100 text-card-foreground shadow-sm bg-white"
               >
@@ -290,7 +290,7 @@
                   class="flex flex-col-reverse md:flex-row md:justify-between gap-4 border-t border-gray-100 p-6"
                 >
                   <button
-                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2"
+                    class="inline-flex items-center justify-center gap-1 whitespace-nowrap rounded-md text-sm font-medium transition-colors bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2"
                   >
                     <svg
                       class="h-4 w-4"
@@ -306,7 +306,7 @@
 
                   <div class="flex gap-2">
                     <button
-                      class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 text-muted-foreground"
+                      class="inline-flex items-center justify-center gap-1 whitespace-nowrap rounded-md text-sm font-medium transition-colors border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 text-muted-foreground"
                     >
                       <svg
                         class="h-4 w-4"
@@ -322,7 +322,7 @@
                       Clear
                     </button>
                     <button
-                      class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2"
+                      class="inline-flex items-center justify-center gap-1 whitespace-nowrap rounded-md text-sm font-medium transition-colors bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2"
                     >
                       <svg
                         class="h-4 w-4"
@@ -582,7 +582,7 @@
                   >
                     <span class="whitespace-nowrap">Items per page:</span>
                     <select
-                      class="h-8 w-[70px] rounded-md border border-input bg-transparent px-2 py-1 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+                      class="h-8 w-[55px] rounded-md border border-input bg-transparent px-2 py-1 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
                     >
                       <option value="5">5</option>
                       <option value="10" selected>10</option>
@@ -591,72 +591,66 @@
                     </select>
                   </div>
 
-                  <nav class="flex items-center justify-center">
-                    <ul class="flex flex-row items-center gap-1">
+                  <nav
+                    class="flex items-center justify-center"
+                    aria-label="Pagination"
+                  >
+                    <ul class="flex items-center gap-2">
                       <li>
                         <a
                           href="#"
-                          class="inline-flex h-9 items-center justify-center gap-2 whitespace-nowrap rounded-md px-3 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground disabled:pointer-events-none disabled:opacity-50"
+                          class="inline-flex h-9 items-center justify-center gap-2 whitespace-nowrap rounded-md px-3 text-sm font-medium text-primary hover:bg-primary/10 hover:text-primary disabled:opacity-50"
+                          aria-label="First"
+                          >«</a
                         >
-                          <svg
-                            class="h-4 w-4"
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          >
-                            <path d="M15 18l-6-6 6-6" />
-                          </svg>
-                          <span class="hidden sm:inline-block">Previous</span>
-                        </a>
                       </li>
                       <li>
                         <a
                           href="#"
-                          class="inline-flex h-9 w-9 items-center justify-center rounded-md border border-input bg-background text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground"
+                          class="inline-flex h-9 items-center justify-center gap-2 whitespace-nowrap rounded-md px-3 text-sm font-medium text-primary hover:bg-primary/10 hover:text-primary"
+                          aria-label="Previous"
+                          >‹</a
+                        >
+                      </li>
+
+                      <li>
+                        <a
+                          href="#"
+                          class="inline-flex h-8 w-8 items-center justify-center gap-2 whitespace-nowrap rounded-full border-primary bg-primary text-primary-foreground px-3 text-sm font-medium"
+                          aria-current="page"
                           >1</a
                         >
                       </li>
                       <li>
                         <a
                           href="#"
-                          class="inline-flex h-9 w-9 items-center justify-center rounded-md text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
+                          class="inline-flex h-9 items-center justify-center gap-2 whitespace-nowrap rounded-md px-3 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
                           >2</a
                         >
                       </li>
                       <li>
                         <a
                           href="#"
-                          class="inline-flex h-9 w-9 items-center justify-center rounded-md text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
+                          class="inline-flex h-9 items-center justify-center gap-2 whitespace-nowrap rounded-md px-3 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
                           >3</a
+                        >
+                      </li>
+
+                      <li>
+                        <a
+                          href="#"
+                          class="inline-flex h-9 items-center justify-center gap-2 whitespace-nowrap rounded-md px-3 text-sm font-medium text-primary hover:bg-primary/10 hover:text-primary"
+                          aria-label="Next"
+                          >›</a
                         >
                       </li>
                       <li>
                         <a
                           href="#"
-                          class="inline-flex h-9 items-center justify-center gap-2 whitespace-nowrap rounded-md px-3 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
+                          class="inline-flex h-9 items-center justify-center gap-2 whitespace-nowrap rounded-md px-3 text-sm font-medium text-primary hover:bg-primary/10 hover:text-primary"
+                          aria-label="Last"
+                          >»</a
                         >
-                          <span class="hidden sm:inline-block">Next</span>
-                          <svg
-                            class="h-4 w-4"
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          >
-                            <path d="M9 18l6-6-6-6" />
-                          </svg>
-                        </a>
                       </li>
                     </ul>
                   </nav>
@@ -681,7 +675,7 @@
                 </div>
                 <div class="p-6">
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="space-y-6">
+                    <div class="space-y-4">
                       <div class="flex flex-col gap-2">
                         <label class="text-sm font-medium">First Name</label>
                         <input
@@ -716,7 +710,7 @@
                       </div>
                     </div>
 
-                    <div class="space-y-6">
+                    <div class="space-y-4">
                       <div class="flex flex-col gap-2">
                         <label class="text-sm font-medium">Last Name</label>
                         <input
@@ -775,7 +769,7 @@
                   class="flex flex-col-reverse md:flex-row md:justify-end gap-2 border-t border-gray-100 p-6"
                 >
                   <button
-                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 text-muted-foreground"
+                    class="inline-flex items-center justify-center gap-1 whitespace-nowrap rounded-md text-sm font-medium transition-colors border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 text-muted-foreground"
                   >
                     <svg
                       class="h-4 w-4"
@@ -791,7 +785,7 @@
                     Cancel
                   </button>
                   <button
-                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2"
+                    class="inline-flex items-center justify-center gap-1 whitespace-nowrap rounded-md text-sm font-medium transition-colors bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2"
                   >
                     <svg
                       class="h-4 w-4"

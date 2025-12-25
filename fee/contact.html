@@ -106,7 +106,7 @@
         <div class="flex items-center gap-2">
           <div class="relative" data-auth-ui>
             <button
-              class="flex h-8 w-8 items-center justify-center rounded-full hover:bg-accent"
+              class="flex h-8 w-8 items-center justify-center border border-input rounded-full hover:bg-accent"
               id="userAvatarBtn"
               aria-label="User menu"
             >
@@ -180,8 +180,8 @@
           <h1 class="text-3xl font-bold uppercase">CONTACT</h1>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
-          <div>
+        <div class="flex flex-col md:flex-row gap-8">
+          <div class="flex-1">
             <h2 class="text-xl font-bold mb-2">Feedback</h2>
             <p class="text-muted-foreground text-sm mb-6">
               Please fill out the form below to send us your feedback. We will
@@ -223,14 +223,14 @@
 
               <button
                 type="submit"
-                class="w-full sm:w-auto px-8 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring bg-primary text-white shadow hover:bg-primary/90 h-9"
+                class="w-full md:w-auto px-4 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring bg-primary text-white shadow hover:bg-primary/90 h-9 cursor-pointer"
               >
                 Send
               </button>
             </form>
           </div>
 
-          <div class="flex flex-col gap-6">
+          <div class="flex flex-col gap-6 flex-1">
             <div>
               <h2 class="text-xl font-bold mb-2">Our Information</h2>
               <p class="text-muted-foreground text-sm">
@@ -352,56 +352,56 @@
       </div>
     </div>
 
-    <footer class="bg-white text-gray-600 border-t border-gray-300 py-4">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid md:grid-cols-3 gap-8 mb-8">
-          <div>
-            <a href="home.html" class="flex items-center mb-4">
+    <footer class="w-full border-t border-gray-200 bg-secondary/20 pt-8 pb-4">
+      <div class="container-custom">
+        <div class="flex flex-col md:flex-row gap-12 mb-8">
+          <div class="flex flex-col gap-4 flex-1">
+            <a href="home.html" class="flex items-center gap-2 font-bold">
               <img
                 src="assets/icons/logo.png"
                 alt="Quiz Logo"
                 class="h-8 w-8"
               />
-              <span class="text-xl font-semibold">Quizzes</span>
+              <span class="text-xl font-bold text-foreground">Quizzes</span>
             </a>
-            <p class="text-gray-400">
-              The leading online quiz platform to test your knowledge and learn
-              new things every day.
+            <p class="text-muted-foreground text-sm leading-relaxed max-w-xs">
+              The leading online quiz platform in Vietnam. Enhance your
+              knowledge and develop critical thinking every day.
             </p>
           </div>
 
-          <div>
-            <h4 class="text-lg font-semibold mb-4">Menu</h4>
-            <nav class="flex flex-col">
+          <div class="flex flex-col gap-4 flex-1">
+            <h3 class="font-bold text-foreground">Menu</h3>
+            <nav class="flex flex-col gap-2 text-sm text-muted-foreground">
               <a
                 href="home.html"
-                class="text-gray-400 hover:text-white transition-colors"
+                class="hover:text-primary transition-colors w-fit"
                 >Home</a
               >
               <a
                 href="quizzes.html"
-                class="text-gray-400 hover:text-white transition-colors"
+                class="hover:text-primary transition-colors w-fit"
                 >Quizzes</a
               >
               <a
                 href="about.html"
-                class="text-gray-400 hover:text-white transition-colors"
-                >About</a
+                class="hover:text-primary transition-colors w-fit"
+                >About Us</a
               >
               <a
                 href="contact.html"
-                class="text-gray-400 hover:text-white transition-colors"
+                class="hover:text-primary transition-colors w-fit"
                 >Contact</a
               >
             </nav>
           </div>
 
-          <div>
-            <h4 class="text-lg font-semibold mb-4">Contact</h4>
-            <ul class="space-y-3">
-              <li class="flex items-center space-x-3">
+          <div class="flex flex-col gap-4 flex-1">
+            <h3 class="font-bold text-foreground">Contact</h3>
+            <ul class="space-y-2 text-sm text-foreground/80">
+              <li class="flex items-center gap-3">
                 <svg
-                  class="w-5 h-5 text-gray-400"
+                  class="text-xl text-primary w-5 h-5"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="currentColor"
@@ -410,11 +410,16 @@
                     d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
                   />
                 </svg>
-                <span class="text-gray-400">kiennt169@fpt.com</span>
+                <a
+                  href="mailto:kiennt169@fpt.com"
+                  class="hover:text-primary transition-colors"
+                >
+                  kiennt169@fpt.com
+                </a>
               </li>
-              <li class="flex items-center space-x-3">
+              <li class="flex items-center gap-3">
                 <svg
-                  class="w-5 h-5 text-gray-400"
+                  class="text-xl text-primary w-5 h-5"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="currentColor"
@@ -423,11 +428,16 @@
                     d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
                   />
                 </svg>
-                <span class="text-gray-400">+84 999 888 999</span>
+                <a
+                  href="tel:+84999888999"
+                  class="hover:text-primary transition-colors"
+                >
+                  +84 999 888 999
+                </a>
               </li>
-              <li class="flex items-start space-x-3">
+              <li class="flex items-start gap-3">
                 <svg
-                  class="w-5 h-5 text-gray-400 mt-1"
+                  class="text-xl text-primary shrink-0 w-5 h-5"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="currentColor"
@@ -436,18 +446,23 @@
                     d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
                   />
                 </svg>
-                <span class="text-gray-400"
-                  >123 Khuong Dinh, Thanh Xuan, Ha Noi, Viet Nam</span
+                <a
+                  href="https://maps.google.com/?q=123+Khuong+Dinh,+Thanh+Xuan,+Ha+Noi,+Viet+Nam"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hover:text-primary transition-colors"
                 >
+                  123 Khuong Dinh, Thanh Xuan, Ha Noi, Viet Nam
+                </a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div class="border-t border-gray-300 pt-4 text-center">
-          <p class="text-gray-400">
-            &copy; 2024 Quiz App. All rights reserved.
-          </p>
+        <div
+          class="border-t border-gray-200 pt-4 text-center text-sm text-muted-foreground"
+        >
+          <p>© 2025 Quiz App. All rights reserved.</p>
         </div>
       </div>
     </footer>

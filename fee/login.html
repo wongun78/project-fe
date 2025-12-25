@@ -24,26 +24,14 @@
     </style>
   </head>
   <body>
-    <div
-      class="flex min-h-screen flex-col justify-center px-6 py-12"
-      style="
-        background-image: url('assets/images/bg.png');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-      "
-    >
-      <div class="sm:mx-auto sm:w-full sm:max-w-md">
-        <div
-          class="flex flex-col gap-6 rounded-xl bg-white border border-gray-200 shadow-lg py-12"
-        >
-          <div
-            class="grid auto-rows-min grid-rows-[auto_auto] items-start gap-2 px-6"
-          >
+    <div class="flex min-h-screen flex-col bg-primary justify-center">
+      <div class="mx-auto w-full max-w-md">
+        <div class="overflow-hidden rounded-xl bg-white border shadow-sm">
+          <div class="p-6">
             <div class="text-center text-2xl font-semibold">Login</div>
           </div>
 
-          <div class="px-6">
+          <div class="px-6 pb-6">
             <form id="loginForm" class="space-y-4">
               <div class="space-y-1">
                 <label
@@ -78,20 +66,20 @@
               <div class="flex flex-row gap-2 w-full">
                 <a
                   href="home.html"
-                  class="flex-1 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium h-9 px-4 py-2 border border-gray-200 bg-white shadow-sm hover:bg-gray-50 transition-all text-center"
+                  class="flex-1 inline-flex items-center justify-center gap-1 whitespace-nowrap rounded-md text-sm font-medium h-9 px-4 py-2 border border-gray-200 bg-white shadow-sm hover:bg-gray-50 transition-all text-center"
                 >
                   Back to Home
                 </a>
                 <button
                   type="submit"
-                  class="flex-1 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium h-9 px-4 py-2 bg-primary text-white hover:opacity-90 transition-all"
+                  class="flex-1 inline-flex items-center justify-center gap-1 whitespace-nowrap rounded-md text-sm font-medium h-9 px-4 py-2 bg-primary text-white hover:opacity-90 transition-all"
                 >
                   Login
                 </button>
               </div>
             </form>
 
-            <div class="mt-6">
+            <div class="mt-4 space-y-2">
               <p class="text-center text-sm">
                 <a
                   href="#"
@@ -101,7 +89,9 @@
                 </a>
               </p>
               <p class="text-center text-sm">
-                <span class="text-muted-foreground">Don't have account? </span>
+                <span class="text-muted-foreground">
+                  Don't have an account?{" "}
+                </span>
                 <a
                   href="register.html"
                   class="font-semibold text-muted-foreground hover:underline"
