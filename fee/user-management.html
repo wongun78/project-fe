@@ -575,14 +575,14 @@
                 </div>
 
                 <div
-                  class="flex items-center justify-between px-6 py-4 border-t border-gray-100"
+                  class="relative flex items-center justify-between px-6 py-4 border-t border-gray-100"
                 >
                   <div
-                    class="flex flex-1 items-center gap-2 text-sm text-muted-foreground"
+                    class="flex items-center space-x-2 text-sm text-muted-foreground"
                   >
-                    <span class="whitespace-nowrap">Items per page:</span>
+                    <span>Items per page:</span>
                     <select
-                      class="h-8 w-[55px] rounded-md border border-input bg-transparent px-2 py-1 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+                      class="h-8 w-[70px] rounded-md border border-input bg-transparent px-2 py-1 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
                     >
                       <option value="5">5</option>
                       <option value="10" selected>10</option>
@@ -592,72 +592,70 @@
                   </div>
 
                   <nav
-                    class="flex items-center justify-center"
+                    class="absolute left-1/2 transform -translate-x-1/2 flex items-center z-10"
                     aria-label="Pagination"
                   >
                     <ul class="flex items-center gap-2">
                       <li>
-                        <a
-                          href="#"
-                          class="inline-flex h-9 items-center justify-center gap-2 whitespace-nowrap rounded-md px-3 text-sm font-medium text-primary hover:bg-primary/10 hover:text-primary disabled:opacity-50"
+                        <button
+                          class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-primary text-primary hover:bg-primary/10 disabled:opacity-50"
                           aria-label="First"
-                          >«</a
                         >
+                          «
+                        </button>
                       </li>
                       <li>
-                        <a
-                          href="#"
-                          class="inline-flex h-9 items-center justify-center gap-2 whitespace-nowrap rounded-md px-3 text-sm font-medium text-primary hover:bg-primary/10 hover:text-primary"
+                        <button
+                          class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-primary text-primary hover:bg-primary/10"
                           aria-label="Previous"
-                          >‹</a
                         >
+                          ‹
+                        </button>
                       </li>
 
                       <li>
-                        <a
-                          href="#"
-                          class="inline-flex h-8 w-8 items-center justify-center gap-2 whitespace-nowrap rounded-full border-primary bg-primary text-primary-foreground px-3 text-sm font-medium"
+                        <button
+                          class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-primary bg-primary text-primary-foreground"
                           aria-current="page"
-                          >1</a
                         >
+                          1
+                        </button>
                       </li>
                       <li>
-                        <a
-                          href="#"
-                          class="inline-flex h-9 items-center justify-center gap-2 whitespace-nowrap rounded-md px-3 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
-                          >2</a
+                        <button
+                          class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-primary text-primary hover:bg-primary/10"
                         >
+                          2
+                        </button>
                       </li>
                       <li>
-                        <a
-                          href="#"
-                          class="inline-flex h-9 items-center justify-center gap-2 whitespace-nowrap rounded-md px-3 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
-                          >3</a
+                        <button
+                          class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-primary text-primary hover:bg-primary/10"
                         >
+                          3
+                        </button>
                       </li>
 
                       <li>
-                        <a
-                          href="#"
-                          class="inline-flex h-9 items-center justify-center gap-2 whitespace-nowrap rounded-md px-3 text-sm font-medium text-primary hover:bg-primary/10 hover:text-primary"
+                        <button
+                          class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-primary text-primary hover:bg-primary/10"
                           aria-label="Next"
-                          >›</a
                         >
+                          ›
+                        </button>
                       </li>
                       <li>
-                        <a
-                          href="#"
-                          class="inline-flex h-9 items-center justify-center gap-2 whitespace-nowrap rounded-md px-3 text-sm font-medium text-primary hover:bg-primary/10 hover:text-primary"
+                        <button
+                          class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-primary text-primary hover:bg-primary/10"
                           aria-label="Last"
-                          >»</a
                         >
+                          »
+                        </button>
                       </li>
                     </ul>
                   </nav>
 
-                  <div
-                    class="hidden flex-1 items-center justify-end text-sm text-muted-foreground sm:flex"
-                  >
+                  <div class="text-sm text-muted-foreground hidden md:block">
                     1-4 of 32
                   </div>
                 </div>
