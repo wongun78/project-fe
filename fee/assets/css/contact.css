@@ -17,9 +17,13 @@
 }
 
 .contact-grid {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 3rem;
+}
+
+.contact-grid > * {
+  flex: 1;
 }
 .input-error {
   color: #ef4444;
@@ -116,7 +120,7 @@
 
 @media (min-width: 768px) {
   .contact-grid {
-    grid-template-columns: 1fr 1fr;
+    flex-direction: row;
     gap: 5rem;
   }
 

@@ -148,10 +148,14 @@
 }
 
 .search-filter {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   margin-bottom: 1rem;
+}
+
+.search-filter > * {
+  flex: 1 1 100%;
 }
 
 .filter-group {
@@ -439,9 +443,13 @@
   color: #991b1b;
 }
 .form-row {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-wrap: wrap;
   gap: 1.5rem;
+}
+
+.form-row > * {
+  flex: 1 1 100%;
 }
 
 .form-group {
@@ -562,12 +570,12 @@
     display: none;
   }
 
-  .search-filter {
-    grid-template-columns: repeat(3, 1fr);
+  .search-filter > * {
+    flex: 1 1 calc(33.333% - 0.67rem);
   }
 
-  .form-row {
-    grid-template-columns: repeat(2, 1fr);
+  .form-row > * {
+    flex: 1 1 calc(50% - 0.75rem);
   }
 
   .page-container {
@@ -576,9 +584,61 @@
 }
 
 @media (min-width: 1024px) {
-  .search-filter {
-    grid-template-columns: repeat(2, 1fr);
+  .search-filter > * {
+    flex: 1 1 calc(50% - 0.5rem);
   }
+}
+
+/* Utility classes */
+.flex-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.flex-row-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.overflow-auto {
+  overflow-x: auto;
+}
+
+.image-cell {
+  width: 80px;
+  overflow: hidden;
+}
+
+.image-cell img {
+  width: 100%;
+  display: block;
+}
+
+.text-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 250px;
+}
+
+.form-textarea-large {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.card-footer-space-between {
+  justify-content: space-between;
+}
+
+.padding-top-2 {
+  padding-top: 2rem;
 }
 
 .contact-details {

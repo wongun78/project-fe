@@ -248,8 +248,8 @@
 }
 
 .hero-grid {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 3rem;
   align-items: center;
 }
@@ -321,9 +321,13 @@
 }
 
 .quiz-grid {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
+}
+
+.quiz-grid > * {
+  flex: 1 1 100%;
 }
 
 .quiz-card {
@@ -361,6 +365,11 @@
   font-size: 1.125rem;
   font-weight: 600;
   color: var(--card-foreground);
+}
+
+.quiz-duration {
+  font-size: 0.8rem;
+  color: var(--muted-foreground);
 }
 
 .badge {
@@ -409,8 +418,8 @@
 }
 
 .footer-content {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 2rem;
   margin-bottom: 2rem;
 }
@@ -482,7 +491,11 @@
   }
 
   .hero-grid {
-    grid-template-columns: 1fr 1fr;
+    flex-direction: row;
+  }
+
+  .hero-grid > * {
+    flex: 1;
   }
 
   .hero-title {
@@ -497,12 +510,20 @@
     justify-content: flex-end;
   }
 
-  .quiz-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .quiz-grid > * {
+    flex: 1 1 calc(50% - 0.5rem);
   }
 
   .footer-content {
-    grid-template-columns: 2fr 1fr 1fr;
+    flex-direction: row;
+  }
+
+  .footer-content > :first-child {
+    flex: 2;
+  }
+
+  .footer-content > :not(:first-child) {
+    flex: 1;
   }
 }
 
@@ -511,8 +532,8 @@
     font-size: 2.5rem;
   }
 
-  .quiz-grid {
-    grid-template-columns: repeat(3, 1fr);
+  .quiz-grid > * {
+    flex: 1 1 calc(33.333% - 0.67rem);
   }
 }
 
