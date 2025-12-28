@@ -56,7 +56,10 @@
             <span class="text-xl tracking-tight text-foreground">Quizzes</span>
           </a>
 
-          <nav class="hidden gap-6 md:flex items-center">
+          <nav
+            class="hidden gap-6 md:flex items-center"
+            aria-label="Main navigation"
+          >
             <a
               href="home.html"
               class="text-sm font-medium transition-colors text-muted-foreground hover:text-primary"
@@ -162,7 +165,7 @@
           </div>
 
           <div class="flex-1 overflow-y-auto py-4">
-            <nav class="grid gap-1 px-2">
+            <nav class="grid gap-1 px-2" aria-label="Admin menu">
               <a
                 href="quiz-management.html"
                 class="flex items-center gap-3 rounded-md px-3 py-2.5 text-sm font-medium transition-colors text-muted-foreground hover:bg-accent hover:text-accent-foreground"
@@ -257,17 +260,23 @@
                 <div class="p-6">
                   <div class="flex flex-row gap-4 items-start">
                     <div class="flex-1 flex flex-col gap-2">
-                      <label class="text-sm font-medium">Content</label>
+                      <label for="search-content" class="text-sm font-medium"
+                        >Content</label
+                      >
                       <input
                         type="text"
+                        id="search-content"
                         class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors outline-none placeholder:text-muted-foreground focus-visible:ring-1 focus-visible:ring-ring"
                         placeholder="Enter content to search"
                       />
                     </div>
 
                     <div class="flex-1 flex flex-col gap-2">
-                      <label class="text-sm font-medium">Type</label>
+                      <label for="search-type" class="text-sm font-medium"
+                        >Type</label
+                      >
                       <select
+                        id="search-type"
                         class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors outline-none focus-visible:ring-1 focus-visible:ring-ring"
                       >
                         <option value="">Select type</option>
@@ -278,7 +287,9 @@
                     </div>
                   </div>
                   <div class="flex flex-col gap-2 pt-4">
-                    <label class="text-sm font-medium">Status</label>
+                    <label for="search-status" class="text-sm font-medium"
+                      >Status</label
+                    >
                     <div class="flex h-9 items-center gap-2">
                       <input
                         type="checkbox"
@@ -604,8 +615,13 @@
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="space-y-4">
                       <div class="flex flex-col gap-2">
-                        <label class="text-sm font-medium">Content</label>
+                        <label
+                          for="question-content"
+                          class="text-sm font-medium"
+                          >Content</label
+                        >
                         <textarea
+                          id="question-content"
                           class="flex min-h-[120px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring resize-y"
                           placeholder="Enter question content"
                           rows="4"
@@ -613,7 +629,9 @@
                       </div>
 
                       <div class="flex flex-col gap-2">
-                        <label class="text-sm font-medium">Status</label>
+                        <label for="question-status" class="text-sm font-medium"
+                          >Status</label
+                        >
                         <div class="flex h-9 items-center gap-2">
                           <input
                             type="checkbox"
@@ -630,8 +648,11 @@
                     </div>
 
                     <div class="flex flex-col gap-2">
-                      <label class="text-sm font-medium">Question Type</label>
+                      <label for="question-type" class="text-sm font-medium"
+                        >Question Type</label
+                      >
                       <select
+                        id="question-type"
                         class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors outline-none focus-visible:ring-1 focus-visible:ring-ring"
                       >
                         <option value="">Select Question Type</option>
@@ -824,8 +845,13 @@
                   <div class="flex flex-col">
                     <div class="space-y-4">
                       <div class="flex flex-col gap-2">
-                        <label class="text-sm font-medium">Description</label>
+                        <label
+                          for="answer-description"
+                          class="text-sm font-medium"
+                          >Description</label
+                        >
                         <textarea
+                          id="answer-description"
                           class="flex min-h-[120px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring resize-y"
                           placeholder="Enter answer description"
                           rows="3"
@@ -835,26 +861,32 @@
                     <div class="space-y-4">
                       <div class="flex flex-row gap-4 pt-2">
                         <div class="flex flex-col gap-2 pt-4">
-                          <label class="text-sm font-medium">Is Correct?</label>
+                          <label
+                            for="answer-is-correct"
+                            class="text-sm font-medium"
+                            >Is Correct?</label
+                          >
                           <div class="flex h-9 items-center gap-2">
                             <input
                               type="checkbox"
-                              id="status-filter"
+                              id="answer-is-correct"
                               class="peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
                             />
                             <label
-                              for="status-filter"
+                              for="answer-is-correct"
                               class="text-sm font-medium cursor-pointer select-none"
                               >Active</label
                             >
                           </div>
                         </div>
                         <div class="flex flex-col gap-2 pt-4">
-                          <label class="text-sm font-medium">Status</label>
+                          <label for="answer-status" class="text-sm font-medium"
+                            >Status</label
+                          >
                           <div class="flex h-9 items-center gap-2">
                             <input
                               type="checkbox"
-                              id="status-filter"
+                              id="answer-status"
                               class="peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
                             />
                             <label

@@ -162,7 +162,7 @@
           </div>
 
           <div class="flex-1 overflow-y-auto py-4">
-            <nav class="grid gap-1 px-2">
+            <nav class="grid gap-1 px-2" aria-label="Admin menu">
               <a
                 href="quiz-management.html"
                 class="flex items-center gap-3 rounded-md px-3 py-2.5 text-sm font-medium transition-colors text-muted-foreground hover:bg-accent hover:text-accent-foreground"
@@ -269,7 +269,9 @@
                     </div>
 
                     <div class="flex flex-col flex-1 gap-2">
-                      <label class="text-sm font-medium">Status</label>
+                      <label for="status-filter" class="text-sm font-medium"
+                        >Status</label
+                      >
                       <div class="flex h-9 items-center gap-2">
                         <input
                           type="checkbox"
@@ -675,33 +677,45 @@
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="space-y-4">
                       <div class="flex flex-col gap-2">
-                        <label class="text-sm font-medium">First Name</label>
+                        <label for="user-firstname" class="text-sm font-medium"
+                          >First Name</label
+                        >
                         <input
                           type="text"
+                          id="user-firstname"
                           class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors outline-none placeholder:text-muted-foreground focus-visible:ring-1 focus-visible:ring-ring"
                           placeholder="Enter first name"
                         />
                       </div>
                       <div class="flex flex-col gap-2">
-                        <label class="text-sm font-medium">Email</label>
+                        <label for="user-email" class="text-sm font-medium"
+                          >Email</label
+                        >
                         <input
                           type="email"
+                          id="user-email"
                           class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors outline-none placeholder:text-muted-foreground focus-visible:ring-1 focus-visible:ring-ring"
                           placeholder="Enter email"
                         />
                       </div>
                       <div class="flex flex-col gap-2">
-                        <label class="text-sm font-medium">Password</label>
+                        <label for="user-password" class="text-sm font-medium"
+                          >Password</label
+                        >
                         <input
                           type="password"
+                          id="user-password"
                           class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors outline-none placeholder:text-muted-foreground focus-visible:ring-1 focus-visible:ring-ring"
                           placeholder="Enter password"
                         />
                       </div>
                       <div class="flex flex-col gap-2">
-                        <label class="text-sm font-medium">Date of birth</label>
+                        <label for="user-dob" class="text-sm font-medium"
+                          >Date of birth</label
+                        >
                         <input
                           type="tel"
+                          id="user-dob"
                           class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors outline-none placeholder:text-muted-foreground focus-visible:ring-1 focus-visible:ring-ring"
                           placeholder="Enter date of birth"
                         />
@@ -710,43 +724,57 @@
 
                     <div class="space-y-4">
                       <div class="flex flex-col gap-2">
-                        <label class="text-sm font-medium">Last Name</label>
+                        <label for="user-lastname" class="text-sm font-medium"
+                          >Last Name</label
+                        >
                         <input
                           type="text"
+                          id="user-lastname"
                           class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors outline-none placeholder:text-muted-foreground focus-visible:ring-1 focus-visible:ring-ring"
                           placeholder="Enter last name"
                         />
                       </div>
                       <div class="flex flex-col gap-2">
-                        <label class="text-sm font-medium">Username</label>
+                        <label for="user-username" class="text-sm font-medium"
+                          >Username</label
+                        >
                         <input
                           type="text"
+                          id="user-username"
                           class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors outline-none placeholder:text-muted-foreground focus-visible:ring-1 focus-visible:ring-ring"
                           placeholder="Enter username"
                         />
                       </div>
                       <div class="flex flex-col gap-2">
-                        <label class="text-sm font-medium"
+                        <label
+                          for="user-confirm-password"
+                          class="text-sm font-medium"
                           >Confirm Password</label
                         >
                         <input
                           type="password"
+                          id="user-confirm-password"
                           class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors outline-none placeholder:text-muted-foreground focus-visible:ring-1 focus-visible:ring-ring"
                           placeholder="Confirm password"
                         />
                       </div>
 
                       <div class="flex flex-col gap-2">
-                        <label class="text-sm font-medium">Phone Number</label>
+                        <label for="user-phone" class="text-sm font-medium"
+                          >Phone Number</label
+                        >
                         <input
                           type="tel"
+                          id="user-phone"
                           class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors outline-none placeholder:text-muted-foreground focus-visible:ring-1 focus-visible:ring-ring"
                           placeholder="Enter phone number"
                         />
                       </div>
                     </div>
                     <div class="flex flex-col gap-2">
-                      <label class="text-sm font-medium">Status</label>
+                      <label for="user-active" class="text-sm font-medium"
+                        >Status</label
+                      >
                       <div class="flex h-9 items-center gap-2">
                         <input
                           type="checkbox"

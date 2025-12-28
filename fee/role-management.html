@@ -162,7 +162,7 @@
             <span class="text-xl font-bold tracking-tight">Menu</span>
           </div>
           <div class="flex-1 overflow-y-auto py-4">
-            <nav class="grid gap-1 px-2">
+            <nav class="grid gap-1 px-2" aria-label="Admin menu">
               <a
                 href="quiz-management.html"
                 class="flex items-center gap-3 rounded-md px-3 py-2.5 text-sm font-medium transition-colors text-muted-foreground hover:bg-accent hover:text-accent-foreground"
@@ -266,7 +266,9 @@
                     </div>
 
                     <div class="flex flex-col flex-1 gap-2">
-                      <label class="text-sm font-medium">Status</label>
+                      <label for="status-filter" class="text-sm font-medium"
+                        >Status</label
+                      >
                       <div class="flex h-9 items-center gap-2">
                         <input
                           type="checkbox"
@@ -631,16 +633,21 @@
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="space-y-4">
                       <div class="flex flex-col gap-2">
-                        <label class="text-sm font-medium">Name</label>
+                        <label for="role-name" class="text-sm font-medium"
+                          >Name</label
+                        >
                         <input
                           type="text"
+                          id="role-name"
                           class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
                           placeholder="Enter role name"
                         />
                       </div>
 
                       <div class="flex flex-col gap-2">
-                        <label class="text-sm font-medium">Status</label>
+                        <label for="status-add" class="text-sm font-medium"
+                          >Status</label
+                        >
                         <div class="flex items-center gap-2 h-9">
                           <input
                             type="checkbox"
@@ -657,8 +664,11 @@
                     </div>
 
                     <div class="flex flex-col gap-2">
-                      <label class="text-sm font-medium">Description</label>
+                      <label for="role-description" class="text-sm font-medium"
+                        >Description</label
+                      >
                       <textarea
+                        id="role-description"
                         class="flex min-h-[120px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 resize-y"
                         placeholder="Enter description"
                         rows="5"
